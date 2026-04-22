@@ -1,0 +1,301 @@
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  .contact-hero-{{ section.id }} {
+    position: relative;
+    height: {{ section.settings.section_height }}px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .contact-hero-{{ section.id }} .hero__bg-color {
+    position: absolute;
+    inset: 0;
+    background-color: {{ section.settings.bg_color }};
+    z-index: 0;
+  }
+
+  .contact-hero-{{ section.id }} .hero__bg-image {
+    position: absolute;
+    inset: 0;
+    background-image: url('{{ section.settings.bg_image | img_url: 'master' }}');
+    background-size: cover;
+    background-position: {{ section.settings.image_position }};
+    z-index: 0;
+  }
+
+  .contact-hero-{{ section.id }} .hero__overlay {
+    position: absolute;
+    inset: 0;
+    background-color: {{ section.settings.overlay_color }};
+    opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .contact-hero-{{ section.id }} .hero__content {
+    position: relative;
+    z-index: 2;
+    text-align: {{ section.settings.text_align }};
+    padding: 0 24px;
+    max-width: {{ section.settings.content_max_width }}px;
+    width: 100%;
+    animation: contactHeroFadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  @keyframes contactHeroFadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .contact-hero-{{ section.id }} .hero__eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: {{ section.settings.eyebrow_color }};
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .contact-hero-{{ section.id }} .hero__title {
+    font-family: 'Elegant';
+    font-size: {{ section.settings.title_size }}px;
+    font-weight: 700;
+    line-height: 1.05;
+    color: {{ section.settings.title_color }};
+    margin-bottom: 24px;
+  }
+
+  .contact-hero-{{ section.id }} .hero__subtitle {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: {{ section.settings.subtitle_color }};
+    max-width: 500px;
+    margin: 0 auto;
+    opacity: 0.85;
+  }
+
+  .contact-hero-{{ section.id }} .hero__line {
+    width: 1px;
+    height: 60px;
+    background: {{ section.settings.eyebrow_color }};
+    margin: 32px auto 0;
+    opacity: 0.6;
+  }
+
+  @media (max-width: 767px) {
+    .contact-hero-{{ section.id }} {
+      height: {{ section.settings.mobile_height }}px;
+    }
+    .contact-hero-{{ section.id }} .hero__title {
+      font-size: {{ section.settings.title_size | times: 0.6 | round }}px;
+    }
+  }
+</style>
+
+<section class="contact-hero-{{ section.id }}">
+
+  {% if section.settings.bg_image != blank %}
+    <div class="hero__bg-image"></div>
+  {% else %}
+    <div class="hero__bg-color"></div>
+  {% endif %}
+
+  {% if section.settings.show_overlay %}
+    <div class="hero__overlay"></div>
+  {% endif %}
+
+  <div class="hero__content">
+    {% if section.settings.eyebrow != blank %}
+      <span class="hero__eyebrow">{{ section.settings.eyebrow }}</span>
+    {% endif %}
+    {% if section.settings.title != blank %}
+      <h1 class="hero__title">{{ section.settings.title }}</h1>
+    {% endif %}
+    {% if section.settings.subtitle != blank %}
+      <p class="hero__subtitle">{{ section.settings.subtitle }}</p>
+    {% endif %}
+    {% if section.settings.show_line %}
+      <div class="hero__line"></div>
+    {% endif %}
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Contact — Hero",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background image",
+      "info": "Leave empty to use background color"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#2a2018"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image focal point",
+      "options": [
+        { "value": "top center",    "label": "Top" },
+        { "value": "center center", "label": "Center" },
+        { "value": "bottom center", "label": "Bottom" },
+        { "value": "left center",   "label": "Left" },
+        { "value": "right center",  "label": "Right" }
+      ],
+      "default": "center center"
+    },
+    {
+      "type": "header",
+      "content": "Overlay"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_overlay",
+      "label": "Show overlay",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay opacity",
+      "min": 0,
+      "max": 90,
+      "step": 5,
+      "unit": "%",
+      "default": 35
+    },
+    {
+      "type": "header",
+      "content": "Size"
+    },
+    {
+      "type": "range",
+      "id": "section_height",
+      "label": "Desktop height",
+      "min": 200,
+      "max": 700,
+      "step": 20,
+      "unit": "px",
+      "default": 460
+    },
+    {
+      "type": "range",
+      "id": "mobile_height",
+      "label": "Mobile height",
+      "min": 160,
+      "max": 500,
+      "step": 20,
+      "unit": "px",
+      "default": 320
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow text",
+      "default": "Get in Touch"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "We'd love to hear from you."
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subheading",
+      "default": "Have a question, a styling request, or just want to say hello? We're here for it."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_line",
+      "label": "Show decorative line",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Text alignment",
+      "options": [
+        { "value": "left",   "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right",  "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "content_max_width",
+      "label": "Content max width",
+      "min": 400,
+      "max": 1000,
+      "step": 50,
+      "unit": "px",
+      "default": 700
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "label": "Heading size (desktop)",
+      "min": 32,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "color",
+      "id": "eyebrow_color",
+      "label": "Eyebrow & line color",
+      "default": "#c9a96e"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Heading color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "subtitle_color",
+      "label": "Subheading color",
+      "default": "#ffffff"
+    }
+  ], 
+  "presets": [
+    {
+      "name": "Contact — Hero"
+    }
+  ]
+}
+{% endschema %}

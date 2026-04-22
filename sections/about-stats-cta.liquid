@@ -1,0 +1,542 @@
+
+<style>
+  /* ── STATS ── */
+  .about-stats-{{ section.id }} {
+    background-color: {{ section.settings.stats_bg_color }};
+    padding: {{ section.settings.stats_padding }}px 60px;
+  }
+
+  .about-stats-{{ section.id }} .stats__head {
+    text-align: center;
+    margin-bottom: {{ section.settings.stats_head_spacing }}px;
+  }
+
+  .about-stats-{{ section.id }} .stats__eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: {{ section.settings.stats_eyebrow_color }};
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .about-stats-{{ section.id }} .stats__title {
+    font-family: 'Elegant';
+    font-size: {{ section.settings.stats_title_size }}px;
+    font-weight: 700;
+    color: {{ section.settings.stats_title_color }};
+    line-height: 1.1;
+  }
+
+  .about-stats-{{ section.id }} .stats__grid {
+    display: grid;
+    grid-template-columns: repeat({{ section.settings.stats_columns }}, 1fr);
+    max-width: {{ section.settings.stats_max_width }}px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .about-stats-{{ section.id }} .stats__item {
+    padding: {{ section.settings.stat_padding }}px 20px;
+    border-right: 1px solid {{ section.settings.stats_divider_color }};
+  }
+
+  .about-stats-{{ section.id }} .stats__item:last-child {
+    border-right: none;
+  }
+
+  .about-stats-{{ section.id }} .stats__number {
+    font-family: 'Elegant';
+    font-size: {{ section.settings.stats_number_size }}px;
+    font-weight: 700;
+    color: {{ section.settings.stats_number_color }};
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .about-stats-{{ section.id }} .stats__label {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: {{ section.settings.stats_label_color }};
+  }
+
+  /* ── CTA ── */
+  .about-cta-{{ section.id }} {
+    background-color: {{ section.settings.cta_bg_color }};
+    padding: {{ section.settings.cta_padding }}px 60px;
+    text-align: center;
+  }
+
+  .about-cta-{{ section.id }} .cta__eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: {{ section.settings.cta_eyebrow_color }};
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .about-cta-{{ section.id }} .cta__title {
+    font-family: 'Elegant';
+    font-size: {{ section.settings.cta_title_size }}px;
+    font-weight: 700;
+    color: {{ section.settings.cta_title_color }};
+    margin-bottom: 20px;
+    line-height: 1.1;
+  }
+
+  .about-cta-{{ section.id }} .cta__text {
+    font-size: 15px;
+    font-weight: 300;
+    color: {{ section.settings.cta_text_color }};
+    margin-bottom: 40px;
+    max-width: 440px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+    opacity: 0.75;
+  }
+
+  .about-cta-{{ section.id }} .cta__buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .about-cta-{{ section.id }} .cta__btn-primary {
+    display: inline-block;
+    padding: 16px 48px;
+    background: {{ section.settings.btn_primary_bg }};
+    color: {{ section.settings.btn_primary_text }};
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 2px solid {{ section.settings.btn_primary_bg }};
+    border-radius: {{ section.settings.btn_radius }}px;
+    transition: all 0.25s ease;
+    cursor: pointer;
+  }
+
+  .about-cta-{{ section.id }} .cta__btn-primary:hover {
+    background: transparent;
+    color: {{ section.settings.btn_primary_bg }};
+  }
+
+  .about-cta-{{ section.id }} .cta__btn-secondary {
+    display: inline-block;
+    padding: 16px 48px;
+    background: transparent;
+    color: {{ section.settings.btn_secondary_color }};
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 2px solid {{ section.settings.btn_secondary_color }};
+    border-radius: {{ section.settings.btn_radius }}px;
+    transition: all 0.25s ease;
+    cursor: pointer;
+  }
+
+  .about-cta-{{ section.id }} .cta__btn-secondary:hover {
+    background: {{ section.settings.btn_secondary_color }};
+    color: #1a1a1a;
+  }
+
+  @media (max-width: 767px) {
+    .about-stats-{{ section.id }} {
+      padding: 60px 24px;
+    }
+    .about-stats-{{ section.id }} .stats__grid {
+      grid-template-columns: 1fr;
+    }
+    .about-stats-{{ section.id }} .stats__item {
+      border-right: none;
+      border-bottom: 1px solid {{ section.settings.stats_divider_color }};
+    }
+    .about-stats-{{ section.id }} .stats__item:last-child {
+      border-bottom: none;
+    }
+    .about-cta-{{ section.id }} {
+      padding: 60px 24px;
+    }
+    .about-cta-{{ section.id }} .cta__title {
+      font-size: {{ section.settings.cta_title_size | times: 0.65 | round }}px;
+    }
+  }
+</style>
+
+{% if section.settings.show_stats %}
+<section class="about-stats-{{ section.id }}">
+
+  {% if section.settings.stats_eyebrow != blank or section.settings.stats_title != blank %}
+    <div class="stats__head">
+      {% if section.settings.stats_eyebrow != blank %}
+        <span class="stats__eyebrow">{{ section.settings.stats_eyebrow }}</span>
+      {% endif %}
+      {% if section.settings.stats_title != blank %}
+        <h2 class="stats__title">{{ section.settings.stats_title }}</h2>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  <div class="stats__grid">
+    {% for block in section.blocks %}
+      {% if block.type == 'stat' %}
+        <div class="stats__item" {{ block.shopify_attributes }}>
+          {% if block.settings.number != blank %}
+            <div class="stats__number">{{ block.settings.number }}</div>
+          {% endif %}
+          {% if block.settings.label != blank %}
+            <div class="stats__label">{{ block.settings.label }}</div>
+          {% endif %}
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+</section>
+{% endif %}
+
+<section class="about-cta-{{ section.id }}">
+
+  {% if section.settings.cta_eyebrow != blank %}
+    <span class="cta__eyebrow">{{ section.settings.cta_eyebrow }}</span>
+  {% endif %}
+
+  {% if section.settings.cta_title != blank %}
+    <h2 class="cta__title">{{ section.settings.cta_title }}</h2>
+  {% endif %}
+
+  {% if section.settings.cta_text != blank %}
+    <p class="cta__text">{{ section.settings.cta_text }}</p>
+  {% endif %}
+
+  {% if section.settings.btn_primary_label != blank or section.settings.btn_secondary_label != blank %}
+    <div class="cta__buttons">
+      {% if section.settings.btn_primary_label != blank %}
+        <a href="{{ section.settings.btn_primary_link | default: '#' }}" class="cta__btn-primary">
+          {{ section.settings.btn_primary_label }}
+        </a>
+      {% endif %}
+      {% if section.settings.btn_secondary_label != blank %}
+        <a href="{{ section.settings.btn_secondary_link | default: '#' }}" class="cta__btn-secondary">
+          {{ section.settings.btn_secondary_label }}
+        </a>
+      {% endif %}
+    </div>
+  {% endif %}
+
+</section>
+
+{% schema %}
+{
+  "name": "About — Stats & CTA",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Stats Section"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_stats",
+      "label": "Show stats section",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "stats_bg_color",
+      "label": "Stats background color",
+      "default": "#faf9f7"
+    },
+    {
+      "type": "range",
+      "id": "stats_padding",
+      "label": "Stats padding (top & bottom)",
+      "min": 40,
+      "max": 160,
+      "step": 8,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "text",
+      "id": "stats_eyebrow",
+      "label": "Stats eyebrow text",
+      "info": "Leave empty to hide"
+    },
+    {
+      "type": "text",
+      "id": "stats_title",
+      "label": "Stats heading",
+      "info": "Leave empty to hide"
+    },
+    {
+      "type": "range",
+      "id": "stats_head_spacing",
+      "label": "Space below heading",
+      "min": 16,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "select",
+      "id": "stats_columns",
+      "label": "Number of stats",
+      "options": [
+        { "value": "2", "label": "2" },
+        { "value": "3", "label": "3" },
+        { "value": "4", "label": "4" }
+      ],
+      "default": "3"
+    },
+    {
+      "type": "range",
+      "id": "stats_max_width",
+      "label": "Stats max width",
+      "min": 400,
+      "max": 1000,
+      "step": 50,
+      "unit": "px",
+      "default": 800
+    },
+    {
+      "type": "range",
+      "id": "stat_padding",
+      "label": "Stat item padding",
+      "min": 20,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Stats Colors"
+    },
+    {
+      "type": "color",
+      "id": "stats_eyebrow_color",
+      "label": "Eyebrow color",
+      "default": "#c9a96e"
+    },
+    {
+      "type": "range",
+      "id": "stats_title_size",
+      "label": "Heading size",
+      "min": 24,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "color",
+      "id": "stats_title_color",
+      "label": "Heading color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "range",
+      "id": "stats_number_size",
+      "label": "Number size",
+      "min": 32,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "default": 56
+    },
+    {
+      "type": "color",
+      "id": "stats_number_color",
+      "label": "Number color",
+      "default": "#c9a96e"
+    },
+    {
+      "type": "color",
+      "id": "stats_label_color",
+      "label": "Label color",
+      "default": "#5a5a5a"
+    },
+    {
+      "type": "color",
+      "id": "stats_divider_color",
+      "label": "Divider color",
+      "default": "#e8e4de"
+    },
+    {
+      "type": "header",
+      "content": "CTA Section"
+    },
+    {
+      "type": "color",
+      "id": "cta_bg_color",
+      "label": "CTA background color",
+      "default": "#1a1410"
+    },
+    {
+      "type": "range",
+      "id": "cta_padding",
+      "label": "CTA padding (top & bottom)",
+      "min": 40,
+      "max": 160,
+      "step": 10,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "text",
+      "id": "cta_eyebrow",
+      "label": "Eyebrow text",
+      "default": "Join the family"
+    },
+    {
+      "type": "text",
+      "id": "cta_title",
+      "label": "Heading",
+      "default": "Style that speaks for itself."
+    },
+    {
+      "type": "textarea",
+      "id": "cta_text",
+      "label": "Subheading",
+      "default": "Discover our latest collection and find pieces that were made exactly for you.",
+      "info": "Leave empty to hide"
+    },
+    {
+      "type": "header",
+      "content": "CTA Colors"
+    },
+    {
+      "type": "range",
+      "id": "cta_title_size",
+      "label": "Heading size (desktop)",
+      "min": 28,
+      "max": 72,
+      "step": 2,
+      "unit": "px",
+      "default": 52
+    },
+    {
+      "type": "color",
+      "id": "cta_eyebrow_color",
+      "label": "Eyebrow color",
+      "default": "#c9a96e"
+    },
+    {
+      "type": "color",
+      "id": "cta_title_color",
+      "label": "Heading color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "cta_text_color",
+      "label": "Subheading color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Primary Button"
+    },
+    {
+      "type": "text",
+      "id": "btn_primary_label",
+      "label": "Button label",
+      "default": "Shop the Collection"
+    },
+    {
+      "type": "url",
+      "id": "btn_primary_link",
+      "label": "Button link"
+    },
+    {
+      "type": "color",
+      "id": "btn_primary_bg",
+      "label": "Button color",
+      "default": "#c9a96e"
+    },
+    {
+      "type": "color",
+      "id": "btn_primary_text",
+      "label": "Button text color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "header",
+      "content": "Secondary Button"
+    },
+    {
+      "type": "text",
+      "id": "btn_secondary_label",
+      "label": "Button label",
+      "info": "Leave empty to hide"
+    },
+    {
+      "type": "url",
+      "id": "btn_secondary_link",
+      "label": "Button link"
+    },
+    {
+      "type": "color",
+      "id": "btn_secondary_color",
+      "label": "Button text & border color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Button Style"
+    },
+    {
+      "type": "range",
+      "id": "btn_radius",
+      "label": "Button corner radius",
+      "min": 0,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "default": 2
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Stat",
+      "settings": [
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Number",
+          "default": "10K+"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Happy Customers"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "About — Stats & CTA",
+      "blocks": [
+        { "type": "stat", "settings": { "number": "2020", "label": "Founded" } },
+        { "type": "stat", "settings": { "number": "10K+", "label": "Happy Customers" } },
+        { "type": "stat", "settings": { "number": "30+",  "label": "Countries Shipped" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

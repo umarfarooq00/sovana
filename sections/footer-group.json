@@ -1,0 +1,83 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "footer",
+  "name": "Footer",
+  "sections": {
+    "custom_footer_NXdGUj": {
+      "type": "custom-footer",
+      "name": "Footer",
+      "settings": {
+        "footer_bg_color": "#1a1a1a",
+        "footer_padding_top": 60,
+        "footer_padding_bottom": 48,
+        "divider_color": "#ffffff",
+        "show_newsletter": true,
+        "newsletter_bg_color": "#c9a96e",
+        "newsletter_heading": "Join the list",
+        "newsletter_heading_size": 24,
+        "newsletter_heading_color": "#1a1a1a",
+        "newsletter_subtext": "Get early access to new arrivals & exclusive offers",
+        "newsletter_subtext_color": "#3a2e18",
+        "newsletter_placeholder": "your@email.com",
+        "newsletter_input_bg": "#ffffff",
+        "newsletter_input_border": "#e0d5c5",
+        "newsletter_input_text": "#1a1a1a",
+        "newsletter_input_placeholder": "#aaaaaa",
+        "newsletter_btn_label": "Subscribe",
+        "newsletter_btn_bg": "#1a1a1a",
+        "newsletter_btn_text": "#ffffff",
+        "logo_max_width": 140,
+        "logo_text": "Sovana",
+        "logo_text_size": 28,
+        "logo_text_color": "#ffffff",
+        "brand_description": "Timeless clothing & accessories crafted for the modern wardrobe. Quality you can feel, style that lasts.",
+        "brand_desc_color": "#888888",
+        "social_instagram": "#",
+        "social_tiktok": "#",
+        "social_facebook": "#",
+        "social_twitter": "#",
+        "social_pinterest": "#",
+        "social_youtube": "#",
+        "social_icon_color": "#888888",
+        "social_border_color": "#333333",
+        "social_hover_bg": "#c9a96e",
+        "social_hover_icon_color": "#1a1a1a",
+        "show_shop_col": true,
+        "shop_col_title": "Shop",
+        "shop_menu": "footer-shop-menu",
+        "show_help_col": true,
+        "help_col_title": "Help",
+        "help_menu": "footer-help-menu",
+        "show_policy_col": true,
+        "policy_col_title": "Policy",
+        "policy_menu": "footer-policy-menu",
+        "show_contact_col": true,
+        "contact_col_title": "Contact",
+        "contact_email": "hello@yourbrand.com",
+        "contact_phone": "",
+        "contact_hours": "Mon–Fri, 9am–6pm",
+        "contact_address": "3701 North Country Club Drive, Aventura Florida 33180, USA",
+        "contact_icon_color": "#c9a96e",
+        "col_title_color": "#c9a96e",
+        "link_color": "#888888",
+        "link_hover_color": "#c9a96e",
+        "copyright_name": "",
+        "copyright_suffix": "All rights reserved.",
+        "copyright_color": "#ffffff",
+        "show_payment_icons": true,
+        "btn_radius": 4
+      }
+    }
+  },
+  "order": [
+    "custom_footer_NXdGUj"
+  ]
+}

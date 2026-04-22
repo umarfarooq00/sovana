@@ -1,0 +1,365 @@
+
+<style>
+  .about-story-{{ section.id }} {
+    display: grid;
+    grid-template-columns: {% if section.settings.image_side == 'left' %}1fr 1fr{% else %}1fr 1fr{% endif %};
+    min-height: {{ section.settings.section_height }}px;
+  }
+
+  .about-story-{{ section.id }} .story__image {
+    position: relative;
+    overflow: hidden;
+    order: {% if section.settings.image_side == 'left' %}0{% else %}1{% endif %};
+  }
+
+  .about-story-{{ section.id }} .story__image img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: {{ section.settings.image_position }};
+  }
+
+  .about-story-{{ section.id }} .story__image-fallback {
+    position: absolute;
+    inset: 0;
+    background-color: {{ section.settings.image_fallback_color }};
+  }
+
+  .about-story-{{ section.id }} .story__image-label {
+    position: absolute;
+    bottom: 32px;
+    left: 32px;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: {{ section.settings.image_label_color }};
+    z-index: 2;
+  }
+
+  .about-story-{{ section.id }} .story__content {
+    background-color: {{ section.settings.content_bg_color }};
+    display: flex;
+    align-items: center;
+    padding: 80px 72px;
+    order: {% if section.settings.image_side == 'left' %}1{% else %}0{% endif %};
+  }
+
+  .about-story-{{ section.id }} .story__inner {
+    max-width: 480px;
+    {% if section.settings.image_side == 'right' %}margin-left: auto;{% endif %}
+  }
+
+  .about-story-{{ section.id }} .story__eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: {{ section.settings.eyebrow_color }};
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .about-story-{{ section.id }} .story__title {
+    font-family: 'Elegant';
+    font-size: {{ section.settings.title_size }}px;
+    font-weight: 700;
+    line-height: 1.1;
+    color: {{ section.settings.title_color }};
+    margin-bottom: 28px;
+  }
+
+  .about-story-{{ section.id }} .story__text {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.9;
+    color: {{ section.settings.text_color }};
+    margin-bottom: 16px;
+  }
+
+  .about-story-{{ section.id }} .story__divider {
+    width: {{ section.settings.divider_width }}px;
+    height: 1px;
+    background: {{ section.settings.eyebrow_color }};
+    margin: {{ section.settings.divider_spacing }}px 0;
+  }
+
+  .about-story-{{ section.id }} .story__signature {
+    font-family: 'Elegant';
+    font-size: {{ section.settings.signature_size }}px;
+    font-style: italic;
+    color: {{ section.settings.title_color }};
+    opacity: 0.5;
+  }
+
+  @media (max-width: 767px) {
+    .about-story-{{ section.id }} {
+      grid-template-columns: 1fr;
+      min-height: unset;
+    }
+    .about-story-{{ section.id }} .story__image {
+      order: 0 !important;
+      min-height: {{ section.settings.mobile_image_height }}px;
+    }
+    .about-story-{{ section.id }} .story__content {
+      order: 1 !important;
+      padding: 60px 28px;
+    }
+    .about-story-{{ section.id }} .story__title {
+      font-size: {{ section.settings.title_size | times: 0.7 | round }}px;
+    }
+  }
+</style>
+
+<section class="about-story-{{ section.id }}">
+
+  <div class="story__image">
+    {% if section.settings.image != blank %}
+      <img
+        src="{{ section.settings.image | img_url: 'master' }}"
+        alt="{{ section.settings.image.alt | escape }}"
+        loading="lazy"
+      >
+    {% else %}
+      <div class="story__image-fallback"></div>
+    {% endif %}
+    {% if section.settings.image_label != blank %}
+      <span class="story__image-label">{{ section.settings.image_label }}</span>
+    {% endif %}
+  </div>
+
+  <div class="story__content">
+    <div class="story__inner">
+
+      {% if section.settings.eyebrow != blank %}
+        <span class="story__eyebrow">{{ section.settings.eyebrow }}</span>
+      {% endif %}
+
+      {% if section.settings.title != blank %}
+        <h2 class="story__title">{{ section.settings.title }}</h2>
+      {% endif %}
+
+      {% if section.settings.paragraph_1 != blank %}
+        <p class="story__text">{{ section.settings.paragraph_1 }}</p>
+      {% endif %}
+
+      {% if section.settings.paragraph_2 != blank %}
+        <p class="story__text">{{ section.settings.paragraph_2 }}</p>
+      {% endif %}
+
+      {% if section.settings.show_divider %}
+        <div class="story__divider"></div>
+      {% endif %}
+
+      {% if section.settings.signature != blank %}
+        <div class="story__signature">{{ section.settings.signature }}</div>
+      {% endif %}
+
+    </div>
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "About — Brand Story",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "select",
+      "id": "image_side",
+      "label": "Image side",
+      "options": [
+        { "value": "left",  "label": "Left" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image focal point",
+      "options": [
+        { "value": "top center",    "label": "Top" },
+        { "value": "center center", "label": "Center" },
+        { "value": "bottom center", "label": "Bottom" },
+        { "value": "left center",   "label": "Left" },
+        { "value": "right center",  "label": "Right" }
+      ],
+      "default": "center center"
+    },
+    {
+      "type": "color",
+      "id": "image_fallback_color",
+      "label": "Image fallback color",
+      "default": "#2a2018"
+    },
+    {
+      "type": "text",
+      "id": "image_label",
+      "label": "Image caption",
+      "default": "Est. 2020 — Aventura, Florida",
+      "info": "Small text shown at bottom of image. Leave empty to hide."
+    },
+    {
+      "type": "color",
+      "id": "image_label_color",
+      "label": "Image caption color",
+      "default": "#c9a96e"
+    },
+    {
+      "type": "header",
+      "content": "Section Size"
+    },
+    {
+      "type": "range",
+      "id": "section_height",
+      "label": "Desktop min height",
+      "min": 400,
+      "max": 900,
+      "step": 20,
+      "unit": "px",
+      "default": 620
+    },
+    {
+      "type": "range",
+      "id": "mobile_image_height",
+      "label": "Mobile image height",
+      "min": 200,
+      "max": 600,
+      "step": 20,
+      "unit": "px",
+      "default": 340
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "color",
+      "id": "content_bg_color",
+      "label": "Content background color",
+      "default": "#faf9f7"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow text",
+      "default": "Where it began"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Built from a love of beautiful things."
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph_1",
+      "label": "Paragraph 1",
+      "default": "Sovana was born out of a simple belief — that every woman deserves to feel effortlessly elegant, every single day. We set out to create pieces that move with you, not against you."
+    },
+    {
+      "type": "textarea",
+      "id": "paragraph_2",
+      "label": "Paragraph 2",
+      "info": "Leave empty to hide",
+      "default": "From our studio in Florida, we carefully source each fabric, each silhouette, each detail with one question in mind: will she love wearing this for years to come?"
+    },
+    {
+      "type": "header",
+      "content": "Divider & Signature"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_divider",
+      "label": "Show divider line",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "divider_width",
+      "label": "Divider width",
+      "min": 20,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "divider_spacing",
+      "label": "Divider spacing",
+      "min": 12,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "text",
+      "id": "signature",
+      "label": "Signature text",
+      "default": "— The Sovana Team",
+      "info": "Leave empty to hide"
+    },
+    {
+      "type": "range",
+      "id": "signature_size",
+      "label": "Signature size",
+      "min": 18,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "header",
+      "content": "Typography Colors"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "label": "Heading size (desktop)",
+      "min": 28,
+      "max": 72,
+      "step": 2,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "color",
+      "id": "eyebrow_color",
+      "label": "Eyebrow & divider color",
+      "default": "#c9a96e"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Heading & signature color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Paragraph color",
+      "default": "#5a5a5a"
+    }
+  ],
+  "presets": [
+    {
+      "name": "About — Brand Story"
+    }
+  ]
+}
+{% endschema %}

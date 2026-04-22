@@ -1,0 +1,533 @@
+{% comment %}
+  Hero Banner Section
+  - Supports: Background Image, Background Color, Background Video
+  - Fully editable from Shopify Theme Editor
+  - Place this file in: sections/hero-banner.liquid
+{% endcomment %}
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  .hero-{{ section.id }} {
+    position: relative;
+    width: 100%;
+    height: {{ section.settings.section_height }}px;
+    display: flex;
+    align-items: {{ section.settings.content_position }};
+    justify-content: {{ section.settings.text_alignment }};
+    overflow: hidden;
+  }
+
+  /* ── BACKGROUND LAYERS ── */
+
+  /* 1. Color background */
+  .hero-{{ section.id }} .hero__bg-color {
+    position: absolute;
+    inset: 0;
+    background-color: {{ section.settings.bg_color }};
+    z-index: 0;
+  }
+
+  /* 2. Image background */
+  .hero-{{ section.id }} .hero__bg-image {
+    position: absolute;
+    inset: 0;
+    background-image: url('{{ section.settings.bg_image | img_url: 'master' }}');
+    background-size: cover;
+    background-position: {{ section.settings.image_position }};
+    z-index: 0;
+  }
+
+  /* 3. Video background */
+  .hero-{{ section.id }} .hero__bg-video {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .hero-{{ section.id }} .hero__bg-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* ── OVERLAY ── */
+  .hero-{{ section.id }} .hero__overlay {
+    position: absolute;
+    inset: 0;
+    background-color: {{ section.settings.overlay_color }};
+    opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  /* ── CONTENT ── */
+  .hero-{{ section.id }} .hero__content {
+    position: relative;
+    z-index: 2;
+    text-align: {{ section.settings.text_align }};
+    padding: 0 24px;
+    max-width: {{ section.settings.content_max_width }}px;
+    width: 100%;
+    animation: heroFadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  @keyframes heroFadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-{{ section.id }} .hero__eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: {{ section.settings.eyebrow_color }};
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .hero-{{ section.id }} .hero__title {
+    font-family: 'Elegant';
+    font-size: {{ section.settings.title_size }}px;
+    font-weight: 700;
+    line-height: 1.05;
+    color: {{ section.settings.title_color }};
+    margin-bottom: 14px;
+  }
+
+  .hero-{{ section.id }} .hero__subtitle {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: {{ section.settings.subtitle_color }};
+    margin-bottom: 28px;
+    opacity: 0.85;
+  }
+
+  .hero-{{ section.id }} .hero__buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: {{ section.settings.text_align }};
+  }
+
+  /* Primary button */
+  .hero-{{ section.id }} .hero__btn-primary {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+    padding: 14px 32px;
+    background-color: {{ section.settings.btn_primary_bg }};
+    color: {{ section.settings.btn_primary_text }};
+    border: 2px solid {{ section.settings.btn_primary_bg }};
+    border-radius: {{ section.settings.btn_radius }}px;
+    transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
+    cursor: pointer;
+  }
+  .hero-{{ section.id }} .hero__btn-primary:hover {
+    background-color: transparent;
+    color: {{ section.settings.btn_primary_bg }};
+    transform: translateY(-2px);
+  }
+
+  /* Secondary button */
+  .hero-{{ section.id }} .hero__btn-secondary {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+    padding: 14px 32px;
+    background-color: transparent;
+    color: {{ section.settings.btn_secondary_text }};
+    border: 2px solid {{ section.settings.btn_secondary_text }};
+    border-radius: {{ section.settings.btn_radius }}px;
+    transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
+    cursor: pointer;
+  }
+  .hero-{{ section.id }} .hero__btn-secondary:hover {
+    background-color: {{ section.settings.btn_secondary_text }};
+    color: #1a1a1a;
+    transform: translateY(-2px);
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 767px) {
+    .hero-{{ section.id }} {
+      height: {{ section.settings.mobile_height }}px;
+    }
+    .hero-{{ section.id }} .hero__title {
+      font-size: {{ section.settings.title_size | times: 0.65 | round }}px;
+    }
+    .hero-{{ section.id }} .hero__buttons {
+      justify-content: center;
+    }
+  }
+</style>
+
+<section class="hero-{{ section.id }}">
+
+  {% comment %} ── BACKGROUND RENDERING ── {% endcomment %}
+
+  {% if section.settings.bg_type == 'image' %}
+    {% if section.settings.bg_image != blank %}
+      <div class="hero__bg-image"></div>
+    {% else %}
+      <div class="hero__bg-color"></div>
+    {% endif %}
+
+  {% elsif section.settings.bg_type == 'video' %}
+    <div class="hero__bg-video">
+      {% if section.settings.bg_video_url != blank %}
+        <video
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+        >
+          <source src="{{ section.settings.bg_video_url }}" type="video/mp4">
+        </video>
+      {% else %}
+        {%- comment -%} Fallback to color if no video uploaded {%- endcomment -%}
+        <div class="hero__bg-color" style="position:absolute;inset:0;background:{{ section.settings.bg_color }};"></div>
+      {% endif %}
+    </div>
+
+  {% else %}
+    <div class="hero__bg-color"></div>
+  {% endif %}
+
+  {% comment %} ── OVERLAY ── {% endcomment %}
+  {% if section.settings.show_overlay %}
+    <div class="hero__overlay"></div>
+  {% endif %}
+
+  {% comment %} ── CONTENT ── {% endcomment %}
+  <div class="hero__content">
+
+    {% if section.settings.eyebrow != blank %}
+      <span class="hero__eyebrow">{{ section.settings.eyebrow }}</span>
+    {% endif %}
+
+    {% if section.settings.title != blank %}
+      <h1 class="hero__title">{{ section.settings.title }}</h1>
+    {% endif %}
+
+    {% if section.settings.subtitle != blank %}
+      <p class="hero__subtitle">{{ section.settings.subtitle }}</p>
+    {% endif %}
+
+    {% if section.settings.btn_primary_label != blank or section.settings.btn_secondary_label != blank %}
+      <div class="hero__buttons">
+        {% if section.settings.btn_primary_label != blank %}
+          <a href="{{ section.settings.btn_primary_link }}" class="hero__btn-primary">
+            {{ section.settings.btn_primary_label }}
+          </a>
+        {% endif %}
+        {% if section.settings.btn_secondary_label != blank %}
+          <a href="{{ section.settings.btn_secondary_link }}" class="hero__btn-secondary">
+            {{ section.settings.btn_secondary_label }}
+          </a>
+        {% endif %}
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+
+{% schema %}
+{
+  "name": "Hero Banner",
+  "tag": "section",
+  "class": "hero-banner-section",
+  "settings": [
+
+    {
+      "type": "header",
+      "content": "Background Type"
+    },
+    {
+      "type": "select",
+      "id": "bg_type",
+      "label": "Background type",
+      "options": [
+        { "value": "color",  "label": "Color" },
+        { "value": "image",  "label": "Image" },
+        { "value": "video",  "label": "Video" }
+      ],
+      "default": "color"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#2a2018",
+      "info": "Used when background type is set to Color, or as fallback"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background image",
+      "info": "Recommended size: 1920 × 1080px. Used when background type is Image."
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Image focal point",
+      "options": [
+        { "value": "top center",    "label": "Top" },
+        { "value": "center center", "label": "Center" },
+        { "value": "bottom center", "label": "Bottom" },
+        { "value": "left center",   "label": "Left" },
+        { "value": "right center",  "label": "Right" }
+      ],
+      "default": "center center"
+    },
+    {
+      "type": "text",
+      "id": "bg_video_url",
+      "label": "Background video URL (.mp4)",
+      "info": "Paste a direct .mp4 URL. Used when background type is Video. For best performance use a compressed video under 5MB."
+    },
+
+    {
+      "type": "header",
+      "content": "Overlay"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_overlay",
+      "label": "Show overlay",
+      "default": true,
+      "info": "Darkens the background to improve text readability"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay opacity",
+      "min": 0,
+      "max": 90,
+      "step": 5,
+      "unit": "%",
+      "default": 45
+    },
+
+    {
+      "type": "header",
+      "content": "Section Size"
+    },
+    {
+      "type": "range",
+      "id": "section_height",
+      "label": "Desktop height",
+      "min": 300,
+      "max": 900,
+      "step": 20,
+      "unit": "px",
+      "default": 520
+    },
+    {
+      "type": "range",
+      "id": "mobile_height",
+      "label": "Mobile height",
+      "min": 200,
+      "max": 700,
+      "step": 20,
+      "unit": "px",
+      "default": 400
+    },
+
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow text",
+      "default": "New Season",
+      "info": "Small label above the main title"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Spring Edit"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subheading",
+      "default": "Curated pieces for the new season"
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Text alignment",
+      "options": [
+        { "value": "left",   "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right",  "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "content_position",
+      "label": "Vertical position",
+      "options": [
+        { "value": "flex-start", "label": "Top" },
+        { "value": "center",     "label": "Middle" },
+        { "value": "flex-end",   "label": "Bottom" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Horizontal position",
+      "options": [
+        { "value": "flex-start", "label": "Left" },
+        { "value": "center",     "label": "Center" },
+        { "value": "flex-end",   "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "content_max_width",
+      "label": "Content max width",
+      "min": 400,
+      "max": 1000,
+      "step": 50,
+      "unit": "px",
+      "default": 650
+    },
+
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "label": "Heading size (desktop)",
+      "min": 32,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "color",
+      "id": "eyebrow_color",
+      "label": "Eyebrow color",
+      "default": "#c9a96e"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Heading color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "subtitle_color",
+      "label": "Subheading color",
+      "default": "#ffffff"
+    },
+
+    {
+      "type": "header",
+      "content": "Primary Button"
+    },
+    {
+      "type": "text",
+      "id": "btn_primary_label",
+      "label": "Button label",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "btn_primary_link",
+      "label": "Button link"
+    },
+    {
+      "type": "color",
+      "id": "btn_primary_bg",
+      "label": "Button color",
+      "default": "#c9a96e"
+    },
+    {
+      "type": "color",
+      "id": "btn_primary_text",
+      "label": "Button text color",
+      "default": "#1a1a1a"
+    },
+
+    {
+      "type": "header",
+      "content": "Secondary Button (optional)"
+    },
+    {
+      "type": "text",
+      "id": "btn_secondary_label",
+      "label": "Button label",
+      "info": "Leave empty to hide"
+    },
+    {
+      "type": "url",
+      "id": "btn_secondary_link",
+      "label": "Button link"
+    },
+    {
+      "type": "color",
+      "id": "btn_secondary_text",
+      "label": "Button text & border color",
+      "default": "#ffffff"
+    },
+
+    {
+      "type": "header",
+      "content": "Button Style"
+    },
+    {
+      "type": "range",
+      "id": "btn_radius",
+      "label": "Button corner radius",
+      "min": 0,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "default": 4
+    }
+
+  ],
+
+  "presets": [
+    {
+      "name": "Hero Banner",
+      "settings": {
+        "bg_type": "color",
+        "bg_color": "#2a2018",
+        "eyebrow": "New Season",
+        "title": "Spring Edit",
+        "subtitle": "Curated pieces for the new season",
+        "btn_primary_label": "Shop Now"
+      }
+    }
+  ]
+}
+{% endschema %}

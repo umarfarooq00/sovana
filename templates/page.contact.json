@@ -1,0 +1,82 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "contact_hero_RYFYqL": {
+      "type": "contact-hero",
+      "name": "Contact — Hero",
+      "settings": {
+        "bg_image": "shopify://shop_images/womens-dress-wear-minimal-8-middle.jpg",
+        "bg_color": "#2a2018",
+        "image_position": "center center",
+        "show_overlay": true,
+        "overlay_color": "#000000",
+        "overlay_opacity": 35,
+        "section_height": 460,
+        "mobile_height": 320,
+        "eyebrow": "Get in Touch",
+        "title": "We'd love to hear from you.",
+        "subtitle": "Have a question, a styling request, or just want to say hello? We're here for it.",
+        "show_line": true,
+        "text_align": "center",
+        "content_max_width": 700,
+        "title_size": 64,
+        "eyebrow_color": "#c9a96e",
+        "title_color": "#ffffff",
+        "subtitle_color": "#ffffff"
+      }
+    },
+    "contact_form_section_kAWjWX": {
+      "type": "contact-form-section",
+      "name": "Contact — Form",
+      "settings": {
+        "bg_color": "#faf9f7",
+        "section_padding": 100,
+        "max_width": 1100,
+        "show_info_panel": true,
+        "eyebrow_color": "#c9a96e",
+        "eyebrow": "Contact Us",
+        "info_title": "Let's start a conversation.",
+        "info_text": "Whether you have a question about an order, need styling advice, or just want to connect — our team is always happy to help.",
+        "info_title_size": 40,
+        "info_title_color": "#1a1a1a",
+        "info_text_color": "#5a5a5a",
+        "email": "hello@yourbrand.com",
+        "hours": "Mon–Fri, 9am–6pm",
+        "address": "3701 North Country Club Drive, Aventura, Florida 33180",
+        "response_time": "We reply within 24 hours",
+        "form_bg_color": "#ffffff",
+        "form_padding": 48,
+        "form_radius": 4,
+        "show_form_border": true,
+        "form_border_color": "#e8e4de",
+        "form_title": "Send us a message",
+        "form_subtitle": "Fill in the form below and we'll get back to you shortly.",
+        "form_title_size": 32,
+        "form_title_color": "#1a1a1a",
+        "input_bg_color": "#faf9f7",
+        "input_text_color": "#1a1a1a",
+        "input_border_color": "#e0dbd3",
+        "input_placeholder_color": "#a0998f",
+        "input_radius": 4,
+        "textarea_height": 180,
+        "btn_label": "Send Message",
+        "btn_bg_color": "#c9a96e",
+        "btn_text_color": "#1a1a1a",
+        "btn_radius": 2,
+        "btn_full_width": true
+      }
+    }
+  },
+  "order": [
+    "contact_hero_RYFYqL",
+    "contact_form_section_kAWjWX"
+  ]
+}
