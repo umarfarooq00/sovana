@@ -406,9 +406,8 @@
   }
 
   .cart-drawer__items .cart-items__table-row {
-    padding-bottom: var(--gap-xl);
-    border-bottom: var(--style-border-width) solid var(--color-border);
-    margin-bottom: var(--gap-xl);
+    margin-bottom: 0;
+    border: none;
   }
 
   .cart-drawer__items .cart-items__table-row:has(+ .cart-items__nested-line) {
@@ -485,9 +484,8 @@
   }
 
   .cart-drawer__items .cart-items__table-row {
-    padding-bottom: var(--gap-xl);
-    border-bottom: var(--style-border-width) solid var(--color-border);
     margin-bottom: var(--gap-xl);
+    padding: 0;
   }
 
   .cart-drawer__items .cart-items__table-row:last-child {
@@ -709,5 +707,363 @@
     .header__column--right .header-actions--text {
       margin-inline-start: 0;
     }
+  }
+
+  /* ─── Premium Cart Drawer ─── */
+
+  /* 1. Luxury spring slide-in (overrides base dialog-drawer[open]) */
+  @media (prefers-reduced-motion: no-preference) {
+    dialog.cart-drawer__dialog[open] {
+      animation: cart-luxe-in 520ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    dialog.cart-drawer__dialog[open].dialog-closing {
+      animation: cart-luxe-out 360ms cubic-bezier(0.55, 0, 1, 0.45) forwards;
+    }
+  }
+
+  @keyframes cart-luxe-in {
+    from {
+      transform: translateX(52px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes cart-luxe-out {
+    from {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateX(60px);
+      opacity: 0;
+    }
+  }
+
+  /* 2. Rich backdrop with subtle blur */
+  dialog.cart-drawer__dialog[open]::backdrop {
+    background: rgb(10 8 5 / 0.48);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    animation: cart-backdrop-in 520ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  dialog.cart-drawer__dialog.dialog-closing::backdrop {
+    animation: cart-backdrop-out 360ms ease-in forwards;
+  }
+
+  @keyframes cart-backdrop-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  @keyframes cart-backdrop-out {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+  }
+
+  /* 3. Gold accent on drawer header bottom border */
+  .cart-drawer__header {
+    border-bottom: 1px solid rgb(201 169 110 / 0.22);
+  }
+
+  /* 4. Elegant heading using the brand serif font */
+  .cart-drawer__heading {
+    font-family: "Gilda Display", serif;
+    letter-spacing: 0.05em;
+  }
+
+  /* 5. Staggered cart item entrance */
+  @media (prefers-reduced-motion: no-preference) {
+    .cart-drawer__dialog[open] .cart-drawer__items .cart-items__table-row {
+      animation: cart-item-rise 440ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .cart-drawer__dialog[open] .cart-drawer__items .cart-items__table-row:nth-child(1) { animation-delay: 90ms; }
+    .cart-drawer__dialog[open] .cart-drawer__items .cart-items__table-row:nth-child(2) { animation-delay: 140ms; }
+    .cart-drawer__dialog[open] .cart-drawer__items .cart-items__table-row:nth-child(3) { animation-delay: 190ms; }
+    .cart-drawer__dialog[open] .cart-drawer__items .cart-items__table-row:nth-child(4) { animation-delay: 230ms; }
+    .cart-drawer__dialog[open] .cart-drawer__items .cart-items__table-row:nth-child(n+5) { animation-delay: 270ms; }
+  }
+
+  @keyframes cart-item-rise {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* 6. Summary panel entrance */
+  @media (prefers-reduced-motion: no-preference) {
+    .cart-drawer__dialog[open] .cart-drawer__summary {
+      animation: cart-summary-rise 500ms cubic-bezier(0.16, 1, 0.3, 1) 160ms both;
+    }
+  }
+
+  @keyframes cart-summary-rise {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* 7. Header slides down on open */
+  @media (prefers-reduced-motion: no-preference) {
+    .cart-drawer__dialog[open] .cart-drawer__header {
+      animation: cart-header-in 420ms cubic-bezier(0.16, 1, 0.3, 1) 50ms both;
+    }
+  }
+
+  @keyframes cart-header-in {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* 8. Gold checkout button — no border, shimmer on hover */
+  .cart-drawer__summary .cart__checkout-button {
+    background-color: #c9a96e;
+    color: #1a1a1a;
+    border: none;
+    box-shadow: none;
+    font-family: "Gilda Display", serif;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease,
+                transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Shimmer sweep pseudo-element */
+  .cart-drawer__summary .cart__checkout-button::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    left: -110%;
+    width: 55%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgb(255 255 255 / 0.28) 50%,
+      transparent 100%
+    );
+    transition: left 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+  }
+
+  .cart-drawer__summary .cart__checkout-button:hover {
+    background-color: #b8925a;
+    transform: translateY(-2px);
+  }
+
+  .cart-drawer__summary .cart__checkout-button:hover::after {
+    left: 160%;
+  }
+
+  .cart-drawer__summary .cart__checkout-button:active {
+    transform: translateY(0);
+  }
+
+  /* 9. Close button 90° spin on hover */
+  .cart-drawer__close-button {
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.2s ease;
+  }
+
+  .cart-drawer__close-button:hover {
+    transform: rotate(90deg);
+    opacity: 0.5;
+  }
+
+  /* 10. Kill the JS-injected mask-image on scroll-hint elements in the drawer */
+  .cart-drawer .cart-drawer__content,
+  .cart-drawer .cart-drawer__items {
+    /* stylelint-disable-next-line declaration-no-important */
+    mask-image: none !important;
+    /* stylelint-disable-next-line declaration-no-important */
+    -webkit-mask-image: none !important;
+  }
+
+  /* Gold custom scrollbar inside items list */
+  .cart-drawer__items {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(201 169 110 / 0.35) transparent;
+  }
+
+  .cart-drawer__items::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  .cart-drawer__items::-webkit-scrollbar-thumb {
+    background: rgb(201 169 110 / 0.35);
+    border-radius: 2px;
+    transition: background 0.2s ease;
+  }
+
+  .cart-drawer__items::-webkit-scrollbar-thumb:hover {
+    background: rgb(201 169 110 / 0.6);
+  }
+
+  .cart-drawer__items::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* 11. Cart total value in gold */
+  .cart-drawer__summary .cart-totals__total-value {
+    color: #c9a96e;
+    font-family: "Gilda Display", serif;
+    font-weight: 800;  
+  }
+
+  /* 12. Wider cart drawer */
+  @media screen and (min-width: 750px) {
+    .cart-drawer__dialog {
+      width: 500px;
+      max-width: 95vw;
+    }
+  }
+
+  /* 13. Hide Shop Pay installments inside the drawer only */
+  .cart-drawer__summary .cart-totals__installments {
+    display: none;
+  }
+
+  /* ─── Drawer product item restyling ─── */
+
+  /* Larger image thumbnail */
+  .cart-drawer .cart-items__table-row {
+    grid-template-columns: 96px minmax(0, 1fr) minmax(5rem, auto);
+    column-gap: 16px;
+    align-items: start;
+  }
+
+  /* Rounded corners on product image */
+  .cart-drawer .cart-items__media-container {
+    border-radius: 6px;
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+  }
+
+  /* Product title — Elegant serif, slightly larger */
+  .cart-drawer .cart-items__title {
+    font-family: "Gilda Display", serif;
+    font-size: 1rem;
+    letter-spacing: 0.03em;
+    line-height: 1.3;
+    color: var(--color-foreground);
+    display: block;
+    margin-block-start: 0;
+    font-weight: 700;
+  }
+
+  /* Variant text — uppercase tiny muted */
+  .cart-drawer .cart-items__variants {
+    margin-block-start: 4px;
+  }
+
+  .cart-drawer .cart-items__variant dt,
+  .cart-drawer .cart-items__variant dd {
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgb(var(--color-foreground-rgb) / 0.45);
+    font-family: var(--font-body--family);
+  }
+
+  /* Unit price below name */
+  .cart-drawer .cart-items__unit-price-wrapper {
+    font-size: 0.78rem;
+    color: rgb(var(--color-foreground-rgb) / 0.5);
+    margin-block-start: 4px;
+  }
+
+  /* Price column — serif, right-aligned */
+  .cart-drawer .cart-items__price {
+    font-family: "Gilda Display", serif;
+    font-size: 0.92rem;
+    letter-spacing: 0.02em;
+    color: var(--color-foreground);
+    padding-block-start: 2px;
+  }
+
+  /* Details column spacing */
+  .cart-drawer .cart-items__details > * + * {
+    margin-block-start: 0;
+  }
+
+  /* Quantity section — tighter top margin */
+  .cart-drawer .cart-items__quantity {
+    margin-block-start: 10px;
+  }
+
+  /* Quantity controls spacing */
+  .cart-drawer .cart-items__quantity-controls {
+    gap: 6px;
+  }
+
+  /* Remove button — muted, turns gold on hover */
+  .cart-drawer .cart-items__remove {
+    opacity: 0.35;
+    color: var(--color-foreground);
+    transition: opacity 0.2s ease, color 0.2s ease;
+    width: 32px;
+    height: 32px;
+  }
+
+  .cart-drawer .cart-items__remove:hover {
+    opacity: 1;
+    color: #c9a96e;
+  }
+
+  /* Subtle quantity selector border */
+  .cart-drawer .cart-items .quantity-selector {
+    border-color: rgb(var(--color-foreground-rgb) / 0.12);
+  }
+
+  /* 14. Hide accelerated checkout buttons (Shop, PayPal, Google Pay) in drawer */
+  .cart-drawer__summary .additional-checkout-buttons,
+  .cart-drawer__summary shopify-accelerated-checkout-cart {
+    display: none;
+  }
+
+  /* 15. Larger variant text (SMALL, BLUE) */
+  .cart-drawer .cart-items__variant dt,
+  .cart-drawer .cart-items__variant dd {
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+  }
+
+  /* 16. Larger item line price ($395.00 USD) */
+  .cart-drawer .cart-items__price {
+    font-size: 1.05rem;
+  }
+
+  /* 17. Larger estimated total value */
+  .cart-drawer__summary .cart-totals__total-value {
+    font-size: 1.25rem;
+  }
+
+  /* 18. Top padding above first product */
+  .cart-drawer .cart-drawer__items {
+    padding-block-start: 24px;
   }
 {% endstylesheet %}

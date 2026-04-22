@@ -1,14 +1,3 @@
-@font-face {
-    font-family: 'Elegant';
-    src: url('https://cdn.shopify.com/s/files/1/0794/3195/8778/files/ElegantRegular.eot?v=1776804666');
-    src: url('https://cdn.shopify.com/s/files/1/0794/3195/8778/files/ElegantRegular.eot?v=1776804666?#iefix') format('embedded-opentype'),
-        url('https://cdn.shopify.com/s/files/1/0794/3195/8778/files/ElegantRegular.woff2?v=1776804664') format('woff2'),
-        url('https://cdn.shopify.com/s/files/1/0794/3195/8778/files/ElegantRegular.woff?v=1776804665') format('woff'),
-        url('https://cdn.shopify.com/s/files/1/0794/3195/8778/files/ElegantRegular.ttf?v=1776804666') format('truetype');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-}
 
 * {
   box-sizing: border-box;
@@ -3868,6 +3857,8 @@ text-component {
   --shimmer-text-color: rgb(var(--color-foreground-rgb) / var(--opacity-50));
   --shimmer-color-light: rgb(var(--color-foreground-rgb) / var(--opacity-10));
   --shimmer-speed: 1.25s;
+  font-family: "Gilda Display", serif;
+  font-weight: 800;
 
   display: inline-block;
   position: relative;
@@ -4236,7 +4227,7 @@ product-card {
   border-radius: 15px;
 }
 .ui-test-product-list h3 {
-  font-family: 'Elegant';
+  font-family: "Gilda Display", serif;
   font-size: 64px;
   font-weight: 700;
   line-height: 1.05;

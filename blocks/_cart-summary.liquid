@@ -53,6 +53,25 @@
     }
   }
 
+  /* "Order Summary" eyebrow above totals on cart page */
+  .cart-page .cart-summary__inner::before {
+    content: 'Order Summary';
+    display: block;
+    width: 100%;
+    font-family: "Gilda Display", serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    color: var(--color-foreground);
+    padding-block-end: 16px;
+    border-bottom: 1px solid #e8e3db;
+    margin-block-end: -12px;
+
+    @media screen and (max-width: 749px) {
+      display: none;
+    }
+  }
+
   body:has(> #header-group header-component[sticky]) .cart-summary__inner {
     top: var(--header-height, 0);
   }

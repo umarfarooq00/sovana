@@ -36,6 +36,28 @@
     display: inline-flex;
     align-items: center;
     gap: var(--gap-sm);
+    font-family: "Gilda Display", serif;
+    font-weight: 500;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    letter-spacing: 0.02em;
+    line-height: 1.15;
+  }
+
+  /* Gold rule below the cart page title */
+  .cart-page .cart-title {
+    position: relative;
+    padding-block-end: 24px;
+    margin-block-end: 8px;
+  }
+
+  .cart-page .cart-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 36px;
+    height: 1.5px;
+    background: #c9a96e;
   }
 
   .cart-title .cart-bubble {

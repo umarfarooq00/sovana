@@ -129,6 +129,248 @@
       grid-template-columns: 1fr var(--sidebar-width);
     }
   }
+
+  /* ═══════════════════════════════════════
+     Branded Cart Page — Sovana
+     Gold #c9a96e · Dark #1a1a1a · Cream #faf9f7
+     Font: Gilda Display
+  ═══════════════════════════════════════ */
+
+  /* Page vertical rhythm */
+  .cart-page {
+    padding-block: 40px 80px;
+    row-gap: 0;
+  }
+
+  @media screen and (min-width: 750px) {
+    .cart-page {
+      padding-block: 56px 100px;
+      column-gap: 0;
+    }
+  }
+
+  /* ── Items column ── */
+  .cart-page__items {
+    padding-inline-end: 0;
+  }
+
+  @media screen and (min-width: 750px) {
+    .cart-page__items {
+      padding-inline-end: 48px;
+      padding-block-end: 60px;
+    }
+  }
+
+  /* ── Dividers between rows ── */
+  .cart-page .cart-items--dividers .cart-items__table-row {
+    border-bottom: 1px solid #e8e3db;
+    padding-block: 28px;
+    margin-bottom: 0;
+  }
+
+  .cart-page .cart-items--dividers .cart-items__table-row:first-of-type {
+    border-top: 1px solid #e8e3db;
+  }
+
+  .cart-page .cart-items--dividers .cart-items__table-row:last-of-type {
+    border-bottom: none;
+  }
+
+  /* ── Product image ── */
+  .cart-page .cart-items__media-container {
+    border-radius: 4px;
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+  }
+
+  .cart-page .cart-items__media-image {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .cart-page .cart-items__table-row:hover .cart-items__media-image {
+    transform: scale(1.03);
+  }
+
+  /* ── Product title ── */
+  .cart-page .cart-items__title {
+    font-family: "Gilda Display", serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    line-height: 1.3;
+    color: var(--color-foreground);
+    transition: color 0.2s ease;
+    display: block;
+    margin-block-start: 0;
+  }
+
+  .cart-page .cart-items__title:hover {
+    color: #c9a96e;
+  }
+
+  /* ── Variant text ── */
+  .cart-page .cart-items__variant dt,
+  .cart-page .cart-items__variant dd {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgb(var(--color-foreground-rgb) / 0.42);
+  }
+
+  /* ── Unit price below title ── */
+  .cart-page .cart-items__unit-price-wrapper {
+    margin-block-start: 8px;
+    font-size: 0.85rem;
+    color: rgb(var(--color-foreground-rgb) / 0.5);
+  }
+
+  /* ── Line item price (right column) ── */
+  .cart-page .cart-items__price {
+    font-family: "Gilda Display", serif;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+    color: var(--color-foreground);
+    padding-block-start: 2px;
+  }
+
+  /* ── Quantity selector ── */
+  .cart-page .quantity-selector {
+    border-color: #d3cec5;
+    border-radius: 2px;
+  }
+
+  /* ── Remove button ── */
+  .cart-page .cart-items__remove {
+    opacity: 0.28;
+    color: var(--color-foreground);
+    transition: opacity 0.2s ease, color 0.2s ease;
+  }
+
+  .cart-page .cart-items__remove:hover {
+    opacity: 1;
+    color: #c9a96e;
+  }
+
+  /* ────────────────────────────────
+     Summary panel
+  ──────────────────────────────── */
+
+  @media screen and (min-width: 750px) {
+    .cart-page .cart-summary__inner {
+      background-color: #faf9f7;
+      border-left: 1px solid #e8e3db;
+      padding-inline: 40px;
+      padding-block: 48px 48px;
+    }
+
+    .cart-page .cart-summary--extend .cart-summary__inner {
+      background-color: #faf9f7;
+      border-left: 1px solid #e8e3db;
+      padding-inline: 40px;
+    }
+  }
+
+  /* Summary section label: "Estimated total" */
+  .cart-page .cart-totals__total-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgb(var(--color-foreground-rgb) / 0.55);
+    font-family: var(--font-body--family);
+  }
+
+  /* Total value */
+  .cart-page .cart-totals__total-value {
+    font-family: "Gilda Display", serif;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #c9a96e;
+  }
+
+  /* Subtotal / discount labels */
+  .cart-page .cart-totals__original-label,
+  .cart-page .cart-discounts__label {
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+    color: rgb(var(--color-foreground-rgb) / 0.55);
+  }
+
+  /* Tax note */
+  .cart-page .cart-totals__tax-note {
+    font-size: 0.72rem;
+    opacity: 0.5;
+    letter-spacing: 0.02em;
+  }
+
+  /* Discount code input */
+  .cart-page .cart-discount__summary {
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* ── Checkout button on cart page ── */
+  .cart-page .cart__checkout-button {
+    background-color: #c9a96e;
+    color: #1a1a1a;
+    border: none;
+    box-shadow: none;
+    font-family: "Gilda Display", serif;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease,
+                transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .cart-page .cart__checkout-button::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    left: -110%;
+    width: 55%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgb(255 255 255 / 0.26) 50%,
+      transparent 100%
+    );
+    transition: left 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+  }
+
+  .cart-page .cart__checkout-button:hover {
+    background-color: #b8925a;
+    transform: translateY(-2px);
+  }
+
+  .cart-page .cart__checkout-button:hover::after {
+    left: 160%;
+  }
+
+  .cart-page .cart__checkout-button:active {
+    transform: translateY(0);
+  }
+
+  /* ── Hide accelerated checkout on cart page too ── */
+  .cart-page .additional-checkout-buttons {
+    display: none;
+  }
+
+  /* ── Mobile: summary separators ── */
+  @media screen and (max-width: 749px) {
+    .cart-page__summary {
+      border-top: 1px solid #e8e3db;
+      margin-block-start: 32px;
+      padding-block-start: 32px;
+    }
+
+    .cart-page .cart-items--dividers .cart-items__table-row {
+      padding-block: 20px;
+    }
+  }
 {% endstylesheet %}
 
 {% schema %}
