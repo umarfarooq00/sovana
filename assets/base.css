@@ -4232,3 +4232,9 @@ product-card {
   font-weight: 700;
   line-height: 1.05;
 }
+.payment-icons__list {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    
+}
