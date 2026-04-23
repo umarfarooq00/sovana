@@ -1,0 +1,23 @@
+{
+  "sections": {
+    "policy_content": {
+      "type": "policy-page",
+      "settings": {
+        "bg_color": "#faf9f7",
+        "section_padding": 100,
+        "content_max_width": 900,
+        "eyebrow": "Sovana",
+        "fallback_title": "Shipping",
+        "show_updated": true,
+        "updated_date": "January 1, 2025",
+        "placeholder_content": "<p>We offer complimentary standard shipping on all orders over <strong>$150</strong>. Orders are processed within 1–2 business days and ship Monday through Friday.</p><p><strong>Domestic Shipping (USA):</strong> Standard shipping takes 4–7 business days. Express 2-day shipping is available at checkout for an additional fee.</p><p><strong>International Shipping:</strong> We ship to over 40 countries worldwide. International delivery typically takes 7–14 business days depending on destination and customs processing. Import duties and taxes are the responsibility of the recipient.</p><p><strong>Order Tracking:</strong> Once your order ships, you will receive a confirmation email with your tracking number. Please allow 24 hours for tracking to update.</p><p>For shipping inquiries, contact us at <a href=\"mailto:hello@sovana.com\">hello@sovana.com</a>.</p>",
+        "eyebrow_color": "#c9a96e",
+        "title_color": "#1a1a1a",
+        "text_color": "#1a1a1a"
+      }
+    }
+  },
+  "order": [
+    "policy_content"
+  ]
+}

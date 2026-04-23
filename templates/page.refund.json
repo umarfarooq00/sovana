@@ -1,0 +1,23 @@
+{
+  "sections": {
+    "policy_content": {
+      "type": "policy-page",
+      "settings": {
+        "bg_color": "#faf9f7",
+        "section_padding": 100,
+        "content_max_width": 900,
+        "eyebrow": "Sovana",
+        "fallback_title": "Refund & Exchange",
+        "show_updated": true,
+        "updated_date": "January 1, 2025",
+        "placeholder_content": "<p>We want you to love what you ordered. If you are not completely satisfied, we accept returns within <strong>30 days</strong> of delivery for a full refund or exchange.</p><p>Items must be unworn, unwashed, and returned in their original packaging with all tags attached. Sale items and final sale pieces are not eligible for return.</p><p>To start a return or exchange, email us at <a href=\"mailto:hello@sovana.com\">hello@sovana.com</a> with your order number and reason. We will send you a prepaid return label within 1–2 business days.</p><p>Refunds are processed within 5–7 business days of receiving your return and will be issued to your original payment method.</p>",
+        "eyebrow_color": "#c9a96e",
+        "title_color": "#1a1a1a",
+        "text_color": "#1a1a1a"
+      }
+    }
+  },
+  "order": [
+    "policy_content"
+  ]
+}

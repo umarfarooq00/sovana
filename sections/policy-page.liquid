@@ -1,0 +1,239 @@
+
+<style>
+  .policy-page-{{ section.id }} {
+    background-color: {{ section.settings.bg_color }};
+    padding: {{ section.settings.section_padding }}px 0;
+  }
+
+  .policy-page-{{ section.id }} .policy__inner {
+    max-width: {{ section.settings.content_max_width }}px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ── Header ── */
+  .policy-page-{{ section.id }} .policy__eyebrow {
+    display: block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: {{ section.settings.eyebrow_color }};
+    margin-bottom: 20px;
+  }
+
+  .policy-page-{{ section.id }} .policy__title {
+    font-family: "Gilda Display", serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 400;
+    color: {{ section.settings.title_color }};
+    line-height: 1.1;
+    margin: 0 0 24px;
+  }
+
+  .policy-page-{{ section.id }} .policy__rule {
+    width: 40px;
+    height: 1.5px;
+    background: {{ section.settings.eyebrow_color }};
+    margin-bottom: 48px;
+  }
+
+  /* ── Content ── */
+  .policy-page-{{ section.id }} .policy__content {
+    color: {{ section.settings.text_color }};
+    font-size: 0.95rem;
+    line-height: 1.85;
+    max-width: 780px;
+  }
+
+  .policy-page-{{ section.id }} .policy__content h2 {
+    font-family: "Gilda Display", serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: {{ section.settings.title_color }};
+    margin-top: 48px;
+    margin-bottom: 12px;
+    letter-spacing: 0.02em;
+  }
+
+  .policy-page-{{ section.id }} .policy__content h3 {
+    font-family: "Gilda Display", serif;
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: {{ section.settings.title_color }};
+    margin-top: 32px;
+    margin-bottom: 8px;
+  }
+
+  .policy-page-{{ section.id }} .policy__content p {
+    margin-bottom: 16px;
+    opacity: 0.82;
+  }
+
+  .policy-page-{{ section.id }} .policy__content ul,
+  .policy-page-{{ section.id }} .policy__content ol {
+    padding-inline-start: 20px;
+    margin-bottom: 16px;
+    opacity: 0.82;
+  }
+
+  .policy-page-{{ section.id }} .policy__content li {
+    margin-bottom: 8px;
+  }
+
+  .policy-page-{{ section.id }} .policy__content a {
+    color: {{ section.settings.eyebrow_color }};
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* ── Last updated ── */
+  .policy-page-{{ section.id }} .policy__updated {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: {{ section.settings.text_color }};
+    opacity: 0.45;
+    margin-bottom: 48px;
+  }
+
+  @media (max-width: 749px) {
+    .policy-page-{{ section.id }} {
+      padding: 60px 0;
+    }
+  }
+</style>
+
+<section class="policy-page-{{ section.id }}">
+  <div class="policy__inner">
+
+    {% if section.settings.eyebrow != blank %}
+      <span class="policy__eyebrow">{{ section.settings.eyebrow }}</span>
+    {% endif %}
+
+    <h1 class="policy__title">{{ page.title | default: section.settings.fallback_title }}</h1>
+    <div class="policy__rule"></div>
+
+    {% if section.settings.show_updated %}
+      <span class="policy__updated">Last updated: {{ section.settings.updated_date }}</span>
+    {% endif %}
+
+    <div class="policy__content">
+      {% if page.content != blank %}
+        {{ page.content }}
+      {% else %}
+        {{ section.settings.placeholder_content }}
+      {% endif %}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Policy Page",
+  "tag": "div",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#faf9f7"
+    },
+    {
+      "type": "range",
+      "id": "section_padding",
+      "label": "Section padding (top & bottom)",
+      "min": 40,
+      "max": 160,
+      "step": 10,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "content_max_width",
+      "label": "Content max width",
+      "min": 600,
+      "max": 1200,
+      "step": 50,
+      "unit": "px",
+      "default": 900
+    },
+    {
+      "type": "header",
+      "content": "Header"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow text",
+      "default": "Sovana"
+    },
+    {
+      "type": "text",
+      "id": "fallback_title",
+      "label": "Fallback title (if no page title)",
+      "default": "Our Policy"
+    },
+    {
+      "type": "header",
+      "content": "Last Updated"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_updated",
+      "label": "Show last updated date",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "updated_date",
+      "label": "Date",
+      "default": "January 1, 2025"
+    },
+    {
+      "type": "header",
+      "content": "Placeholder Content"
+    },
+    {
+      "type": "richtext",
+      "id": "placeholder_content",
+      "label": "Placeholder text (shown until you add content in Shopify admin)",
+      "default": "<p>This page is being updated. Please check back shortly or contact us at <a href=\"mailto:hello@sovana.com\">hello@sovana.com</a> if you have any questions.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "eyebrow_color",
+      "label": "Eyebrow & accent color",
+      "default": "#c9a96e"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Body text color",
+      "default": "#1a1a1a"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Policy Page"
+    }
+  ]
+}
+{% endschema %}

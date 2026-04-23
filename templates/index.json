@@ -68,7 +68,7 @@
         "txt_craft": {
           "type": "text",
           "settings": {
-            "text": "Crafted for the Modern Woman",
+            "text": "<p>Crafted for the Modern Woman</p>",
             "type_preset": "custom",
             "font": "var(--font-heading--family)",
             "font_size": "0.7rem",
@@ -86,7 +86,7 @@
         "txt_timeless": {
           "type": "text",
           "settings": {
-            "text": "Timeless Elegance",
+            "text": "<p>Timeless Elegance</p>",
             "type_preset": "custom",
             "font": "var(--font-heading--family)",
             "font_size": "0.7rem",
@@ -104,7 +104,7 @@
         "txt_ship": {
           "type": "text",
           "settings": {
-            "text": "Complimentary Shipping on Orders Over $150",
+            "text": "<p>Complimentary Shipping on Orders Over $150</p>",
             "type_preset": "custom",
             "font": "var(--font-heading--family)",
             "font_size": "0.7rem",
@@ -399,7 +399,7 @@
             "eyebrow_txt": {
               "type": "text",
               "settings": {
-                "text": "The Edit",
+                "text": "<p>The Edit</p>",
                 "type_preset": "custom",
                 "font": "var(--font-body--family)",
                 "font_size": "0.7rem",

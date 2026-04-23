@@ -1,0 +1,23 @@
+{
+  "sections": {
+    "policy_content": {
+      "type": "policy-page",
+      "settings": {
+        "bg_color": "#faf9f7",
+        "section_padding": 100,
+        "content_max_width": 900,
+        "eyebrow": "Sovana",
+        "fallback_title": "Terms of Service",
+        "show_updated": true,
+        "updated_date": "January 1, 2025",
+        "placeholder_content": "<p>By accessing and using the Sovana website, you agree to be bound by the following terms and conditions. Please read them carefully before placing an order.</p><p><strong>Use of the Site:</strong> You may use this website for lawful purposes only. You agree not to reproduce, duplicate, or exploit any part of the site without our express written permission.</p><p><strong>Products & Pricing:</strong> We reserve the right to modify prices, discontinue products, or limit quantities at any time. All prices are listed in USD and are subject to applicable taxes.</p><p><strong>Accuracy of Information:</strong> We make every effort to display product colors and details accurately. However, we cannot guarantee that your screen accurately reflects the true color of our products.</p><p><strong>Limitation of Liability:</strong> Sovana shall not be liable for any indirect, incidental, or consequential damages arising from the use of our products or website.</p><p>For any questions regarding these terms, contact us at <a href=\"mailto:hello@sovana.com\">hello@sovana.com</a>.</p>",
+        "eyebrow_color": "#c9a96e",
+        "title_color": "#1a1a1a",
+        "text_color": "#1a1a1a"
+      }
+    }
+  },
+  "order": [
+    "policy_content"
+  ]
+}

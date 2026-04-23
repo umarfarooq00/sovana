@@ -1,0 +1,23 @@
+{
+  "sections": {
+    "policy_content": {
+      "type": "policy-page",
+      "settings": {
+        "bg_color": "#faf9f7",
+        "section_padding": 100,
+        "content_max_width": 900,
+        "eyebrow": "Sovana",
+        "fallback_title": "Privacy Policy",
+        "show_updated": true,
+        "updated_date": "January 1, 2025",
+        "placeholder_content": "<p>Your privacy is important to us. This policy explains how Sovana collects, uses, and protects your personal information when you visit our store.</p><p><strong>What we collect:</strong> We collect information you provide when placing an order — including your name, email address, shipping address, and payment details. We also collect browsing data to improve your experience.</p><p><strong>How we use it:</strong> Your information is used to process orders, send shipping updates, and — with your consent — share news about new arrivals and promotions. We never sell your data to third parties.</p><p><strong>Cookies:</strong> We use cookies to keep your cart active and understand how visitors use our site. You can disable cookies in your browser settings at any time.</p><p>For questions about your data, contact us at <a href=\"mailto:hello@sovana.com\">hello@sovana.com</a>.</p>",
+        "eyebrow_color": "#c9a96e",
+        "title_color": "#1a1a1a",
+        "text_color": "#1a1a1a"
+      }
+    }
+  },
+  "order": [
+    "policy_content"
+  ]
+}
