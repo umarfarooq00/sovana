@@ -1,12 +1,5 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */{
+
+{
   "sections": {
     "product-information": {
       "type": "product-information",
@@ -24,6 +17,7 @@
             "slideshow_mobile_controls_style": "dots",
             "thumbnail_position": "bottom",
             "thumbnail_width": 44,
+            "thumbnail_radius": 0,
             "aspect_ratio": "1/1.25",
             "constrain_to_viewport": false,
             "media_fit": "cover",
@@ -49,7 +43,7 @@
             "custom_width_mobile": 100,
             "height": "fit",
             "details_position": "flex-start",
-            "gap": 40,
+            "gap": 20,
             "sticky_details_desktop": true,
             "inherit_color_scheme": true,
             "color_scheme": "",
@@ -70,7 +64,6 @@
               "type": "group",
               "name": "Header",
               "settings": {
-                "open_in_new_tab": false,
                 "content_direction": "column",
                 "vertical_on_mobile": true,
                 "horizontal_alignment": "flex-start",
@@ -94,11 +87,13 @@
                 "border_width": 1,
                 "border_opacity": 100,
                 "border_radius": 0,
-                "placeholder": "",
                 "toggle_overlay": false,
                 "overlay_color": "#00000026",
                 "overlay_style": "solid",
                 "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -113,7 +108,7 @@
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
-                    "type_preset": "h1",
+                    "type_preset": "h2",
                     "font": "var(--font-heading--family)",
                     "font_size": "",
                     "line_height": "normal",
@@ -135,7 +130,6 @@
                   "type": "group",
                   "name": "t:names.group",
                   "settings": {
-                    "open_in_new_tab": false,
                     "content_direction": "row",
                     "vertical_on_mobile": false,
                     "horizontal_alignment": "flex-start",
@@ -159,11 +153,13 @@
                     "border_width": 1,
                     "border_opacity": 100,
                     "border_radius": 0,
-                    "placeholder": "",
                     "toggle_overlay": false,
                     "overlay_color": "#00000026",
                     "overlay_style": "solid",
                     "gradient_direction": "to top",
+                    "link": "",
+                    "open_in_new_tab": false,
+                    "placeholder": "",
                     "padding-block-start": 0,
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
@@ -177,7 +173,7 @@
                         "show_sale_price_first": true,
                         "show_installments": false,
                         "show_tax_info": false,
-                        "type_preset": "h6",
+                        "type_preset": "h2",
                         "width": "fit-content",
                         "alignment": "left",
                         "font": "var(--font-body--family)",
@@ -185,7 +181,7 @@
                         "line_height": "normal",
                         "letter_spacing": "normal",
                         "case": "none",
-                        "color": "var(--color-foreground)",
+                        "color": "var(--color-foreground-heading)",
                         "padding-block-start": 0,
                         "padding-block-end": 0,
                         "padding-inline-start": 0,
@@ -201,6 +197,7 @@
                         "show_number": false,
                         "rating_color": "foreground",
                         "type_preset": "h6",
+                        "width": "100%",
                         "alignment": "left"
                       },
                       "blocks": {}
@@ -427,6 +424,7 @@
         "equal_columns": false,
         "limit_details_width": false,
         "gap": 40,
+        "enable_sticky_add_to_cart": true,
         "color_scheme": "",
         "padding-block-start": 0,
         "padding-block-end": 0
@@ -443,7 +441,7 @@
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
-            "type_preset": "h3",
+            "type_preset": "h2",
             "font": "var(--font-heading--family)",
             "font_size": "",
             "line_height": "normal",
@@ -472,7 +470,7 @@
             "border": "none",
             "border_width": 1,
             "border_opacity": 100,
-            "border_radius": 0,
+            "border_radius": 15,
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
@@ -498,7 +496,6 @@
             "group_4V7yPa": {
               "type": "_product-card-group",
               "settings": {
-                "open_in_new_tab": false,
                 "content_direction": "column",
                 "vertical_on_mobile": true,
                 "horizontal_alignment": "flex-start",
@@ -526,6 +523,8 @@
                 "overlay_color": "#00000026",
                 "overlay_style": "solid",
                 "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 16,
@@ -617,9 +616,9 @@
         "layout_type": "carousel",
         "carousel_on_mobile": false,
         "max_products": 10,
-        "columns": 3,
+        "columns": 4,
         "mobile_columns": "2",
-        "columns_gap": 0,
+        "columns_gap": 20,
         "rows_gap": 36,
         "icons_style": "none",
         "icons_shape": "none",
@@ -639,8 +638,8 @@
           "static": true,
           "settings": {
             "placement": "on_image",
-            "horizontal_alignment": "flex-start",
-            "vertical_alignment": "flex-end",
+            "horizontal_alignment": "center",
+            "vertical_alignment": "center",
             "collection_card_gap": 8,
             "inherit_color_scheme": true,
             "color_scheme": "",
@@ -654,7 +653,6 @@
               "type": "group",
               "name": "t:names.group",
               "settings": {
-                "open_in_new_tab": false,
                 "content_direction": "column",
                 "vertical_on_mobile": true,
                 "horizontal_alignment": "flex-start",
@@ -678,11 +676,13 @@
                 "border_width": 1,
                 "border_opacity": 100,
                 "border_radius": 0,
-                "placeholder": "",
                 "toggle_overlay": false,
                 "overlay_color": "#00000026",
                 "overlay_style": "solid",
                 "gradient_direction": "to top",
+                "link": "",
+                "open_in_new_tab": false,
+                "placeholder": "",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -696,7 +696,7 @@
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
-                    "type_preset": "h4",
+                    "type_preset": "h3",
                     "font": "var(--font-body--family)",
                     "font_size": "1rem",
                     "line_height": "normal",
@@ -704,13 +704,13 @@
                     "case": "none",
                     "wrap": "pretty",
                     "color": "var(--color-foreground)",
-                    "background": true,
+                    "background": false,
                     "background_color": "#ffffff",
                     "corner_radius": 0,
-                    "padding-block-start": 4,
-                    "padding-block-end": 4,
-                    "padding-inline-start": 8,
-                    "padding-inline-end": 8
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
                   },
                   "blocks": {}
                 }
@@ -723,7 +723,7 @@
               "type": "_collection-card-image",
               "static": true,
               "settings": {
-                "image_ratio": "portrait",
+                "image_ratio": "adapt",
                 "toggle_overlay": false,
                 "overlay_color": "#00000026",
                 "overlay_style": "solid",
@@ -731,7 +731,7 @@
                 "border": "none",
                 "border_width": 1,
                 "border_opacity": 100,
-                "border_radius": 0
+                "border_radius": 15
               },
               "blocks": {}
             }
@@ -743,27 +743,75 @@
       },
       "name": "Collection list",
       "settings": {
-        "layout_type": "grid",
-        "carousel_on_mobile": false,
+        "collection_list": [
+          "shop-all",
+          "prom-gowns",
+          "date-night",
+          "sovana-signature-dress",
+          "sale-collection",
+          "womens"
+        ],
+        "layout_type": "carousel",
+        "carousel_on_mobile": true,
         "columns": 4,
         "mobile_columns": "2",
         "mobile_card_size": "60cqw",
-        "columns_gap": 0,
+        "columns_gap": 20,
         "bento_gap": 16,
         "rows_gap": 0,
         "max_collections": 4,
         "icons_style": "arrow",
         "icons_shape": "none",
-        "section_width": "full-width",
+        "section_width": "page-width",
         "gap": 0,
-        "color_scheme": "",
+        "color_scheme": "scheme-6",
         "padding-block-start": 0,
         "padding-block-end": 0
       }
-    }
-  },
-    "trust_strip_product": {
+    },
+    "product_trust_strip_RMb7Ri": {
       "type": "product-trust-strip",
+      "blocks": {
+        "item_grJida": {
+          "type": "item",
+          "settings": {
+            "icon": "truck",
+            "label": "Free Shipping",
+            "sublabel": "Orders over $150"
+          }
+        },
+        "item_ztfCE3": {
+          "type": "item",
+          "settings": {
+            "icon": "return",
+            "label": "Easy Returns",
+            "sublabel": "30-day return window"
+          }
+        },
+        "item_LqDDm7": {
+          "type": "item",
+          "settings": {
+            "icon": "shield",
+            "label": "Quality Guaranteed",
+            "sublabel": "Crafted to last"
+          }
+        },
+        "item_YtFpid": {
+          "type": "item",
+          "settings": {
+            "icon": "lock",
+            "label": "Secure Checkout",
+            "sublabel": "SSL encrypted"
+          }
+        }
+      },
+      "block_order": [
+        "item_grJida",
+        "item_ztfCE3",
+        "item_LqDDm7",
+        "item_YtFpid"
+      ],
+      "name": "Product Trust Strip",
       "settings": {
         "bg_color": "#faf9f7",
         "border_color": "#e8e3db",
@@ -772,32 +820,13 @@
         "icon_color": "#c9a96e",
         "label_color": "#1a1a1a",
         "sublabel_color": "#1a1a1a"
-      },
-      "blocks": {
-        "trust_ship": {
-          "type": "item",
-          "settings": { "icon": "truck",  "label": "Free Shipping",     "sublabel": "Orders over $150" }
-        },
-        "trust_return": {
-          "type": "item",
-          "settings": { "icon": "return", "label": "Easy Returns",       "sublabel": "30-day return window" }
-        },
-        "trust_quality": {
-          "type": "item",
-          "settings": { "icon": "shield", "label": "Quality Guaranteed", "sublabel": "Crafted to last" }
-        },
-        "trust_secure": {
-          "type": "item",
-          "settings": { "icon": "lock",   "label": "Secure Checkout",    "sublabel": "SSL encrypted" }
-        }
-      },
-      "block_order": ["trust_ship", "trust_return", "trust_quality", "trust_secure"]
+      }
     }
   },
   "order": [
     "product-information",
-    "trust_strip_product",
     "product_recommendations_UeDczP",
-    "collection_list_RGddHj"
+    "collection_list_RGddHj",
+    "product_trust_strip_RMb7Ri"
   ]
 }

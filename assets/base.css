@@ -4250,13 +4250,13 @@ product-card {
   background-color: #c9a96e !important;
   color: #1a1a1a !important;
   font-family: "Gilda Display", serif;
-  font-size: 0.62rem;
+  font-size: 0.5rem;
   font-weight: 400;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  border-radius: 0 !important;
-  padding-block: 5px !important;
-  padding-inline: 10px !important;
+  border-radius: 5px !important;
+  padding: 5px 10px !important;
+  line-height: 1 !important;
 }
 
 /* Sold-out badge — keep dark, distinct from sale */
