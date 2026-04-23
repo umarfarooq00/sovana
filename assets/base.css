@@ -4239,3 +4239,72 @@ product-card {
     list-style: none;
     gap: 5px;
 }
+
+/* ═══════════════════════════════════════
+   Sovana Global Brand Overrides
+   Badge · Sale Price · Product Card Title
+═══════════════════════════════════════ */
+
+/* ── Sale badge — gold pill on product cards and product page ── */
+.product-badges__badge {
+  background-color: #c9a96e !important;
+  color: #1a1a1a !important;
+  font-family: "Gilda Display", serif;
+  font-size: 0.62rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-radius: 0 !important;
+  padding-block: 5px !important;
+  padding-inline: 10px !important;
+}
+
+/* Sold-out badge — keep dark, distinct from sale */
+.product-badges__badge:has(+ .product-badges__badge),
+.product-badges__badge--sold-out {
+  background-color: #1a1a1a !important;
+  color: #ffffff !important;
+}
+
+/* ── Sale price — gold on any product card or product page ── */
+.price-item--sale {
+  color: #c9a96e;
+}
+
+/* Compare-at (original) price — muted strikethrough */
+.price-item--regular.compare-at-price,
+.compare-at-price {
+  color: rgb(26 26 26 / 0.4);
+  text-decoration: line-through;
+  font-size: 0.85em;
+}
+
+/* ── Product card title — Gilda Display, slightly larger ── */
+.product-card .product-title,
+.product-card [class*='product-title'],
+.product-card .text-block h2,
+.product-card .text-block h3,
+.product-card .text-block p {
+  font-family: "Gilda Display", serif !important;
+  font-size: 1.0rem !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.02em !important;
+  line-height: 1.3 !important;
+}
+
+/* ── Product page title — Gilda Display ── */
+.product-details h1 {
+  font-family: "Gilda Display", serif;
+  font-size: clamp(1.7rem, 3vw, 2.5rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+}
+
+/* Sale price on product page — gold ── */
+.product-details .price-item--sale {
+  color: #c9a96e;
+  font-family: "Gilda Display", serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.03em;
+}

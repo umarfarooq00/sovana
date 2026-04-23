@@ -113,9 +113,9 @@
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
-                    "type_preset": "h2",
-                    "font": "var(--font-body--family)",
-                    "font_size": "1rem",
+                    "type_preset": "h1",
+                    "font": "var(--font-heading--family)",
+                    "font_size": "",
                     "line_height": "normal",
                     "letter_spacing": "normal",
                     "case": "none",
@@ -305,7 +305,7 @@
                         "max_width": "normal",
                         "alignment": "left",
                         "type_preset": "rte",
-                        "font": "var(--font-primary--family)",
+                        "font": "var(--font-body--family)",
                         "font_size": "",
                         "line_height": "normal",
                         "letter_spacing": "normal",
@@ -344,7 +344,7 @@
                         "max_width": "normal",
                         "alignment": "left",
                         "type_preset": "rte",
-                        "font": "var(--font-primary--family)",
+                        "font": "var(--font-body--family)",
                         "font_size": "",
                         "line_height": "normal",
                         "letter_spacing": "normal",
@@ -383,7 +383,7 @@
                         "max_width": "normal",
                         "alignment": "left",
                         "type_preset": "rte",
-                        "font": "var(--font-primary--family)",
+                        "font": "var(--font-body--family)",
                         "font_size": "",
                         "line_height": "normal",
                         "letter_spacing": "normal",
@@ -444,7 +444,7 @@
             "max_width": "normal",
             "alignment": "left",
             "type_preset": "h3",
-            "font": "var(--font-primary--family)",
+            "font": "var(--font-heading--family)",
             "font_size": "",
             "line_height": "normal",
             "letter_spacing": "normal",
@@ -762,8 +762,41 @@
       }
     }
   },
+    "trust_strip_product": {
+      "type": "product-trust-strip",
+      "settings": {
+        "bg_color": "#faf9f7",
+        "border_color": "#e8e3db",
+        "padding": 28,
+        "icon_size": 24,
+        "icon_color": "#c9a96e",
+        "label_color": "#1a1a1a",
+        "sublabel_color": "#1a1a1a"
+      },
+      "blocks": {
+        "trust_ship": {
+          "type": "item",
+          "settings": { "icon": "truck",  "label": "Free Shipping",     "sublabel": "Orders over $150" }
+        },
+        "trust_return": {
+          "type": "item",
+          "settings": { "icon": "return", "label": "Easy Returns",       "sublabel": "30-day return window" }
+        },
+        "trust_quality": {
+          "type": "item",
+          "settings": { "icon": "shield", "label": "Quality Guaranteed", "sublabel": "Crafted to last" }
+        },
+        "trust_secure": {
+          "type": "item",
+          "settings": { "icon": "lock",   "label": "Secure Checkout",    "sublabel": "SSL encrypted" }
+        }
+      },
+      "block_order": ["trust_ship", "trust_return", "trust_quality", "trust_secure"]
+    }
+  },
   "order": [
     "product-information",
+    "trust_strip_product",
     "product_recommendations_UeDczP",
     "collection_list_RGddHj"
   ]

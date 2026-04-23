@@ -359,6 +359,175 @@
       white-space: nowrap;
     }
   }
+
+  /* ═══════════════════════════════════════
+     Sovana — Product Page Brand Styling
+  ═══════════════════════════════════════ */
+
+  /* ── Product title ── */
+  .product-details h1,
+  .product-details .h1,
+  .product-details .h2 {
+    font-family: "Gilda Display", serif;
+    font-size: clamp(1.7rem, 3vw, 2.5rem);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    line-height: 1.15;
+  }
+
+  /* ── Price display ── */
+  .product-details .price {
+    font-family: "Gilda Display", serif;
+    font-size: 1.05rem;
+    letter-spacing: 0.03em;
+  }
+
+  .product-details .price-item--sale {
+    color: #c9a96e;
+  }
+
+  .product-details .compare-at-price {
+    font-size: 0.85rem;
+    opacity: 0.45;
+    text-decoration: line-through;
+  }
+
+  /* ── Variant option label ── */
+  .product-details .variant-option legend,
+  .product-details .variant-option__label {
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgb(var(--color-foreground-rgb) / 0.5);
+    margin-bottom: 12px;
+  }
+
+  /* ── Size / button variant pills ── */
+  .product-details .variant-option--buttons .variant-option__button-label:not(.variant-option__button-label--has-swatch) {
+    border-color: #d3cec5;
+    border-radius: 0;
+    min-width: 54px;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .product-details .variant-option--buttons .variant-option__button-label:not(.variant-option__button-label--has-swatch):hover {
+    border-color: #c9a96e;
+    color: #c9a96e;
+  }
+
+  .product-details .variant-option--buttons input:checked + .variant-option__button-label:not(.variant-option__button-label--has-swatch) {
+    background-color: #1a1a1a;
+    border-color: #1a1a1a;
+    color: #ffffff;
+  }
+
+  /* ── Add to cart button ── */
+  .product-details .add-to-cart-button.button,
+  .product-form-buttons .add-to-cart-button.button {
+    background-color: #c9a96e;
+    color: #1a1a1a;
+    border: none;
+    box-shadow: none;
+    font-family: "Gilda Display", serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease, transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .product-details .add-to-cart-button.button::after,
+  .product-form-buttons .add-to-cart-button.button::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    left: -110%;
+    width: 55%;
+    background: linear-gradient(90deg, transparent 0%, rgb(255 255 255 / 0.26) 50%, transparent 100%);
+    transition: left 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+  }
+
+  .product-details .add-to-cart-button.button:hover,
+  .product-form-buttons .add-to-cart-button.button:hover {
+    background-color: #b8925a;
+    transform: translateY(-2px);
+  }
+
+  .product-details .add-to-cart-button.button:hover::after,
+  .product-form-buttons .add-to-cart-button.button:hover::after {
+    left: 160%;
+  }
+
+  .product-details .add-to-cart-button.button:active,
+  .product-form-buttons .add-to-cart-button.button:active {
+    transform: translateY(0);
+  }
+
+  /* ── Accordion headers ── */
+  .product-details .accordion .details__header {
+    font-family: "Gilda Display", serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding-block: 20px;
+  }
+
+  /* ── Accordion body text ── */
+  .product-details .accordion .details-content {
+    font-size: 0.88rem;
+    line-height: 1.8;
+    color: rgb(var(--color-foreground-rgb) / 0.72);
+    padding-bottom: 20px;
+  }
+
+  /* ── Sticky add-to-cart bar ── */
+  .sticky-add-to-cart__title {
+    font-family: "Gilda Display", serif;
+    font-size: 0.95rem;
+  }
+
+  .sticky-add-to-cart__button.add-to-cart-button.button {
+    background-color: #c9a96e;
+    color: #1a1a1a;
+    border: none;
+    box-shadow: none;
+  }
+
+  /* ── Related items section heading ── */
+  .product-recommendations h2,
+  .product-recommendations h3 {
+    font-family: "Gilda Display", serif;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+
+  /* ── Product card title & price in recommendations ── */
+  .product-recommendations .product-card .product-card__content h2,
+  .product-recommendations .product-card .product-card__content h3,
+  .product-recommendations .product-card .product-card__content [class*='h3'],
+  .product-recommendations .product-card .product-card__content [class*='h4'] {
+    font-family: "Gilda Display", serif;
+    font-weight: 400;
+  }
+
+  /* ── Mobile tweaks ── */
+  @media screen and (max-width: 749px) {
+    .product-details h1,
+    .product-details .h1,
+    .product-details .h2 {
+      font-size: clamp(1.5rem, 6vw, 2rem);
+    }
+
+    .product-details .add-to-cart-button.button,
+    .product-form-buttons .add-to-cart-button.button {
+      transform: none;
+    }
+  }
 {% endstylesheet %}
 
 {% schema %}
