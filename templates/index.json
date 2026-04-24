@@ -1,4 +1,12 @@
-
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero_banner_TGtwwg": {
@@ -36,21 +44,16 @@
         "btn_radius": 4
       }
     },
-
     "marquee_brand_strip": {
       "type": "marquee",
-      "settings": {
-        "movement_direction": "reverse",
-        "color_scheme": "scheme-1",
-        "padding-block-start": 18,
-        "padding-block-end": 18,
-        "gap_between_elements": 48
-      },
       "blocks": {
         "txt_arrival": {
           "type": "text",
           "settings": {
             "text": "<p>New Season Arrivals</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
             "type_preset": "custom",
             "font": "var(--font-heading--family)",
             "font_size": "0.7rem",
@@ -58,17 +61,35 @@
             "letter_spacing": "0.18em",
             "case": "uppercase",
             "wrap": "nowrap",
-            "width": "fit-content"
-          }
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
         },
         "div_1": {
           "type": "_divider",
-          "settings": {}
+          "settings": {
+            "thickness": 1,
+            "corner_radius": "square",
+            "width_percent": 100,
+            "padding-block-start": 0,
+            "padding-block-end": 0
+          },
+          "blocks": {}
         },
         "txt_craft": {
           "type": "text",
           "settings": {
             "text": "<p>Crafted for the Modern Woman</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
             "type_preset": "custom",
             "font": "var(--font-heading--family)",
             "font_size": "0.7rem",
@@ -76,17 +97,35 @@
             "letter_spacing": "0.18em",
             "case": "uppercase",
             "wrap": "nowrap",
-            "width": "fit-content"
-          }
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
         },
         "div_2": {
           "type": "_divider",
-          "settings": {}
+          "settings": {
+            "thickness": 1,
+            "corner_radius": "square",
+            "width_percent": 100,
+            "padding-block-start": 0,
+            "padding-block-end": 0
+          },
+          "blocks": {}
         },
         "txt_timeless": {
           "type": "text",
           "settings": {
             "text": "<p>Timeless Elegance</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
             "type_preset": "custom",
             "font": "var(--font-heading--family)",
             "font_size": "0.7rem",
@@ -94,17 +133,35 @@
             "letter_spacing": "0.18em",
             "case": "uppercase",
             "wrap": "nowrap",
-            "width": "fit-content"
-          }
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
         },
         "div_3": {
           "type": "_divider",
-          "settings": {}
+          "settings": {
+            "thickness": 1,
+            "corner_radius": "square",
+            "width_percent": 100,
+            "padding-block-start": 0,
+            "padding-block-end": 0
+          },
+          "blocks": {}
         },
         "txt_ship": {
           "type": "text",
           "settings": {
             "text": "<p>Complimentary Shipping on Orders Over $150</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
             "type_preset": "custom",
             "font": "var(--font-heading--family)",
             "font_size": "0.7rem",
@@ -112,12 +169,27 @@
             "letter_spacing": "0.18em",
             "case": "uppercase",
             "wrap": "nowrap",
-            "width": "fit-content"
-          }
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
         },
         "div_4": {
           "type": "_divider",
-          "settings": {}
+          "settings": {
+            "thickness": 1,
+            "corner_radius": "square",
+            "width_percent": 100,
+            "padding-block-start": 0,
+            "padding-block-end": 0
+          },
+          "blocks": {}
         }
       },
       "block_order": [
@@ -129,9 +201,15 @@
         "div_3",
         "txt_ship",
         "div_4"
-      ]
+      ],
+      "settings": {
+        "movement_direction": "reverse",
+        "color_scheme": "scheme-1",
+        "padding-block-start": 18,
+        "padding-block-end": 18,
+        "gap_between_elements": 48
+      }
     },
-
     "product_list_4jqyPz": {
       "type": "product-list",
       "blocks": {
@@ -351,10 +429,10 @@
       "name": "Featured collection",
       "settings": {
         "collection": "all",
-        "layout_type": "carousel",
+        "layout_type": "grid",
         "carousel_on_mobile": false,
         "max_products": 16,
-        "columns": 3,
+        "columns": 4,
         "mobile_columns": "2",
         "mobile_card_size": "60cqw",
         "columns_gap": 20,
@@ -369,9 +447,130 @@
         "padding-block-end": 24
       }
     },
-
     "editorial_lookbook": {
       "type": "media-with-content",
+      "blocks": {
+        "media": {
+          "type": "_media-without-appearance",
+          "static": true,
+          "settings": {
+            "media_type": "image",
+            "image": "shopify://shop_images/Square-02.webp",
+            "link": "",
+            "video_loop": true,
+            "video_autoplay": false,
+            "image_position": "cover",
+            "video_position": "cover"
+          },
+          "blocks": {}
+        },
+        "content": {
+          "type": "_content-without-appearance",
+          "static": true,
+          "settings": {
+            "horizontal_alignment_flex_direction_column": "flex-start",
+            "vertical_alignment_flex_direction_column": "center",
+            "gap": 24
+          },
+          "blocks": {
+            "eyebrow_txt": {
+              "type": "text",
+              "settings": {
+                "text": "<p>The Edit</p>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "custom",
+                "font": "var(--font-body--family)",
+                "font_size": "0.7rem",
+                "line_height": "normal",
+                "letter_spacing": "0.18em",
+                "case": "uppercase",
+                "wrap": "nowrap",
+                "color": "#c9a96e",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "heading_txt": {
+              "type": "text",
+              "settings": {
+                "text": "<h2>Designed for Every Chapter of Your Story</h2>",
+                "width": "fit-content",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "h2",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "body_txt": {
+              "type": "text",
+              "settings": {
+                "text": "<p>Each piece in our collection is thoughtfully designed to move with you — from morning meetings to evening gatherings. Understated luxury, every day.</p>",
+                "width": "fit-content",
+                "max_width": "narrow",
+                "alignment": "left",
+                "type_preset": "rte",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "color": "var(--color-foreground)",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "cta_btn": {
+              "type": "button",
+              "settings": {
+                "label": "Explore the Collection",
+                "link": "shopify://collections/all",
+                "open_in_new_tab": false,
+                "style_class": "secondary",
+                "width": "fit-content",
+                "custom_width": 100,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "eyebrow_txt",
+            "heading_txt",
+            "body_txt",
+            "cta_btn"
+          ]
+        }
+      },
       "settings": {
         "media_position": "left",
         "media_width": "wide",
@@ -381,106 +580,10 @@
         "color_scheme": "scheme-1",
         "padding-block-start": 0,
         "padding-block-end": 0
-      },
-      "blocks": {
-        "media": {
-          "type": "_media-without-appearance",
-          "static": true,
-          "settings": {}
-        },
-        "content": {
-          "type": "_content-without-appearance",
-          "static": true,
-          "settings": {
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "space-between"
-          },
-          "blocks": {
-            "eyebrow_txt": {
-              "type": "text",
-              "settings": {
-                "text": "<p>The Edit</p>",
-                "type_preset": "custom",
-                "font": "var(--font-body--family)",
-                "font_size": "0.7rem",
-                "letter_spacing": "0.18em",
-                "case": "uppercase",
-                "color": "#c9a96e",
-                "wrap": "nowrap",
-                "width": "fit-content",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              }
-            },
-            "heading_txt": {
-              "type": "text",
-              "settings": {
-                "text": "<h2>Designed for Every Chapter of Your Story</h2>",
-                "type_preset": "h2",
-                "max_width": "normal",
-                "wrap": "pretty",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              }
-            },
-            "body_txt": {
-              "type": "text",
-              "settings": {
-                "text": "<p>Each piece in our collection is thoughtfully designed to move with you — from morning meetings to evening gatherings. Understated luxury, every day.</p>",
-                "type_preset": "rte",
-                "max_width": "narrow",
-                "wrap": "pretty",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              }
-            },
-            "cta_btn": {
-              "type": "button",
-              "settings": {
-                "label": "Explore the Collection",
-                "link": "shopify://collections/all",
-                "style_class": "secondary"
-              }
-            }
-          },
-          "block_order": ["eyebrow_txt", "heading_txt", "body_txt", "cta_btn"]
-        }
-      },
-      "block_order": ["media", "content"]
+      }
     },
-
     "about_values_sovana": {
       "type": "about-value",
-      "settings": {
-        "bg_color": "#2a2018",
-        "section_padding": 100,
-        "eyebrow": "What We Believe In",
-        "title": "The Sovana Standard",
-        "subtitle": "Every detail matters. Every choice is intentional.",
-        "head_spacing": 64,
-        "columns": "4",
-        "grid_max_width": 1100,
-        "card_gap": 32,
-        "card_padding": 40,
-        "card_border_color": "#3d3020",
-        "card_radius": 2,
-        "icon_size": 40,
-        "icon_spacing": 20,
-        "icon_color": "#c9a96e",
-        "title_size": 48,
-        "card_title_size": 20,
-        "eyebrow_color": "#c9a96e",
-        "title_color": "#ffffff",
-        "subtitle_color": "#ffffff",
-        "card_title_color": "#ffffff",
-        "card_text_color": "#8a7a6a"
-      },
       "blocks": {
         "val_quality": {
           "type": "value",
@@ -515,11 +618,67 @@
           }
         }
       },
-      "block_order": ["val_quality", "val_timeless", "val_craft", "val_women"]
+      "block_order": [
+        "val_quality",
+        "val_timeless",
+        "val_craft",
+        "val_women"
+      ],
+      "settings": {
+        "bg_color": "#2a2018",
+        "section_padding": 100,
+        "eyebrow": "What We Believe In",
+        "title": "The Sovana Standard",
+        "subtitle": "Every detail matters. Every choice is intentional.",
+        "head_spacing": 64,
+        "columns": "4",
+        "grid_max_width": 1100,
+        "card_gap": 32,
+        "card_padding": 40,
+        "card_border_color": "#3d3020",
+        "card_radius": 2,
+        "icon_size": 40,
+        "icon_spacing": 20,
+        "icon_color": "#c9a96e",
+        "title_size": 48,
+        "card_title_size": 20,
+        "eyebrow_color": "#c9a96e",
+        "title_color": "#ffffff",
+        "subtitle_color": "#ffffff",
+        "card_title_color": "#ffffff",
+        "card_text_color": "#8a7a6a"
+      }
     },
-
     "stats_cta_sovana": {
       "type": "about-stats-cta",
+      "blocks": {
+        "stat_founded": {
+          "type": "stat",
+          "settings": {
+            "number": "2020",
+            "label": "Est."
+          }
+        },
+        "stat_customers": {
+          "type": "stat",
+          "settings": {
+            "number": "12K+",
+            "label": "Happy Customers"
+          }
+        },
+        "stat_countries": {
+          "type": "stat",
+          "settings": {
+            "number": "40+",
+            "label": "Countries Shipped"
+          }
+        }
+      },
+      "block_order": [
+        "stat_founded",
+        "stat_customers",
+        "stat_countries"
+      ],
       "settings": {
         "show_stats": true,
         "stats_bg_color": "#faf9f7",
@@ -547,36 +706,14 @@
         "cta_title_color": "#ffffff",
         "cta_text_color": "#ffffff",
         "btn_primary_label": "Shop the Collection",
+        "btn_primary_link": "",
         "btn_primary_bg": "#c9a96e",
         "btn_primary_text": "#1a1a1a",
         "btn_secondary_label": "",
+        "btn_secondary_link": "",
         "btn_secondary_color": "#ffffff",
         "btn_radius": 2
-      },
-      "blocks": {
-        "stat_founded": {
-          "type": "stat",
-          "settings": {
-            "number": "2020",
-            "label": "Est."
-          }
-        },
-        "stat_customers": {
-          "type": "stat",
-          "settings": {
-            "number": "12K+",
-            "label": "Happy Customers"
-          }
-        },
-        "stat_countries": {
-          "type": "stat",
-          "settings": {
-            "number": "40+",
-            "label": "Countries Shipped"
-          }
-        }
-      },
-      "block_order": ["stat_founded", "stat_customers", "stat_countries"]
+      }
     }
   },
   "order": [
