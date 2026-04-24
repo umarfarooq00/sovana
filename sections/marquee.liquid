@@ -1,4 +1,4 @@
-
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
 <script
   src="{{ 'marquee.js' | asset_url }}"
@@ -8,10 +8,12 @@
 
 {% assign gap_between_elements = section.settings.gap_between_elements %}
 
-<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<div class="section-background" style="background-color: {{ section.settings.bg_color }};"></div>
 <marquee-component
-  class="section spacing-style gap-style color-{{ section.settings.color_scheme }}"
+  class="section spacing-style gap-style"
   style="
+    background-color: {{ section.settings.bg_color }};
+    color: {{ section.settings.text_color }};
     {%- render 'spacing-style', settings: section.settings %};
     {% render 'gap-style', value: gap_between_elements, name: 'marquee-gap' %}
     --marquee-direction: {{ section.settings.movement_direction }};
@@ -77,6 +79,16 @@
     align-content: center;
   }
 
+  /* Force DM Sans on all marquee text, override block-level inline styles */
+  marquee-component .marquee__repeated-items * {
+    font-family: 'DM Sans', sans-serif !important;
+    font-size: 0.7rem !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.18em !important;
+    text-transform: uppercase !important;
+    color: inherit !important;
+  }
+
   @media (prefers-reduced-motion: no-preference) {
     marquee-component:not([data-disabled]) .marquee__wrapper {
       animation: marquee-motion var(--marquee-speed) linear infinite var(--marquee-direction);
@@ -94,17 +106,11 @@
 {
   "name": "t:names.marquee",
   "disabled_on": {
-    "groups": ["header", "footer"]
+    "groups": ["footer"]
   },
   "blocks": [
     {
       "type": "text"
-    },
-    {
-      "type": "icon"
-    },
-    {
-      "type": "logo"
     },
     {
       "type": "_divider"
@@ -128,10 +134,16 @@
       "default": "normal"
     },
     {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "t:settings.color_scheme",
-      "default": "scheme-1"
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#c9a96e"
     },
     {
       "type": "header",

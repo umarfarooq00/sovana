@@ -1,8 +1,8 @@
 {% comment %}
   Hero Banner Section
-  - Supports: Background Image, Background Color, Background Video
-  - Fully editable from Shopify Theme Editor
-  - Place this file in: sections/hero-banner.liquid
+  - Image is the natural flow element — section height auto-fits to image
+  - Content div is absolutely positioned above the image
+  - Supports desktop + mobile image, overlay, video, color background
 {% endcomment %}
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -11,43 +11,35 @@
   .hero-{{ section.id }} {
     position: relative;
     width: 100%;
-    height: {{ section.settings.section_height }}px;
-    display: flex;
-    align-items: {{ section.settings.content_position }};
-    justify-content: {{ section.settings.text_alignment }};
     overflow: hidden;
   }
 
-  /* ── BACKGROUND LAYERS ── */
+  /* ── IMAGE (natural flow — drives section height) ── */
+  .hero-{{ section.id }} .hero__bg-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: {{ section.settings.image_position }};
+  }
 
-  /* 1. Color background */
+  /* ── COLOR BACKGROUND (fallback / color mode) ── */
   .hero-{{ section.id }} .hero__bg-color {
-    position: absolute;
-    inset: 0;
+    width: 100%;
+    min-height: 480px;
     background-color: {{ section.settings.bg_color }};
-    z-index: 0;
   }
 
-  /* 2. Image background */
-  .hero-{{ section.id }} .hero__bg-image {
-    position: absolute;
-    inset: 0;
-    background-image: url('{{ section.settings.bg_image | img_url: 'master' }}');
-    background-size: cover;
-    background-position: {{ section.settings.image_position }};
-    z-index: 0;
-  }
-
-  /* 3. Video background */
+  /* ── VIDEO BACKGROUND ── */
   .hero-{{ section.id }} .hero__bg-video {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
+    width: 100%;
+    min-height: 480px;
   }
   .hero-{{ section.id }} .hero__bg-video video {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
   }
 
   /* ── OVERLAY ── */
@@ -60,12 +52,19 @@
     pointer-events: none;
   }
 
-  /* ── CONTENT ── */
+  /* ── CONTENT (absolute, covers full image area) ── */
   .hero-{{ section.id }} .hero__content {
-    position: relative;
+    position: absolute;
+    inset: 0;
     z-index: 2;
-    text-align: {{ section.settings.text_align }};
+    display: flex;
+    align-items: {{ section.settings.content_position }};
+    justify-content: {{ section.settings.text_alignment }};
     padding: 0 24px;
+  }
+
+  .hero-{{ section.id }} .hero__content-inner {
+    text-align: {{ section.settings.text_align }};
     max-width: {{ section.settings.content_max_width }}px;
     width: 100%;
     animation: heroFadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
@@ -111,7 +110,6 @@
     justify-content: {{ section.settings.text_align }};
   }
 
-  /* Primary button */
   .hero-{{ section.id }} .hero__btn-primary {
     font-size: 13px;
     font-weight: 500;
@@ -133,7 +131,6 @@
     transform: translateY(-2px);
   }
 
-  /* Secondary button */
   .hero-{{ section.id }} .hero__btn-secondary {
     font-size: 13px;
     font-weight: 500;
@@ -155,17 +152,18 @@
     transform: translateY(-2px);
   }
 
-  /* ── MOBILE ── */
   @media (max-width: 767px) {
-    .hero-{{ section.id }} {
-      height: {{ section.settings.mobile_height }}px;
-    }
     .hero-{{ section.id }} .hero__title {
       font-size: {{ section.settings.title_size | times: 0.65 | round }}px;
     }
     .hero-{{ section.id }} .hero__buttons {
       justify-content: center;
     }
+    {% if section.settings.mobile_image_position != blank %}
+    .hero-{{ section.id }} .hero__bg-img {
+      object-position: {{ section.settings.mobile_image_position }};
+    }
+    {% endif %}
   }
 </style>
 
@@ -175,7 +173,23 @@
 
   {% if section.settings.bg_type == 'image' %}
     {% if section.settings.bg_image != blank %}
-      <div class="hero__bg-image"></div>
+      <picture>
+        {%- if section.settings.mobile_image != blank -%}
+          <source
+            media="(max-width: 767px)"
+            srcset="{{ section.settings.mobile_image | img_url: '750x' }}"
+          >
+        {%- endif -%}
+        <img
+          class="hero__bg-img"
+          src="{{ section.settings.bg_image | img_url: 'master' }}"
+          alt="{{ section.settings.bg_image.alt | escape }}"
+          loading="eager"
+          fetchpriority="high"
+          width="{{ section.settings.bg_image.width }}"
+          height="{{ section.settings.bg_image.height }}"
+        >
+      </picture>
     {% else %}
       <div class="hero__bg-color"></div>
     {% endif %}
@@ -183,18 +197,11 @@
   {% elsif section.settings.bg_type == 'video' %}
     <div class="hero__bg-video">
       {% if section.settings.bg_video_url != blank %}
-        <video
-          autoplay
-          muted
-          loop
-          playsinline
-          preload="auto"
-        >
+        <video autoplay muted loop playsinline preload="auto">
           <source src="{{ section.settings.bg_video_url }}" type="video/mp4">
         </video>
       {% else %}
-        {%- comment -%} Fallback to color if no video uploaded {%- endcomment -%}
-        <div class="hero__bg-color" style="position:absolute;inset:0;background:{{ section.settings.bg_color }};"></div>
+        <div class="hero__bg-color"></div>
       {% endif %}
     </div>
 
@@ -207,37 +214,40 @@
     <div class="hero__overlay"></div>
   {% endif %}
 
-  {% comment %} ── CONTENT ── {% endcomment %}
+  {% comment %} ── CONTENT (absolute above image) ── {% endcomment %}
   <div class="hero__content">
+    <div class="hero__content-inner">
 
-    {% if section.settings.eyebrow != blank %}
-      <span class="hero__eyebrow">{{ section.settings.eyebrow }}</span>
-    {% endif %}
+      {% if section.settings.eyebrow != blank %}
+        <span class="hero__eyebrow">{{ section.settings.eyebrow }}</span>
+      {% endif %}
 
-    {% if section.settings.title != blank %}
-      <h1 class="hero__title">{{ section.settings.title }}</h1>
-    {% endif %}
+      {% if section.settings.title != blank %}
+        <h1 class="hero__title">{{ section.settings.title }}</h1>
+      {% endif %}
 
-    {% if section.settings.subtitle != blank %}
-      <p class="hero__subtitle">{{ section.settings.subtitle }}</p>
-    {% endif %}
+      {% if section.settings.subtitle != blank %}
+        <p class="hero__subtitle">{{ section.settings.subtitle }}</p>
+      {% endif %}
 
-    {% if section.settings.btn_primary_label != blank or section.settings.btn_secondary_label != blank %}
-      <div class="hero__buttons">
-        {% if section.settings.btn_primary_label != blank %}
-          <a href="{{ section.settings.btn_primary_link }}" class="hero__btn-primary">
-            {{ section.settings.btn_primary_label }}
-          </a>
-        {% endif %}
-        {% if section.settings.btn_secondary_label != blank %}
-          <a href="{{ section.settings.btn_secondary_link }}" class="hero__btn-secondary">
-            {{ section.settings.btn_secondary_label }}
-          </a>
-        {% endif %}
-      </div>
-    {% endif %}
+      {% if section.settings.btn_primary_label != blank or section.settings.btn_secondary_label != blank %}
+        <div class="hero__buttons">
+          {% if section.settings.btn_primary_label != blank %}
+            <a href="{{ section.settings.btn_primary_link }}" class="hero__btn-primary">
+              {{ section.settings.btn_primary_label }}
+            </a>
+          {% endif %}
+          {% if section.settings.btn_secondary_label != blank %}
+            <a href="{{ section.settings.btn_secondary_link }}" class="hero__btn-secondary">
+              {{ section.settings.btn_secondary_label }}
+            </a>
+          {% endif %}
+        </div>
+      {% endif %}
 
+    </div>
   </div>
+
 </section>
 
 
@@ -268,18 +278,47 @@
       "id": "bg_color",
       "label": "Background color",
       "default": "#2a2018",
-      "info": "Used when background type is set to Color, or as fallback"
+      "info": "Used when background type is Color, or as fallback"
+    },
+
+    {
+      "type": "header",
+      "content": "Desktop Image"
     },
     {
       "type": "image_picker",
       "id": "bg_image",
-      "label": "Background image",
-      "info": "Recommended size: 1920 × 1080px. Used when background type is Image."
+      "label": "Desktop image",
+      "info": "Recommended: 1920 × 1080px landscape. Used when background type is Image."
     },
     {
       "type": "select",
       "id": "image_position",
-      "label": "Image focal point",
+      "label": "Desktop focal point",
+      "options": [
+        { "value": "top center",    "label": "Top" },
+        { "value": "center center", "label": "Center" },
+        { "value": "bottom center", "label": "Bottom" },
+        { "value": "left center",   "label": "Left" },
+        { "value": "right center",  "label": "Right" }
+      ],
+      "default": "center center"
+    },
+
+    {
+      "type": "header",
+      "content": "Mobile Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile image",
+      "info": "Recommended: 750 × 950px portrait. Leave blank to use desktop image on mobile."
+    },
+    {
+      "type": "select",
+      "id": "mobile_image_position",
+      "label": "Mobile focal point",
       "options": [
         { "value": "top center",    "label": "Top" },
         { "value": "center center", "label": "Center" },
@@ -293,7 +332,7 @@
       "type": "text",
       "id": "bg_video_url",
       "label": "Background video URL (.mp4)",
-      "info": "Paste a direct .mp4 URL. Used when background type is Video. For best performance use a compressed video under 5MB."
+      "info": "Paste a direct .mp4 URL. Used when background type is Video."
     },
 
     {
@@ -322,31 +361,6 @@
       "step": 5,
       "unit": "%",
       "default": 45
-    },
-
-    {
-      "type": "header",
-      "content": "Section Size"
-    },
-    {
-      "type": "range",
-      "id": "section_height",
-      "label": "Desktop height",
-      "min": 300,
-      "max": 900,
-      "step": 20,
-      "unit": "px",
-      "default": 520
-    },
-    {
-      "type": "range",
-      "id": "mobile_height",
-      "label": "Mobile height",
-      "min": 200,
-      "max": 700,
-      "step": 20,
-      "unit": "px",
-      "default": 400
     },
 
     {
@@ -520,7 +534,7 @@
     {
       "name": "Hero Banner",
       "settings": {
-        "bg_type": "color",
+        "bg_type": "image",
         "bg_color": "#2a2018",
         "eyebrow": "New Season",
         "title": "Spring Edit",

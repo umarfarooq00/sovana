@@ -11,6 +11,101 @@
   "type": "header",
   "name": "Header",
   "sections": {
+    "marquee_brand_strip": {
+      "type": "marquee",
+      "blocks": {
+        "txt_arrival": {
+          "type": "text",
+          "settings": {
+            "text": "<p>New Season Arrivals</p>"
+          },
+          "blocks": {}
+        },
+        "div_1": {
+          "type": "_divider",
+          "settings": {
+            "thickness": 1,
+            "corner_radius": "square",
+            "width_percent": 100,
+            "padding-block-start": 0,
+            "padding-block-end": 0
+          },
+          "blocks": {}
+        },
+        "txt_craft": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Crafted for the Modern Woman</p>"
+          },
+          "blocks": {}
+        },
+        "div_2": {
+          "type": "_divider",
+          "settings": {
+            "thickness": 1,
+            "corner_radius": "square",
+            "width_percent": 100,
+            "padding-block-start": 0,
+            "padding-block-end": 0
+          },
+          "blocks": {}
+        },
+        "txt_timeless": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Timeless Elegance</p>"
+          },
+          "blocks": {}
+        },
+        "div_3": {
+          "type": "_divider",
+          "settings": {
+            "thickness": 1,
+            "corner_radius": "square",
+            "width_percent": 100,
+            "padding-block-start": 0,
+            "padding-block-end": 0
+          },
+          "blocks": {}
+        },
+        "txt_ship": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Complimentary Shipping on Orders Over $150</p>"
+          },
+          "blocks": {}
+        },
+        "div_4": {
+          "type": "_divider",
+          "settings": {
+            "thickness": 1,
+            "corner_radius": "square",
+            "width_percent": 100,
+            "padding-block-start": 0,
+            "padding-block-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "txt_arrival",
+        "div_1",
+        "txt_craft",
+        "div_2",
+        "txt_timeless",
+        "div_3",
+        "txt_ship",
+        "div_4"
+      ],
+      "settings": {
+        "movement_direction": "reverse",
+        "bg_color": "#1a1a1a",
+        "text_color": "#c9a96e",
+        "padding-block-start": 12,
+        "padding-block-end": 12,
+        "gap_between_elements": 48
+      }
+    },
     "header_section": {
       "type": "header",
       "blocks": {
@@ -85,6 +180,7 @@
     }
   },
   "order": [
+    "marquee_brand_strip",
     "header_section"
   ]
 }
