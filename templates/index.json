@@ -21,8 +21,6 @@
         "show_overlay": true,
         "overlay_color": "#000000",
         "overlay_opacity": 45,
-        "section_height": 900,
-        "mobile_height": 400,
         "eyebrow": "New Season",
         "title": "Spring Edit",
         "subtitle": "Curated pieces for the new season",
