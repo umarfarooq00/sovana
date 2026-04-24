@@ -17,7 +17,25 @@
         "txt_arrival": {
           "type": "text",
           "settings": {
-            "text": "<p>New Season Arrivals</p>"
+            "text": "<p>New Season Arrivals</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
           },
           "blocks": {}
         },
@@ -35,7 +53,25 @@
         "txt_craft": {
           "type": "text",
           "settings": {
-            "text": "<p>Crafted for the Modern Woman</p>"
+            "text": "<p>Crafted for the Modern Woman</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
           },
           "blocks": {}
         },
@@ -53,7 +89,25 @@
         "txt_timeless": {
           "type": "text",
           "settings": {
-            "text": "<p>Timeless Elegance</p>"
+            "text": "<p>Timeless Elegance</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
           },
           "blocks": {}
         },
@@ -71,7 +125,25 @@
         "txt_ship": {
           "type": "text",
           "settings": {
-            "text": "<p>Complimentary Shipping on Orders Over $150</p>"
+            "text": "<p>Complimentary Shipping on Orders Over $150</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
           },
           "blocks": {}
         },
@@ -99,8 +171,8 @@
       ],
       "settings": {
         "movement_direction": "reverse",
-        "bg_color": "#1a1a1a",
-        "text_color": "#c9a96e",
+        "bg_color": "#c9a96e",
+        "text_color": "#ffffff",
         "padding-block-start": 12,
         "padding-block-end": 12,
         "gap_between_elements": 48
@@ -184,4 +256,3 @@
     "header_section"
   ]
 }
- 

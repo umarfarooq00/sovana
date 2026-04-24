@@ -17,6 +17,8 @@
         "bg_color": "#2a2018",
         "bg_image": "shopify://shop_images/Desktop-hero-image-02.webp",
         "image_position": "top center",
+        "mobile_image": "shopify://shop_images/Portrait-02.jpg",
+        "mobile_image_position": "center center",
         "bg_video_url": "",
         "show_overlay": true,
         "overlay_color": "#000000",
