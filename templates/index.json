@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "hero_banner_TGtwwg": {
@@ -151,10 +142,10 @@
               "settings": {
                 "content_direction": "column",
                 "vertical_on_mobile": true,
-                "horizontal_alignment": "space-between",
+                "horizontal_alignment": "center",
                 "vertical_alignment": "flex-end",
                 "align_baseline": false,
-                "horizontal_alignment_flex_direction_column": "flex-start",
+                "horizontal_alignment_flex_direction_column": "center",
                 "vertical_alignment_flex_direction_column": "center",
                 "gap": 4,
                 "width": "fill",
@@ -178,25 +169,25 @@
                 "gradient_direction": "to top",
                 "link": "",
                 "open_in_new_tab": false,
-                "padding-block-start": 12,
-                "padding-block-end": 16,
-                "padding-inline-start": 24,
-                "padding-inline-end": 24
+                "padding-block-start": 10,
+                "padding-block-end": 12,
+                "padding-inline-start": 8,
+                "padding-inline-end": 8
               },
               "blocks": {
                 "product_title_X9YnYh": {
                   "type": "product-title",
                   "name": "t:names.product_title",
                   "settings": {
-                    "width": "fit-content",
+                    "width": "100%",
                     "max_width": "normal",
-                    "alignment": "left",
+                    "alignment": "center",
                     "type_preset": "paragraph",
                     "font": "var(--font-body--family)",
                     "font_size": "1rem",
                     "line_height": "normal",
                     "letter_spacing": "normal",
-                    "case": "none",
+                    "case": "uppercase",
                     "wrap": "pretty",
                     "color": "var(--color-foreground)",
                     "background": false,
@@ -218,7 +209,7 @@
                     "show_tax_info": false,
                     "type_preset": "h6",
                     "width": "100%",
-                    "alignment": "left",
+                    "alignment": "center",
                     "font": "var(--font-body--family)",
                     "font_size": "1rem",
                     "line_height": "normal",
@@ -416,73 +407,6 @@
         "padding-block-end": 0
       }
     },
-    "about_values_sovana": {
-      "type": "about-value",
-      "blocks": {
-        "val_quality": {
-          "type": "value",
-          "settings": {
-            "icon": "shield",
-            "title": "Uncompromising Quality",
-            "text": "Fabrics sourced from the world's finest mills. Every seam, every stitch held to the highest standard."
-          }
-        },
-        "val_timeless": {
-          "type": "value",
-          "settings": {
-            "icon": "clock",
-            "title": "Timeless Design",
-            "text": "Beyond seasons and trends. We create pieces that belong in your wardrobe for decades, not months."
-          }
-        },
-        "val_craft": {
-          "type": "value",
-          "settings": {
-            "icon": "award",
-            "title": "Expert Craftsmanship",
-            "text": "Made by skilled artisans who bring generations of expertise to every garment we produce."
-          }
-        },
-        "val_women": {
-          "type": "value",
-          "settings": {
-            "icon": "heart",
-            "title": "For Every Woman",
-            "text": "Inclusive sizing, thoughtful silhouettes, effortless elegance. Designed with real women in mind."
-          }
-        }
-      },
-      "block_order": [
-        "val_quality",
-        "val_timeless",
-        "val_craft",
-        "val_women"
-      ],
-      "settings": {
-        "bg_color": "#2a2018",
-        "section_padding": 100,
-        "eyebrow": "What We Believe In",
-        "title": "The Sovana Standard",
-        "subtitle": "Every detail matters. Every choice is intentional.",
-        "head_spacing": 64,
-        "columns": "4",
-        "grid_max_width": 1100,
-        "card_gap": 32,
-        "card_padding": 40,
-        "card_border_color": "#3d3020",
-        "card_radius": 2,
-        "icon_size": 40,
-        "icon_spacing": 20,
-        "icon_color": "#c9a96e",
-        "title_size": 48,
-        "card_title_size": 20,
-        "eyebrow_color": "#c9a96e",
-        "title_color": "#ffffff",
-        "subtitle_color": "#ffffff",
-        "card_title_color": "#ffffff",
-        "card_text_color": "#8a7a6a"
-      }
-    },
     "stats_cta_sovana": {
       "type": "about-stats-cta",
       "blocks": {
@@ -554,7 +478,6 @@
     "hero_banner_TGtwwg",
     "product_list_4jqyPz",
     "editorial_lookbook",
-    "about_values_sovana",
     "stats_cta_sovana"
   ]
 }
