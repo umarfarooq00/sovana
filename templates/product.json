@@ -1,4 +1,12 @@
-
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "product-information": {
@@ -8,7 +16,7 @@
           "type": "_product-media-gallery",
           "static": true,
           "settings": {
-            "media_presentation": "grid",
+            "media_presentation": "carousel",
             "media_columns": "two",
             "image_gap": 0,
             "large_first_image": false,
@@ -746,10 +754,10 @@
         "collection_list": [
           "shop-all",
           "prom-gowns",
-          "date-night",
+          "date-night-dress",
           "sovana-signature-dress",
           "sale-collection",
-          "womens"
+          "signature-gown"
         ],
         "layout_type": "carousel",
         "carousel_on_mobile": true,
