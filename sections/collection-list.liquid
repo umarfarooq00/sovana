@@ -33,6 +33,21 @@
     font-size: 20px;
     padding-top: 20px;
   }
+  @media screen and (max-width: 991px) {
+    .collection_list_main .container {
+      padding: 0;
+    }
+    .collection_list_main .list_inner {
+      display: flex;
+      justify-content: flex-start;
+      overflow-x: auto;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .collection_list_main .list_inner::-webkit-scrollbar {
+      display: none;
+    }
+  }
 {%- endstyle -%}
 <section class="collection_list_main" id="collection_list_main-{{ section.id }}">
   <div class="container">
