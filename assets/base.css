@@ -4281,9 +4281,9 @@ product-card {
 .product-card .text-block h2,
 .product-card .text-block h3,
 .product-card .text-block p {
-  font-size: 0.75rem !important;
-  font-weight: 400 !important;
-  letter-spacing: 0.12em !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
   text-transform: uppercase !important;
   text-align: center !important;
   line-height: 1.4 !important;
