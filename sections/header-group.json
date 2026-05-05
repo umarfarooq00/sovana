@@ -170,7 +170,7 @@
         "div_4"
       ],
       "settings": {
-        "movement_direction": "reverse",
+        "movement_direction": "normal",
         "bg_color": "#c9a96e",
         "text_color": "#ffffff",
         "padding-block-start": 12,
