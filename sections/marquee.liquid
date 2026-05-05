@@ -1,3 +1,13 @@
+{%- style -%}
+  #marquee_main-{{ section.id }} {
+    padding-top:{{ section.settings.padding_top }}px;
+    padding-bottom:{{ section.settings.padding_bottom }}px;
+    background: {{ section.settings.bg_color }};
+  }
+  #marquee_main-{{ section.id }} span {
+    color: {{ section.settings.font_color }};
+  }
+{%- endstyle -%}
 <section class="marquee_main" id="marquee_main-{{ section.id }}">
   <div class="container">
     <div class="marquee_inner">
