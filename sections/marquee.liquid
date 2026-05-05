@@ -7,6 +7,55 @@
   #marquee_main-{{ section.id }} span {
     color: {{ section.settings.font_color }};
   }
+  .marquee_main {
+    width: 100%;
+    height: auto;
+  }
+  .marquee_main .slick-prev, 
+  .marquee_main .slick-next {
+    width: 35px;
+    height: 35px;
+    background: #fff;
+    margin: 0;
+    z-index: 9;
+    padding: 0;
+    border-radius: 100%;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+  }
+  .marquee_main .slick-prev:before {
+    content: '';
+    border: 2px solid #142122;
+    width: 10px;
+    height: 10px;
+    z-index: 9;
+    position: relative;
+    background: #fff;
+    border-right-width: 0 !important;
+    border-bottom-width: 0 !important;
+    rotate: 315deg;
+    margin-left: 3px;
+  }
+  .marquee_main .slick-next:before {
+    content: '';
+    border: 2px solid #142122;
+    width: 10px;
+    height: 10px;
+    z-index: 9;
+    position: relative;
+    background: #fff;
+    border-left-width: 0 !important;
+    border-top-width: 0 !important;
+    rotate: 315deg;
+    margin-right: 3px;
+  }
+  .marquee_main .slick-prev {
+    left: 20px;
+  }
+  .marquee_main .slick-next {
+    right: 20px;
+  }
 {%- endstyle -%}
 <section class="marquee_main" id="marquee_main-{{ section.id }}">
   <div class="container">
