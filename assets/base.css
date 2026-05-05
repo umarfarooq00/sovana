@@ -4293,8 +4293,11 @@ product-card {
 .product-card .price,
 .product-card .price__container,
 .product-card [class*='price'] {
-  text-align: center !important;
-  justify-content: center !important;
+      text-align: center !important;
+    font-size: 12px;
+    font-weight: 700;
+    opacity: .85;
+    letter-spacing: 0.08em;
 }
 
 /* ── Product card content group — no background, centered ── */
