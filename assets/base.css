@@ -4334,7 +4334,8 @@ product-card {
 .card-gallery:hover product-swatches {
   opacity: 1;
   position: absolute;
-  bottom: 0;
+  bottom: 20px;
   left: 50%;
+  translate: 0 50%;
   transition: .4s ease-in-out;
 }
