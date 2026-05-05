@@ -82,6 +82,23 @@
   data-image-ratio="{{ block_settings.image_ratio }}"
   {{ block.shopify_attributes }}
 >
+  <product-swatches
+    data-product-id="{{ closest.product.id }}"
+    data-product-url="{{ closest.product.url }}"
+    style="
+      --overflow-list-alignment: {{ block_settings.product_swatches_alignment }};
+      --overflow-list-alignment-mobile: {{ block_settings.product_swatches_alignment_mobile }};
+      --product-swatches-alignment: {% if block_settings.product_swatches_alignment == 'flex-start' %}start{% elsif block_settings.product_swatches_alignment == 'flex-end' %}end{% else %}center{% endif %};
+      --product-swatches-alignment-mobile: {% if block_settings.product_swatches_alignment_mobile == 'flex-start' %}start{% elsif block_settings.product_swatches_alignment_mobile == 'flex-end' %}end{% else %}center{% endif %};
+      --product-swatches-padding-block-start: {{ block_settings.product_swatches_padding_top }}px;
+      --product-swatches-padding-block-end: {{ block_settings.product_swatches_padding_bottom }}px;
+      --product-swatches-padding-inline-start: {{ block_settings.product_swatches_padding_left }}px;
+      --product-swatches-padding-inline-end: {{ block_settings.product_swatches_padding_right }}px;
+    "
+    {{ block.shopify_attributes }}
+  >
+    {% render 'variant-swatches', product_resource: closest.product %}
+  </product-swatches>
   {%- if product.media.size > 0 -%}
     {% liquid
       # Check if there are generic media that are not variant images
