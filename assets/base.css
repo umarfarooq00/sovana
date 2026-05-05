@@ -3857,7 +3857,6 @@ text-component {
   --shimmer-text-color: rgb(var(--color-foreground-rgb) / var(--opacity-50));
   --shimmer-color-light: rgb(var(--color-foreground-rgb) / var(--opacity-10));
   --shimmer-speed: 1.25s;
-  font-family: "Gilda Display", serif;
   font-weight: 800;
 
   display: inline-block;
@@ -4227,7 +4226,6 @@ product-card {
   border-radius: 0;
 }
 .ui-test-product-list h3 {
-  font-family: "Gilda Display", serif;
   font-size: 64px;
   font-weight: 700;
   line-height: 1.05;
@@ -4249,7 +4247,6 @@ product-card {
 .product-badges__badge {
   background-color: #c9a96e !important;
   color: #1a1a1a !important;
-  font-family: "Gilda Display", serif;
   font-size: 0.5rem;
   font-weight: 400;
   letter-spacing: 0.14em;
@@ -4285,7 +4282,6 @@ product-card {
 .product-card .text-block h2,
 .product-card .text-block h3,
 .product-card .text-block p {
-  font-family: "Gilda Display", serif !important;
   font-size: 0.75rem !important;
   font-weight: 400 !important;
   letter-spacing: 0.12em !important;
@@ -4311,7 +4307,6 @@ product-card {
 
 /* ── Product page title — Gilda Display ── */
 .product-details h1 {
-  font-family: "Gilda Display", serif;
   font-size: clamp(1.7rem, 3vw, 2.5rem);
   font-weight: 400;
   letter-spacing: 0.02em;
@@ -4321,7 +4316,6 @@ product-card {
 /* Sale price on product page — gold ── */
 .product-details .price-item--sale {
   color: #c9a96e;
-  font-family: "Gilda Display", serif;
   font-size: 1.05rem;
   letter-spacing: 0.03em;
 }
