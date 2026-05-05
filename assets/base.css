@@ -4321,3 +4321,6 @@ product-card {
   font-size: 1.05rem;
   letter-spacing: 0.03em;
 }
+.card-gallery {
+  position: relative;
+}
