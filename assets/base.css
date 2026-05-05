@@ -4226,9 +4226,8 @@ product-card {
   border-radius: 0;
 }
 .ui-test-product-list h3 {
-  font-size: 64px;
-  font-weight: 700;
-  line-height: 1.05;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 .payment-icons__list {
     display: flex;
