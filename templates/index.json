@@ -390,6 +390,7 @@
           ]
         }
       },
+      "disabled": true,
       "settings": {
         "media_position": "left",
         "media_width": "wide",
@@ -431,6 +432,7 @@
         "stat_customers",
         "stat_countries"
       ],
+      "disabled": true,
       "settings": {
         "show_stats": true,
         "stats_bg_color": "#faf9f7",
