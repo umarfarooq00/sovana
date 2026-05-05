@@ -269,36 +269,36 @@
     "collection_list_fkJWwt": {
       "type": "collection-list",
       "blocks": {
-        "collection_list_TnJMKH": {
-          "type": "collection_list",
-          "settings": {
-            "collection": "date-night-dress"
-          }
-        },
-        "collection_list_tfFrQ9": {
-          "type": "collection_list",
-          "settings": {
-            "collection": "new-arrivals"
-          }
-        },
         "collection_list_WaMA3m": {
           "type": "collection_list",
           "settings": {
             "collection": "prom-gowns"
           }
         },
-        "collection_list_4wzxUB": {
+        "collection_list_7RDUkY": {
           "type": "collection_list",
           "settings": {
-            "collection": "signature-gown"
+            "collection": "prom-gowns"
+          }
+        },
+        "collection_list_VjQG8n": {
+          "type": "collection_list",
+          "settings": {
+            "collection": "prom-gowns"
+          }
+        },
+        "collection_list_TnaydT": {
+          "type": "collection_list",
+          "settings": {
+            "collection": "prom-gowns"
           }
         }
       },
       "block_order": [
-        "collection_list_TnJMKH",
-        "collection_list_tfFrQ9",
         "collection_list_WaMA3m",
-        "collection_list_4wzxUB"
+        "collection_list_7RDUkY",
+        "collection_list_VjQG8n",
+        "collection_list_TnaydT"
       ],
       "name": "t:names.collections_grid",
       "settings": {
