@@ -26,6 +26,11 @@
     text-transform: uppercase;
     text-align: left;
   }
+  .collection_list_main .list_inner h2 {
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: left;
+  }
 {%- endstyle -%}
 <section class="collection_list_main" id="collection_list_main-{{ section.id }}">
   <div class="container">
@@ -40,7 +45,7 @@
         {% if col.featured_image %}
             {{ col.featured_image | image_url:width:col.featured_image.width | image_tag:loading:'lazy'}}
         {% endif %}
-        <h3>{{ col.title }}</h3>
+        <h2>{{ col.title }}</h2>
       </a>
     {% endif %}
   {% endfor %}
