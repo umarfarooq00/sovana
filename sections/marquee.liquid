@@ -1,4 +1,4 @@
-<div class="marquee_main" id="marquee_main-{{ section.id }}">
+<section class="marquee_main" id="marquee_main-{{ section.id }}">
   <div class="container">
     <div class="marquee_inner">
       {% for block in section.blocks %}
@@ -8,4 +8,76 @@
       {% endfor %}
     </div>
   </div>
-</div>
+</section>
+{% schema %}
+  {
+    "name": "Marquee",
+    "settings": [
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "BG Color",
+        "default": "#C9A96E"
+      },
+      {
+        "type": "color",
+        "id": "font_color",
+        "label": "Font Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Padding Top",
+        "default": 10
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Padding Bottom",
+        "default": 10
+      },
+    ],
+    "blocks": [
+      {
+        "name":"Add Text",
+        "type":"add_text",
+        "settings":[
+          {
+            "type": "text",
+            "id": "text",
+            "label": "Add Text",
+            "default": "New Season Arrivals"
+          }
+        ]
+      }
+    ],
+    "presets":[
+      {
+        "name":"Marquee",
+        "blocks": [
+          {
+            "type": "add_text"
+          },
+          {
+            "type": "add_text"
+          },
+          {
+            "type": "add_text"
+          },
+          {
+            "type": "add_text"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
