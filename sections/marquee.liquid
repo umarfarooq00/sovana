@@ -9,6 +9,20 @@
     </div>
   </div>
 </section>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    $('.hero_inner_main').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      dots: false,
+      autoplay: false,
+      autoplaySpeed: 2000,
+      arrows: true,
+      fade: true,
+      infinite: true
+    });
+  });
+</script>
 {% schema %}
   {
     "name": "Marquee",
