@@ -4237,7 +4237,7 @@ product-card {
     justify-content: flex-end;
     align-items: center;
     list-style: none;
-    gap: 5px;
+    gap: 5px; 
 }
 
 /* ═══════════════════════════════════════
