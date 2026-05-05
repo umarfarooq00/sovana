@@ -19,11 +19,11 @@
       aria-label="{{ 'content.search_input_label' | t }}"
       aria-haspopup="dialog"
     >
-      <span class="{% if display_style == 'icon' %}hidden{% else %}mobile:hidden{% endif %}">
+      {% comment %} <span class="{% if display_style == 'icon' %}hidden{% else %}mobile:hidden{% endif %}">
         {{ 'content.search' | t }}
-      </span>
+      </span> {% endcomment %}
 
-      <span class="svg-wrapper {% if display_style != 'icon' %}desktop:hidden{% endif %}">
+      <span class="svg-wrapper">
         {{ 'icon-search.svg' | inline_asset_content }}
       </span>
     </button>
