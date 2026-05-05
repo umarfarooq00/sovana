@@ -94,16 +94,16 @@
         {% if customer %}
           <div class="account-button__fallback"></div>
         {% else %}
-          <span
+          {% comment %} <span
             slot="signed-out-avatar"
             class="account-button__text header-actions__text-style {% if display_style == 'icon' %}hidden{% else %}mobile:hidden{% endif %}"
           >
             {{ 'content.account_title' | t }}
-          </span>
+          </span> {% endcomment %}
 
           <span
             slot="signed-out-avatar"
-            class="{% if display_style != 'icon' %}desktop:hidden{% endif %}"
+            class=""
             aria-hidden="true"
           >
             {{ account_icon }}
