@@ -15,7 +15,7 @@
   .collection_list_main .container {
     padding: 0 40px;
   }
-  .collection_list_main .marquee_inner {
+  .collection_list_main .list_inner {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 3rem;
@@ -32,12 +32,24 @@
     {% if section.settings.headline != blank %}
       <h2>{{ section.settings.headline }}</h2>
     {% endif %}
-    <div class="marquee_inner">
+    <div class="list_inner">
       {% for block in section.blocks %}
-        {% if block.settings.text != blank %}
-          <span class="marquee_col">{{ block.settings.text }}</span>
+    {% assign col = block.settings.collection %}
+    {% if col != blank %}
+      <a class="marquee_col" href="{{ col.url }}">
+        {% if col.featured_image %}
+          <img 
+            src="{{ col.featured_image | image_url: width: 600 }}" 
+            alt="{{ col.featured_image.alt | escape }}"
+            width="600"
+            loading="lazy"
+          >
         {% endif %}
-      {% endfor %}
+        <h3>{{ col.title }}</h3>
+        <p>{{ col.products_count }} Products</p>
+      </a>
+    {% endif %}
+  {% endfor %}
     </div>
   </div>
 </section>
