@@ -41,7 +41,6 @@
             {{ col.featured_image | image_url:width:col.featured_image.width | image_tag:loading:'lazy'}}
         {% endif %}
         <h3>{{ col.title }}</h3>
-        <p>{{ col.products_count }} Products</p>
       </a>
     {% endif %}
   {% endfor %}
