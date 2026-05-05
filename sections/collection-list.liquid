@@ -1,5 +1,5 @@
 {%- style -%}
-  #marquee_main-{{ section.id }} {
+  #collection_list_main-{{ section.id }} {
     padding-top:{{ section.settings.padding_top }}px;
     padding-bottom:{{ section.settings.padding_bottom }}px;
     background: {{ section.settings.bg_color }};
@@ -9,72 +9,28 @@
     top: 0;
     z-index: 99;
   }
-  #marquee_main-{{ section.id }} span {
+  #collection_list_main-{{ section.id }} span {
     color: {{ section.settings.font_color }};
   }
-  .marquee_main {
+  .collection_list_main {
     width: 100%;
     min-height: 48px;
   }
-  .marquee_main .marquee_inner {
+  .collection_list_main .marquee_inner {
     margin: 0 auto;
     max-width: 500px;
   }
-  .marquee_main span {
-    font-size: 18px;
-    line-height: 1;
-    font-weight: normal;
-    text-align: center;
-  }
-  .marquee_main .slick-prev, 
-  .marquee_main .slick-next {
-    width: 20px;
-    height: 20px;
-    background: transparent;
-    margin: 0;
-    z-index: 9;
-    padding: 0;
-    border-radius: 100%;
-    display: flex !important;
-    justify-content: center;
-    align-items: center;
-    top: 0;
-  }
-  .marquee_main .slick-prev:before {
-    content: '';
-    border: 2px solid {{ section.settings.font_color }};
-    width: 8px;
-    height: 8px;
-    z-index: 9;
-    position: relative;
-    background: transparent;
-    border-right-width: 0 !important;
-    border-bottom-width: 0 !important;
-    rotate: 315deg;
-    margin-left: 3px;
-  }
-  .marquee_main .slick-next:before {
-    content: '';
-    border: 2px solid {{ section.settings.font_color }};
-    width: 8px;
-    height: 8px;
-    z-index: 9;
-    position: relative;
-    background: transparent;
-    border-left-width: 0 !important;
-    border-top-width: 0 !important;
-    rotate: 315deg;
-    margin-right: 3px;
-  }
-  .marquee_main .slick-prev {
-    left: 0;
-  }
-  .marquee_main .slick-next {
-    right: 0;
+  .collection_list_main h2 {
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: left;
   }
 {%- endstyle -%}
-<section class="marquee_main" id="marquee_main-{{ section.id }}">
+<section class="collection_list_main" id="collection_list_main-{{ section.id }}">
   <div class="container">
+    {% if section.settings.headline != blank %}
+      <h2>{{ section.settings.headline }}</h2>
+    {% endif %}
     <div class="marquee_inner">
       {% for block in section.blocks %}
         {% if block.settings.text != blank %}
@@ -84,24 +40,16 @@
     </div>
   </div>
 </section>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    $('#marquee_main-{{ section.id }} .marquee_inner').slick({
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      dots: false,
-      autoplay: false,
-      autoplaySpeed: 2000,
-      arrows: true,
-      fade: true,
-      infinite: true
-    });
-  });
-</script>
 {% schema %}
   {
     "name": "Collection List",
     "settings": [
+      {
+        "type": "text",
+        "id": "headline",
+        "label": "Headline",
+        "default": "SHOP BY COLLECTION"
+      },
       {
         "type": "color",
         "id": "bg_color",
