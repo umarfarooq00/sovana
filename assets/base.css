@@ -4341,9 +4341,9 @@ product-card {
 .product-information__grid {
   padding: 0 40px;
 }
-.product-media img,
-media-gallery.media-gallery--grid .media-gallery__grid .product-media-container,
-.product-media {
+.product-information .product-media img,
+.product-information media-gallery.media-gallery--grid .media-gallery__grid .product-media-container,
+.product-information .product-media {
   height: 400px !important;
 }
 .product-media {
