@@ -33,6 +33,14 @@
     font-size: 20px;
     padding-top: 20px;
   }
+  @media screen and (max-width: 991px) {
+    .collection_list_main .container {
+      padding: 0 20px;
+    }
+    .collection_list_main .list_inner {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
   @media screen and (max-width: 767px) {
     .collection_list_main .container {
       padding: 0;
