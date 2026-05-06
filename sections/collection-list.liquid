@@ -53,6 +53,16 @@
     .collection_list_main .list_inner h2 {
       padding: 20px 0 0;
     }
+    .collection_list_main .marquee_col {
+      min-width: calc(100% - 50px);
+      width: fit-content;
+    }
+    .collection_list_main .marquee_col:first-child {
+      margin-left: 20px;
+    }
+    .collection_list_main .marquee_col:last-child {
+      margin-right: 20px;
+    }
   }
 {%- endstyle -%}
 <section class="collection_list_main" id="collection_list_main-{{ section.id }}">
