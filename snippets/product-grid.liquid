@@ -53,6 +53,11 @@
           .product-grid--{{ section.id }}:is(.product-grid--grid) {
             --product-grid-columns-desktop: repeat(3, 1fr);
           }
+          @media screen and (max-width: 991px) {
+            .product-grid--{{ section.id }}:is(.product-grid--grid) {
+              --product-grid-columns-desktop: repeat(2, 1fr);
+            }
+          }
         }
     {% endcase %}
 
