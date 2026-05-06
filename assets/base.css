@@ -4354,3 +4354,10 @@ zoom-dialog media-gallery.media-gallery--grid .media-gallery__grid .product-medi
 zoom-dialog .product-media {
   height: auto !important;
 }
+.product-information h1 {
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 22px;
+  line-height: 1;
+}
