@@ -18,7 +18,7 @@
           "settings": {
             "media_presentation": "grid",
             "media_columns": "two",
-            "image_gap": 0,
+            "image_gap": 20,
             "large_first_image": false,
             "icons_style": "arrow",
             "slideshow_controls_style": "dots",
