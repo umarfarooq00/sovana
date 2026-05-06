@@ -1,4 +1,14 @@
-
+{% style %}
+  #shopify-section-{{ section.id }} .section--page-width {
+    display: flex;
+    flex-direction: column;
+  }
+  #shopify-section-{{ section.id }} h3 {
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+  }
+{% endstyle %}
 <script
   src="{{ 'product-recommendations.js' | asset_url }}"
   type="module"
@@ -53,6 +63,7 @@
     style="
       {%  render 'spacing-style', settings: section.settings %}
       {%  render 'gap-style', value: section.settings.gap %}
+      {{ styles }}
     "
   >
     <div class="section-resource-list__content">
