@@ -4341,3 +4341,7 @@ product-card {
 .product-information__grid {
   padding: 0 40px;
 }
+.product-media img,
+.product-media {
+  height: 400px;
+}
