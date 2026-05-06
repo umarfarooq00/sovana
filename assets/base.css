@@ -4342,6 +4342,7 @@ product-card {
   padding: 0 40px;
 }
 .product-media img,
+media-gallery.media-gallery--grid .media-gallery__grid .product-media-container,
 .product-media {
   height: 400px;
 }
