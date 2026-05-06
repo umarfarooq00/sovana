@@ -459,9 +459,9 @@
           "name": "t:names.header",
           "settings": {
             "text": "<h3>Related items</h3>",
-            "width": "fit-content",
+            "width": "100%",
             "max_width": "normal",
-            "alignment": "left",
+            "alignment": "center",
             "type_preset": "h2",
             "font": "var(--font-heading--family)",
             "font_size": "",
