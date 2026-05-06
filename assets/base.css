@@ -4392,5 +4392,6 @@ zoom-dialog .product-media {
   .product-information .product-details,
   .product-information .product-information__media {
     grid-column: unset;
+    padding: 0;
   }
 }
