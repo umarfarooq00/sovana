@@ -4344,5 +4344,5 @@ product-card {
 .product-media img,
 media-gallery.media-gallery--grid .media-gallery__grid .product-media-container,
 .product-media {
-  height: 400px;
+  height: 400px !important;
 }
