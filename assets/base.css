@@ -4347,5 +4347,5 @@ media-gallery.media-gallery--grid .media-gallery__grid .product-media-container,
   height: 400px !important;
 }
 .product-media {
-  min-width: 100%;
+  min-width: 100% !important;
 }
