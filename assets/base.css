@@ -4338,3 +4338,6 @@ product-card {
 .card-gallery:hover product-swatches {
   opacity: 1;
 }
+.product-information__grid {
+  padding: 0 40px;
+}
