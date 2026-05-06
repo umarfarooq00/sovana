@@ -4385,3 +4385,12 @@ zoom-dialog .product-media {
     grid-column: unset;
   }
 }
+@media screen and (max-width: 991px) {
+  .product-information .product-information__grid {
+    grid-template-columns: 1fr;
+  }
+  .product-information .product-details,
+  .product-information .product-information__media {
+    grid-column: unset;
+  }
+}
