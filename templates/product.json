@@ -222,6 +222,18 @@
                 "group_b7xNnM"
               ]
             },
+            "divider_VA3cqP": {
+              "type": "_divider",
+              "name": "t:names.divider",
+              "settings": {
+                "thickness": 1,
+                "corner_radius": "square",
+                "width_percent": 100,
+                "padding-block-start": 0,
+                "padding-block-end": 0
+              },
+              "blocks": {}
+            },
             "variant_picker_3Nha6V": {
               "type": "variant-picker",
               "name": "t:names.product_variant_picker",
@@ -420,6 +432,7 @@
           },
           "block_order": [
             "group_8fkkWP",
+            "divider_VA3cqP",
             "variant_picker_3Nha6V",
             "buy_buttons_NmYpFG",
             "accordion_iWQwkW"
