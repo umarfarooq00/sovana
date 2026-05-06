@@ -4389,7 +4389,7 @@ header {
     padding: 0 40px;
 }
 results-list {
-  display: flex;
+  display: flex !important;
   flex-direction: column;
 }
 @media screen and (max-width: 1199px) {
