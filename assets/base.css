@@ -4373,6 +4373,10 @@ zoom-dialog .product-media {
   line-height: 1;
   letter-spacing: 0.08em;
 }
+.header__row.header__row--top.color-scheme-1.section.section--full-width-margin.section--page-width {
+    display: block;
+    padding: 0 40px;
+}
 @media screen and (max-width: 1199px) {
   .product-information .product-information__grid {
     display: grid;
