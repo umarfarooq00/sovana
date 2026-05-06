@@ -4228,6 +4228,7 @@ product-card {
 .ui-test-product-list h3 {
   font-weight: bold;
   text-transform: uppercase;
+  text-align: center;
 }
 .payment-icons__list {
     display: flex;
