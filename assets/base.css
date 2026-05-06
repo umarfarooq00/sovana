@@ -4349,3 +4349,8 @@ media-gallery.media-gallery--grid .media-gallery__grid .product-media-container,
 .product-media {
   min-width: 100% !important;
 }
+.product-media img,
+media-gallery.media-gallery--grid .media-gallery__grid .product-media-container,
+.product-media {
+  height: auto !important;
+}
