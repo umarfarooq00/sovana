@@ -4355,17 +4355,17 @@ zoom-dialog .product-media {
   height: auto !important;
 }
 .product-information h1 {
-  letter-spacing: 0.08em;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 22px;
-  line-height: 1;
+  letter-spacing: 0.08em !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  font-size: 22px !important;
+  line-height: 1 !important;
 }
 .product-information .product-details .price-item--sale {
-  font-size: 18px !important;
-  font-weight: 700 !important;
-  line-height: 1 !important;
-  letter-spacing: 0.08em !important;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.08em;
 }
 .product-information .product-details .compare-at-price {
   font-size: 14px;
