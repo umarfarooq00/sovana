@@ -4388,6 +4388,10 @@ zoom-dialog .product-media {
   .product-information .product-information__media {
     grid-column: unset !important;
   }
+  .header__row.header__row--top.color-scheme-1.section.section--full-width-margin.section--page-width {
+    display: block;
+    padding: 0 20px;
+  }
 }
 @media screen and (max-width: 991px) {
   .product-information .product-information__grid {
