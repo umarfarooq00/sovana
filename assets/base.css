@@ -4338,3 +4338,87 @@ product-card {
 .card-gallery:hover product-swatches {
   opacity: 1;
 }
+.product-information__grid {
+  padding: 0 40px;
+}
+.product-information .product-media img,
+.product-information media-gallery.media-gallery--grid .media-gallery__grid .product-media-container,
+.product-information .product-media {
+  height: 400px !important;
+}
+.product-media {
+  min-width: 100% !important;
+}
+zoom-dialog .product-media img,
+zoom-dialog media-gallery.media-gallery--grid .media-gallery__grid .product-media-container,
+zoom-dialog .product-media {
+  height: auto !important;
+}
+.product-information h1 {
+  letter-spacing: 0.08em !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  font-size: 22px !important;
+  line-height: 1 !important;
+}
+.product-information .product-details .price-item--sale {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.08em;
+}
+.product-information .product-details .compare-at-price {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.08em;
+}
+.header__row.header__row--top.color-scheme-1.section.section--full-width-margin.section--page-width {
+    display: block;
+    padding: 0 40px;
+}
+header {
+  z-index: 99 !important;
+}
+.menu-drawer-container .header__icon--summary {
+  padding: 0;
+}
+.ui-test-product-list .section.section--page-width {
+    display: flex;
+    flex-direction: column;
+    padding: 0 40px;
+}
+results-list {
+  display: flex !important;
+  flex-direction: column;
+}
+@media screen and (max-width: 1199px) {
+  .product-information .product-information__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr) !important;
+    grid-column: unset;
+    padding: 0 20px;
+  }
+  .product-information .product-details,
+  .product-information .product-information__media {
+    grid-column: unset !important;
+  }
+  .header__row.header__row--top.color-scheme-1.section.section--full-width-margin.section--page-width {
+    display: block;
+    padding: 0 20px;
+  }
+  .ui-test-product-list .section.section--page-width {
+
+    padding: 0 20px;
+  }
+}
+@media screen and (max-width: 991px) {
+  .product-information .product-information__grid {
+    grid-template-columns: 1fr !important;
+  }
+  .product-information .product-details,
+  .product-information .product-information__media {
+    grid-column: unset;
+    padding: 0 !important;
+  }
+}
