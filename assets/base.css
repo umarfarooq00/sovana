@@ -3263,7 +3263,7 @@ fly-to-cart.fly-to-cart--sticky {
     --facets-vertical-col-width: 6;
 
     grid-template-columns:
-      var(--margin-4xl) repeat(var(--centered-column-number),minmax(0,1fr)) var(--margin-4xl)
+      var(--margin-4xl) repeat(var(--centered-column-number),minmax(0,1fr)) var(--margin-4xl);
   }
 
   @media screen and (min-width: 990px) {
