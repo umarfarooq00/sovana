@@ -72,6 +72,11 @@
   .marquee_main .slick-next {
     right: 0;
   }
+  @media screen and (max-width: 767px) {
+    .marquee_main .marquee_inner {
+      max-width: 330px;
+    }
+  }
 {%- endstyle -%}
 <section class="marquee_main" id="marquee_main-{{ section.id }}">
   <div class="container">
