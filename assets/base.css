@@ -4306,6 +4306,8 @@ product-card {
 .product-card [class*='group-block'] {
   background: transparent !important;
   border: none !important;
+  justify-content: center;
+  align-items: center;
 }
 
 /* ── Product page title — Gilda Display ── */
