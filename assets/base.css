@@ -4340,7 +4340,7 @@ product-card {
 .product-information .product-media img,
 .product-information media-gallery.media-gallery--grid .media-gallery__grid .product-media-container,
 .product-information .product-media {
-  height: 400px !important;
+  height: auto !important;
 }
 .product-media {
   min-width: 100% !important;
