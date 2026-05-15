@@ -4433,4 +4433,14 @@ results-list {
     grid-column: unset;
     padding: 0 !important;
   }
+  .product_information_inner .product-information__grid {
+    flex-direction: column;
+  }
+  .product_information_inner .product-information__media {
+    width: 100%;
+    min-width: 100%;
+  }
+  .product_information_inner .product-details {
+    width: 100%;
+  }
 }
