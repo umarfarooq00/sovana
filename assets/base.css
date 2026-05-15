@@ -4404,6 +4404,28 @@ results-list {
 .product_information_inner .product-details {
   width: 45%;
 }
+product-recommendations .slideshow-arrows {
+  mix-blend-mode: normal;
+}
+slideshow-arrows .slideshow-control {
+    pointer-events: auto;
+    opacity: 1;
+    min-height: var(--minimum-touch-target);
+    min-width: var(--minimum-touch-target);
+    padding: 0 var(--padding-xs);
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #fff;
+    border: 1px solid #ddd;
+    z-index: 5;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
 @media screen and (max-width: 1199px) {
   .product-information .product-information__grid {
     display: grid;
