@@ -1,31 +1,52 @@
+# Shopify Collection List Section – Mobile Arrows Slider Update
+
+Replace your current section code with the updated version below.
+
+This update adds:
+
+* Left / Right arrows on mobile
+* Smooth horizontal scrolling
+* Scroll one card at a time
+* Hidden scrollbar
+* Desktop grid remains unchanged
+
+```liquid
 {%- style -%}
   #collection_list_main-{{ section.id }} {
     padding-top:{{ section.settings.padding_top }}px;
     padding-bottom:{{ section.settings.padding_bottom }}px;
     background: {{ section.settings.bg_color }};
+    position: relative;
   }
+
   #collection_list_main-{{ section.id }} h3,
   #collection_list_main-{{ section.id }} h2 {
     color: {{ section.settings.font_color }};
   }
+
   .collection_list_main {
     width: 100%;
     height: auto;
   }
+
   .collection_list_main .container {
     padding: 0 40px;
+    position: relative;
   }
+
   .collection_list_main .list_inner {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
     margin-top: 2rem;
   }
+
   .collection_list_main h2 {
     font-weight: 700;
     text-transform: uppercase;
     text-align: center;
   }
+
   .collection_list_main .list_inner h2 {
     font-weight: 700;
     text-transform: uppercase;
@@ -33,148 +54,241 @@
     font-size: 20px;
     padding-top: 20px;
   }
+
+  .collection_list_main .list_col img {
+    width: 100%;
+    display: block;
+  }
+
+  .mobile-arrow {
+    display: none;
+  }
+
   @media screen and (max-width: 991px) {
     .collection_list_main .container {
       padding: 0 20px;
     }
+
     .collection_list_main .list_inner {
       grid-template-columns: repeat(2, 1fr);
     }
   }
+
   @media screen and (max-width: 767px) {
     .collection_list_main .container {
       padding: 0;
     }
+
     .collection_list_main .list_inner {
       display: flex;
       justify-content: flex-start;
       overflow-x: auto;
       gap: 1rem;
       margin-top: 1rem;
-      scrollbar-width: none; 
+      scrollbar-width: none;
       -ms-overflow-style: none;
+      scroll-behavior: smooth;
+      padding: 0 20px;
     }
+
     .collection_list_main .list_inner::-webkit-scrollbar {
       display: none;
     }
+
     .collection_list_main h2 {
       padding: 0 20px;
       font-size: 20px;
     }
+
     .collection_list_main .list_inner h2 {
       padding: 20px 0 0;
       font-size: 18px;
     }
+
     .collection_list_main .list_col {
       min-width: calc(100% - 80px);
-      width: fit-content;
+      flex: 0 0 auto;
     }
-    .collection_list_main .list_col:first-child {
-      margin-left: 20px;
-    }
-    .collection_list_main .list_col:last-child {
-      margin-right: 20px;
-    }
+
     #collection_list_main-{{ section.id }} {
       padding-top:20px;
       padding-bottom:20px;
     }
+
+    .mobile-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #fff;
+      border: 1px solid #ddd;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 5;
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .mobile-arrow svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .mobile-arrow.prev {
+      left: 10px;
+    }
+
+    .mobile-arrow.next {
+      right: 10px;
+    }
   }
 {%- endstyle -%}
+
 <section class="collection_list_main" id="collection_list_main-{{ section.id }}">
   <div class="container">
+
     {% if section.settings.headline != blank %}
       <h2>{{ section.settings.headline }}</h2>
     {% endif %}
-    <div class="list_inner">
+
+    <button class="mobile-arrow prev" id="prev-{{ section.id }}">
+      <svg viewBox="0 0 20 20" fill="none">
+        <path d="M12 4L6 10L12 16" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <button class="mobile-arrow next" id="next-{{ section.id }}">
+      <svg viewBox="0 0 20 20" fill="none">
+        <path d="M8 4L14 10L8 16" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <div class="list_inner" id="slider-{{ section.id }}">
       {% for block in section.blocks %}
-    {% assign col = block.settings.collection %}
-    {% if col != blank %}
-      <a class="list_col" href="{{ col.url }}">
-        {% if col.featured_image %}
-            {{ col.featured_image | image_url:width:col.featured_image.width | image_tag:loading:'lazy'}}
+        {% assign col = block.settings.collection %}
+
+        {% if col != blank %}
+          <a class="list_col" href="{{ col.url }}">
+            {% if col.featured_image %}
+              {{ col.featured_image | image_url: width: col.featured_image.width | image_tag: loading: 'lazy' }}
+            {% endif %}
+
+            <h2>{{ col.title }}</h2>
+          </a>
         {% endif %}
-        <h2>{{ col.title }}</h2>
-      </a>
-    {% endif %}
-  {% endfor %}
+      {% endfor %}
     </div>
+
   </div>
 </section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const slider = document.getElementById('slider-{{ section.id }}');
+    const nextBtn = document.getElementById('next-{{ section.id }}');
+    const prevBtn = document.getElementById('prev-{{ section.id }}');
+
+    if (!slider) return;
+
+    const scrollAmount = () => {
+      const card = slider.querySelector('.list_col');
+      return card ? card.offsetWidth + 16 : 300;
+    };
+
+    nextBtn.addEventListener('click', function () {
+      slider.scrollBy({
+        left: scrollAmount(),
+        behavior: 'smooth'
+      });
+    });
+
+    prevBtn.addEventListener('click', function () {
+      slider.scrollBy({
+        left: -scrollAmount(),
+        behavior: 'smooth'
+      });
+    });
+  });
+</script>
+
 {% schema %}
-  {
-    "name": "Collection List",
-    "settings": [
-      {
-        "type": "text",
-        "id": "headline",
-        "label": "Headline",
-        "default": "SHOP BY COLLECTION"
-      },
-      {
-        "type": "color",
-        "id": "bg_color",
-        "label": "BG Color",
-        "default": "#ffffff"
-      },
-      {
-        "type": "color",
-        "id": "font_color",
-        "label": "Font Color",
-        "default": "#000000"
-      },
-      {
-        "type": "range",
-        "id": "padding_top",
-        "min": 0,
-        "max": 100,
-        "step": 1,
-        "unit": "px",
-        "label": "Padding Top",
-        "default": 10
-      },
-      {
-        "type": "range",
-        "id": "padding_bottom",
-        "min": 0,
-        "max": 100,
-        "step": 1,
-        "unit": "px",
-        "label": "Padding Bottom",
-        "default": 10
-      },
-    ],
-    "blocks": [
-      {
-        "name":"Collection",
-        "type":"collection_list",
-        "settings":[
-          {
-        "type": "collection",
-        "id": "collection",
-        "label": "Select Collection"
-      }
-        ]
-      }
-    ],
-    "presets":[
-      {
-        "name":"Collection List",
-        "blocks": [
-          {
-            "type": "collection_list"
-          },
-          {
-            "type": "collection_list"
-          },
-          {
-            "type": "collection_list"
-          },
-          {
-            "type": "collection_list"
-          }
-        ]
-      }
-    ]
-  }
+{
+  "name": "Collection List",
+  "settings": [
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "SHOP BY COLLECTION"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "BG Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "font_color",
+      "label": "Font Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 10
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Collection",
+      "type": "collection_list",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Select Collection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection List",
+      "blocks": [
+        {
+          "type": "collection_list"
+        },
+        {
+          "type": "collection_list"
+        },
+        {
+          "type": "collection_list"
+        },
+        {
+          "type": "collection_list"
+        }
+      ]
+    }
+  ]
+}
 {% endschema %}
+```
