@@ -4404,8 +4404,8 @@ results-list {
 .product_information_inner .product-details {
   width: 45%;
 }
-product-recommendations .slideshow-arrows {
-  mix-blend-mode: normal !important;
+product-recommendations slideshow-arrows {
+  mix-blend-mode: normal;
 }
 slideshow-arrows .slideshow-control {
     pointer-events: auto;
