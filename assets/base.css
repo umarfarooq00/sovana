@@ -4401,6 +4401,9 @@ results-list {
   width: 55%;
   min-width: 55%;
 }
+.product_information_inner .product-details {
+  width: 45%;
+}
 @media screen and (max-width: 1199px) {
   .product-information .product-information__grid {
     display: grid;
