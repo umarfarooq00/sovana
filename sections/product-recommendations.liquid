@@ -185,7 +185,44 @@
     {%- endif -%}
   </div>
 </product-recommendations>
+<script>
+  // Run when the page loads or when recommendations are loaded
+function setupCarouselMargins() {
+  const carousel = document.querySelector('product-recommendations .resource-list__carousel slideshow-slides');
+  if (!carousel) return;
+  
+  const gutterWidth = getComputedStyle(document.documentElement)
+    .getPropertyValue('--util-page-margin-offset')
+    .trim() || '20px';
+  
+  // Set scroll padding
+  carousel.style.scrollPaddingLeft = gutterWidth;
+  carousel.style.scrollPaddingRight = gutterWidth;
+  
+  // Optional: Add event listener to detect when scroll reaches ends
+  carousel.addEventListener('scroll', () => {
+    const isAtStart = carousel.scrollLeft <= 10;
+    const isAtEnd = carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10;
+    
+    // Update visual state if needed
+    carousel.parentElement?.querySelector('.slideshow-control--previous')?.classList.toggle('hidden', isAtStart);
+    carousel.parentElement?.querySelector('.slideshow-control--next')?.classList.toggle('hidden', isAtEnd);
+  });
+}
 
+// Run after recommendations load
+if (document.querySelector('product-recommendations[data-recommendations-performed="true"]')) {
+  setupCarouselMargins();
+} else {
+  const observer = new MutationObserver((mutations, obs) => {
+    if (document.querySelector('product-recommendations[data-recommendations-performed="true"]')) {
+      setupCarouselMargins();
+      obs.disconnect();
+    }
+  });
+  observer.observe(document.body, { childList: true, subtree: true });
+}
+</script>
 {% schema %}
 {
   "name": "t:names.product_recommendations",
