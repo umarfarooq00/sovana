@@ -4392,6 +4392,11 @@ results-list {
   display: unset !important;
   padding: 0 40px;
 }
+.product_information_inner .product-information__grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
 @media screen and (max-width: 1199px) {
   .product-information .product-information__grid {
     display: grid;
