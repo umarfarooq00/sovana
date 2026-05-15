@@ -184,6 +184,22 @@
       return card ? card.offsetWidth + 16 : 300;
     };
 
+    function updateArrows() {
+      const maxScrollLeft = slider.scrollWidth - slider.clientWidth;
+
+      if (slider.scrollLeft <= 10) {
+        prevBtn.style.display = 'none';
+      } else {
+        prevBtn.style.display = 'flex';
+      }
+
+      if (slider.scrollLeft >= maxScrollLeft - 10) {
+        nextBtn.style.display = 'none';
+      } else {
+        nextBtn.style.display = 'flex';
+      }
+    }
+
     nextBtn.addEventListener('click', function () {
       slider.scrollBy({
         left: scrollAmount(),
@@ -197,6 +213,12 @@
         behavior: 'smooth'
       });
     });
+
+    slider.addEventListener('scroll', updateArrows);
+
+    window.addEventListener('resize', updateArrows);
+
+    updateArrows();
   });
 </script>
 
@@ -277,4 +299,3 @@
   ]
 }
 {% endschema %}
-```
