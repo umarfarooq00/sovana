@@ -4393,7 +4393,7 @@ results-list {
   padding: 0 40px;
 }
 .product_information_inner .product-information__grid {
-  display: flex;
+  display: flex !important;
   justify-content: space-between;
   align-items: flex-start;
 }
