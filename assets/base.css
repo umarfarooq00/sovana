@@ -4429,26 +4429,7 @@ slideshow-arrows .slideshow-control {
 slideshow-arrows .slideshow-control .svg-wrapper {
   color: #000;
 }
-resource-list__carousel slideshow-slides {
-  scroll-padding-inline: var(--gutter-slide-width, 20px);
-}
 
-/* Alternative approach - target the scroll container directly */
-.product-recommendations .resource-list__carousel slideshow-slides {
-  scroll-padding-left: var(--gutter-slide-width, 20px);
-  scroll-padding-right: var(--gutter-slide-width, 20px);
-  scroll-snap-type: x mandatory;
-}
-
-/* Ensure first and last slides have proper alignment */
-.product-recommendations .resource-list__slide {
-  scroll-snap-align: start;
-}
-
-/* Optional: Add a smooth transition effect */
-.product-recommendations .resource-list__carousel slideshow-slides {
-  scroll-behavior: smooth;
-}
 @media screen and (max-width: 1199px) {
   .product-information .product-information__grid {
     display: grid;
