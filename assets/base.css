@@ -4426,6 +4426,9 @@ slideshow-arrows .slideshow-control {
     cursor: pointer;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
+slideshow-arrows .slideshow-control .svg-wrapper {
+  color: #000;
+}
 @media screen and (max-width: 1199px) {
   .product-information .product-information__grid {
     display: grid;
