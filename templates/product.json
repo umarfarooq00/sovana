@@ -635,6 +635,50 @@
         "padding-block-end": 40
       }
     },
+
+    "collection_list_fkJWwt": {
+      "type": "collection-list",
+      "blocks": {
+        "collection_list_WaMA3m": {
+          "type": "collection_list",
+          "settings": {
+            "collection": "prom-gowns"
+          }
+        },
+        "collection_list_7RDUkY": {
+          "type": "collection_list",
+          "settings": {
+            "collection": "prom-gowns"
+          }
+        },
+        "collection_list_VjQG8n": {
+          "type": "collection_list",
+          "settings": {
+            "collection": "prom-gowns"
+          }
+        },
+        "collection_list_TnaydT": {
+          "type": "collection_list",
+          "settings": {
+            "collection": "prom-gowns"
+          }
+        }
+      },
+      "block_order": [
+        "collection_list_WaMA3m",
+        "collection_list_7RDUkY",
+        "collection_list_VjQG8n",
+        "collection_list_TnaydT"
+      ],
+      "name": "t:names.collections_grid",
+      "settings": {
+        "headline": "SHOP BY COLLECTION",
+        "bg_color": "#ffffff",
+        "font_color": "#000000",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
     "product_trust_strip_RMb7Ri": {
       "type": "product-trust-strip",
       "blocks": {
@@ -692,6 +736,7 @@
   "order": [
     "product-information",
     "product_recommendations_UeDczP",
+    "collection_list_fkJWwt",
     "product_trust_strip_RMb7Ri"
   ]
 }
