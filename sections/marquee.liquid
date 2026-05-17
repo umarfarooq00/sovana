@@ -1,207 +1,177 @@
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-
-<script
-  src="{{ 'marquee.js' | asset_url }}"
-  type="module"
-  fetchpriority="low"
-></script>
-
-{% assign gap_between_elements = section.settings.gap_between_elements %}
-
-<div class="section-background" style="background-color: {{ section.settings.bg_color }};"></div>
-<marquee-component
-  class="section spacing-style gap-style"
-  style="
-    background-color: {{ section.settings.bg_color }};
-    color: {{ section.settings.text_color }};
-    {%- render 'spacing-style', settings: section.settings %};
-    {% render 'gap-style', value: gap_between_elements, name: 'marquee-gap' %}
-    --marquee-direction: {{ section.settings.movement_direction }};
-  "
-  data-speed-factor="25"
-  data-movement-direction="{{ section.settings.movement_direction }}"
->
-  <div
-    class="marquee__wrapper"
-    ref="wrapper"
-  >
-    <div
-      class="marquee__content"
-      ref="content"
-    >
-      <div
-        class="marquee__repeated-items"
-        ref="marqueeItems[]"
-      >
-        {% content_for 'blocks' %}
-      </div>
+{%- style -%}
+  #marquee_main-{{ section.id }} {
+    padding-top:{{ section.settings.padding_top }}px;
+    padding-bottom:{{ section.settings.padding_bottom }}px;
+    background: {{ section.settings.bg_color }};
+  }
+  #shopify-section-{{ section.id }} {
+    position: sticky;
+    top: 0;
+    z-index: 99;
+  }
+  #marquee_main-{{ section.id }} span {
+    color: {{ section.settings.font_color }};
+  }
+  .marquee_main {
+    width: 100%;
+    min-height: 48px;
+  }
+  .marquee_main .marquee_inner {
+    margin: 0 auto;
+    max-width: 500px;
+  }
+  .marquee_main span {
+    font-size: 18px;
+    line-height: 1;
+    font-weight: normal;
+    text-align: center;
+  }
+  .marquee_main .slick-prev, 
+  .marquee_main .slick-next {
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    margin: 0;
+    z-index: 9;
+    padding: 0;
+    border-radius: 100%;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+  }
+  .marquee_main .slick-prev:before {
+    content: '';
+    border: 2px solid {{ section.settings.font_color }};
+    width: 8px;
+    height: 8px;
+    z-index: 9;
+    position: relative;
+    background: transparent;
+    border-right-width: 0 !important;
+    border-bottom-width: 0 !important;
+    rotate: 315deg;
+    margin-left: 3px;
+  }
+  .marquee_main .slick-next:before {
+    content: '';
+    border: 2px solid {{ section.settings.font_color }};
+    width: 8px;
+    height: 8px;
+    z-index: 9;
+    position: relative;
+    background: transparent;
+    border-left-width: 0 !important;
+    border-top-width: 0 !important;
+    rotate: 315deg;
+    margin-right: 3px;
+  }
+  .marquee_main .slick-prev {
+    left: 0;
+  }
+  .marquee_main .slick-next {
+    right: 0;
+  }
+  @media screen and (max-width: 767px) {
+    .marquee_main .marquee_inner {
+      max-width: 330px;
+    }
+  }
+{%- endstyle -%}
+<section class="marquee_main" id="marquee_main-{{ section.id }}">
+  <div class="container">
+    <div class="marquee_inner">
+      {% for block in section.blocks %}
+        {% if block.settings.text != blank %}
+          <span class="marquee_col">{{ block.settings.text }}</span>
+        {% endif %}
+      {% endfor %}
     </div>
   </div>
-</marquee-component>
-
-{% stylesheet %}
-  marquee-component {
-    display: block;
-    width: 100%;
-    overflow: hidden;
-  }
-
-  .marquee__wrapper {
-    display: flex;
-    gap: var(--marquee-gap);
-    width: fit-content;
-    white-space: nowrap;
-  }
-
-  .marquee__content {
-    min-width: max-content;
-    display: flex;
-    gap: var(--marquee-gap);
-  }
-
-  .marquee__content :is(p, h1, h2, h3, h4, h5, h6) {
-    white-space: nowrap;
-  }
-
-  .marquee__content .marquee__repeated-items * {
-    max-width: none;
-  }
-
-  .marquee__repeated-items {
-    min-width: max-content;
-    display: flex;
-    gap: var(--marquee-gap);
-    align-items: center;
-    justify-content: center;
-  }
-
-  .marquee__repeated-items > * {
-    align-content: center;
-  }
-
-  /* Force DM Sans on all marquee text, override block-level inline styles */
-  marquee-component .marquee__repeated-items * {
-    font-family: 'DM Sans', sans-serif !important;
-    font-size: 0.7rem !important;
-    font-weight: 400 !important;
-    letter-spacing: 0.18em !important;
-    text-transform: uppercase !important;
-    color: inherit !important;
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    marquee-component:not([data-disabled]) .marquee__wrapper {
-      animation: marquee-motion var(--marquee-speed) linear infinite var(--marquee-direction);
-    }
-  }
-
-  @keyframes marquee-motion {
-    to {
-      transform: translate3d(calc(-50% - (var(--marquee-gap) / 2)), 0, 0);
-    }
-  }
-{% endstylesheet %}
-
+</section>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    $('#marquee_main-{{ section.id }} .marquee_inner').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      dots: false,
+      autoplay: false,
+      autoplaySpeed: 2000,
+      arrows: true,
+      fade: true,
+      infinite: true
+    });
+  });
+</script>
 {% schema %}
-{
-  "name": "t:names.marquee",
-  "disabled_on": {
-    "groups": ["footer"]
-  },
-  "blocks": [
-    {
-      "type": "text"
-    },
-    {
-      "type": "_divider"
-    }
-  ],
-  "settings": [
-    {
-      "type": "select",
-      "id": "movement_direction",
-      "label": "t:settings.motion_direction",
-      "options": [
-        {
-          "value": "reverse",
-          "label": "t:options.forward"
-        },
-        {
-          "value": "normal",
-          "label": "t:options.reverse"
-        }
-      ],
-      "default": "normal"
-    },
-    {
-      "type": "color",
-      "id": "bg_color",
-      "label": "Background color",
-      "default": "#1a1a1a"
-    },
-    {
-      "type": "color",
-      "id": "text_color",
-      "label": "Text color",
-      "default": "#c9a96e"
-    },
-    {
-      "type": "header",
-      "content": "t:content.padding"
-    },
-    {
-      "type": "range",
-      "id": "padding-block-start",
-      "label": "t:settings.top",
-      "min": 0,
-      "max": 100,
-      "step": 1,
-      "unit": "px",
-      "default": 24
-    },
-    {
-      "type": "range",
-      "id": "padding-block-end",
-      "label": "t:settings.bottom",
-      "min": 0,
-      "max": 100,
-      "step": 1,
-      "unit": "px",
-      "default": 24
-    },
-    {
-      "type": "range",
-      "id": "gap_between_elements",
-      "label": "t:settings.gap",
-      "min": 0,
-      "max": 100,
-      "step": 1,
-      "unit": "px",
-      "default": 24
-    }
-  ],
-  "presets": [
-    {
-      "name": "t:names.marquee_section",
-      "category": "t:categories.text",
-      "blocks": {
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "t:html_defaults.make_things_better",
-            "type_preset": "custom",
-            "font": "var(--font-body--family)",
-            "font_size": "var(--font-size--h2)",
-            "line_height": "tight",
-            "letter_spacing": "tight",
-            "case": "none",
-            "wrap": "nowrap",
-            "width": "fit-content"
-          }
-        }
+  {
+    "name": "Marquee",
+    "settings": [
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "BG Color",
+        "default": "#C9A96E"
       },
-      "block_order": ["text"]
-    }
-  ]
-}
+      {
+        "type": "color",
+        "id": "font_color",
+        "label": "Font Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Padding Top",
+        "default": 10
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "Padding Bottom",
+        "default": 10
+      },
+    ],
+    "blocks": [
+      {
+        "name":"Add Text",
+        "type":"add_text",
+        "settings":[
+          {
+            "type": "text",
+            "id": "text",
+            "label": "Add Text",
+            "default": "New Season Arrivals"
+          }
+        ]
+      }
+    ],
+    "presets":[
+      {
+        "name":"Marquee",
+        "blocks": [
+          {
+            "type": "add_text"
+          },
+          {
+            "type": "add_text"
+          },
+          {
+            "type": "add_text"
+          },
+          {
+            "type": "add_text"
+          }
+        ]
+      }
+    ]
+  }
 {% endschema %}
