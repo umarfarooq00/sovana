@@ -14,42 +14,56 @@
     "marquee_brand_strip": {
       "type": "marquee",
       "blocks": {
-        "add_text_Pkz8xc": {
-          "type": "add_text",
+        "text_HgtgyC": {
+          "type": "text",
+          "name": "t:names.text",
           "settings": {
-            "text": "New Season Arrivals"
-          }
+            "text": "<p>NEW SEASON ARRIVALS</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
         },
-        "add_text_caBjTM": {
-          "type": "add_text",
+        "divider_mE3KMg": {
+          "type": "_divider",
+          "name": "t:names.divider",
           "settings": {
-            "text": "New Season Arrivals"
-          }
-        },
-        "add_text_jKqrtP": {
-          "type": "add_text",
-          "settings": {
-            "text": "New Season Arrivals"
-          }
-        },
-        "add_text_PR4Jwk": {
-          "type": "add_text",
-          "settings": {
-            "text": "New Season Arrivals"
-          }
+            "thickness": 1,
+            "corner_radius": "square",
+            "width_percent": 100,
+            "padding-block-start": 0,
+            "padding-block-end": 0
+          },
+          "blocks": {}
         }
       },
       "block_order": [
-        "add_text_Pkz8xc",
-        "add_text_caBjTM",
-        "add_text_jKqrtP",
-        "add_text_PR4Jwk"
+        "text_HgtgyC",
+        "divider_mE3KMg"
       ],
       "settings": {
+        "movement_direction": "normal",
         "bg_color": "#c9a96e",
-        "font_color": "#ffffff",
-        "padding_top": 15,
-        "padding_bottom": 15
+        "text_color": "#ffffff",
+        "padding-block-start": 24,
+        "padding-block-end": 24,
+        "gap_between_elements": 24
       }
     },
     "header_section": {
