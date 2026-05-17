@@ -14,136 +14,35 @@
     "marquee_brand_strip": {
       "type": "marquee",
       "blocks": {
-        "text_HgtgyC": {
-          "type": "text",
-          "name": "t:names.text",
+        "add_text_itFhtn": {
+          "type": "add_text",
           "settings": {
-            "text": "<p>NEW SEASON ARRIVALS</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
+            "text": "New Season Arrivals"
+          }
         },
-        "divider_mE3KMg": {
-          "type": "_divider",
-          "name": "t:names.divider",
+        "add_text_NczQG6": {
+          "type": "add_text",
           "settings": {
-            "thickness": 1,
-            "corner_radius": "square",
-            "width_percent": 100,
-            "padding-block-start": 0,
-            "padding-block-end": 0
-          },
-          "blocks": {}
+            "text": "New Season Arrivals"
+          }
         },
-        "text_DY3eUP": {
-          "type": "text",
-          "name": "t:names.text",
+        "add_text_8FALTU": {
+          "type": "add_text",
           "settings": {
-            "text": "<p>NEW SEASON ARRIVALS</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "divider_LKM8bb": {
-          "type": "_divider",
-          "name": "t:names.divider",
-          "settings": {
-            "thickness": 1,
-            "corner_radius": "square",
-            "width_percent": 100,
-            "padding-block-start": 0,
-            "padding-block-end": 0
-          },
-          "blocks": {}
-        },
-        "text_Hktgna": {
-          "type": "text",
-          "name": "t:names.text",
-          "settings": {
-            "text": "<p>NEW SEASON ARRIVALS</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "divider_rFjWqe": {
-          "type": "_divider",
-          "name": "t:names.divider",
-          "settings": {
-            "thickness": 1,
-            "corner_radius": "square",
-            "width_percent": 100,
-            "padding-block-start": 0,
-            "padding-block-end": 0
-          },
-          "blocks": {}
+            "text": "New Season Arrivals"
+          }
         }
       },
       "block_order": [
-        "text_HgtgyC",
-        "divider_mE3KMg",
-        "text_DY3eUP",
-        "divider_LKM8bb",
-        "text_Hktgna",
-        "divider_rFjWqe"
+        "add_text_itFhtn",
+        "add_text_NczQG6",
+        "add_text_8FALTU"
       ],
       "settings": {
-        "movement_direction": "normal",
         "bg_color": "#c9a96e",
-        "text_color": "#ffffff",
-        "padding-block-start": 24,
-        "padding-block-end": 24,
-        "gap_between_elements": 24
+        "font_color": "#ffffff",
+        "padding_top": 10,
+        "padding_bottom": 10
       }
     },
     "header_section": {
