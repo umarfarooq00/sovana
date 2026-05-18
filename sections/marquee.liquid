@@ -11,6 +11,43 @@
         animation: marquee-scroll var(--scroll-duration) linear infinite;
         --scroll-duration: {{ section.settings.scroll_time }}s;
     }
+    .impact_scrollbar {
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .impact_scrollbar .container {
+      max-width: 100%;
+      padding: 0;
+    }
+    .impact_scrollbar .marquee {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 35px;
+    }
+    .impact_scrollbar .bar_item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      align-self: stretch;
+    }
+    .impact_scrollbar h2 {
+      font-family: 'Druk' !important;
+      text-align: center;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 72px;
+      line-height: normal;
+      text-transform: uppercase;
+    }
+    @keyframes marquee-scroll {
+      0% {
+          transform: translateX(0%);
+      }
+      100% {
+          transform: translateX(-100%);
+      }
+    }
     @media screen and (max-width: 991px) {
         #impact_scrollbar-{{ section.id }} .marquee {
             --scroll-duration: {{ section.settings.mobile_scroll_time }}s;
