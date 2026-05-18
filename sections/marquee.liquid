@@ -3,16 +3,6 @@
       background: {{section.settings.bg_color}};
       padding-top: {{ section.settings.padding_top_desktop }}px;
       padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
-      {% if section.settings.section_border == 'top' %}
-        border-top: 2px solid {{section.settings.border_color}};
-        {% elsif section.settings.section_border == 'bottom' %}
-        border-bottom: 2px solid {{section.settings.border_color}};
-        {% elsif section.settings.section_border == 'top_bottom' %}
-        border-top: 2px solid {{section.settings.border_color}};
-        border-bottom: 2px solid {{section.settings.border_color}};
-        {% else %}
-        border: none;
-      {% endif %}
     }
     #impact_scrollbar-{{ section.id }} h2 {
       color: {{ section.settings.font_color }};
@@ -22,10 +12,6 @@
         --scroll-duration: {{ section.settings.scroll_time }}s;
     }
     @media screen and (max-width: 991px) {
-        #impact_scrollbar-{{ section.id }} {
-            padding-top: {{ section.settings.padding_top_mobile }}px;
-            padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
-        }
         #impact_scrollbar-{{ section.id }} .marquee {
             --scroll-duration: {{ section.settings.mobile_scroll_time }}s;
         }
@@ -66,30 +52,6 @@
   "name": "Impact Scrollbar",
   "settings": [
     {
-      "type": "select",
-      "id": "section_border",
-      "label": "Section Border",
-      "options": [
-        {
-          "value": "top",
-          "label": "Border Top"
-        },
-        {
-          "value": "bottom",
-          "label": "Border Bottom"
-        },
-        {
-          "value": "top_bottom",
-          "label": "Border Top & Bottom"
-        },
-        {
-          "value": "none",
-          "label": "No border"
-        }
-      ],
-      "default": "none"
-    },
-    {
       "type": "range",
       "id": "scroll_time",
       "min": 0,
@@ -117,19 +79,13 @@
       "type": "color",
       "id": "bg_color",
       "label": "Background",
-      "default": "#C4F3FF"
+      "default": "#C9A96E"
     },
     {
       "type": "color",
       "id": "font_color",
       "label": "Font Color",
-      "default": "#002D77"
-    },
-    {
-      "type": "color",
-      "id": "border_color",
-      "label": "Border Color",
-      "default": "#002D77"
+      "default": "#ffffff"
     },
     {
       "type": "header",
@@ -153,26 +109,6 @@
       "step": 1,
       "unit": "px",
       "label": "Padding Bottom Desktop",
-      "default": 18
-    },
-    {
-      "type": "range",
-      "id": "padding_top_mobile",
-      "min": 0,
-      "max": 100,
-      "step": 1,
-      "unit": "px",
-      "label": "Padding Top Mobile",
-      "default": 18
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom_mobile",
-      "min": 0,
-      "max": 100,
-      "step": 1,
-      "unit": "px",
-      "label": "Padding Bottom Mobile",
       "default": 18
     }
   ],
