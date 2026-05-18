@@ -15,12 +15,14 @@
   /* ── Track ─────────────────────────────────────────────── */
   #marquee_main-{{ section.id }} .marquee__track {
     display: flex;
+    align-items: center;
     width: max-content;
-    animation: marquee-scroll {{ section.settings.speed }}s linear infinite;
+    gap: {{ section.settings.gap }}px;
+    animation: marquee-scroll-{{ section.id }} {{ section.settings.speed }}s linear infinite;
   }
 
   #marquee_main-{{ section.id }} .marquee__track:hover {
-    animation-play-state: {{ section.settings.pause_on_hover | default: 'running' }};
+    animation-play-state: {{ section.settings.pause_on_hover }};
   }
 
   /* ── Items ─────────────────────────────────────────────── */
@@ -28,7 +30,6 @@
     display: flex;
     align-items: center;
     white-space: nowrap;
-    padding: 0 {{ section.settings.gap }}px;
     color: {{ section.settings.font_color }};
     font-size: {{ section.settings.font_size }}px;
     font-weight: normal;
@@ -37,41 +38,57 @@
 
   /* ── Separator ─────────────────────────────────────────── */
   #marquee_main-{{ section.id }} .marquee__sep {
-    display: inline-block;
-    margin: 0 10px;
-    opacity: 0.5;
+    display: inline-flex;
+    align-items: center;
+    margin-left: {{ section.settings.gap }}px;
+    opacity: 0.6;
     color: {{ section.settings.font_color }};
   }
 
+  /* ── Hide sep on last item of each set ─────────────────── */
+  #marquee_main-{{ section.id }} .marquee__set:last-child .marquee__item:last-child .marquee__sep {
+    display: none;
+  }
+
   /* ── Animation ─────────────────────────────────────────── */
-  @keyframes marquee-scroll {
+  @keyframes marquee-scroll-{{ section.id }} {
     0%   { transform: translateX(0); }
     100% { transform: translateX(-50%); }
+  }
+
+  @media screen and (max-width: 767px) {
+    #marquee_main-{{ section.id }} .marquee__item {
+      font-size: {{ section.settings.font_size | minus: 2 }}px;
+    }
   }
 {%- endstyle -%}
 
 <section class="marquee_main" id="marquee_main-{{ section.id }}">
   <div class="marquee__track">
 
-    {%- comment -%} First set {%- endcomment -%}
-    {%- for block in section.blocks -%}
-      {%- if block.settings.text != blank -%}
-        <span class="marquee__item">
-          {{ block.settings.text }}
-          <span class="marquee__sep">{{ section.settings.separator }}</span>
-        </span>
-      {%- endif -%}
-    {%- endfor -%}
+    {%- comment -%} First set ─────────────────────────────── {%- endcomment -%}
+    <div class="marquee__set">
+      {%- for block in section.blocks -%}
+        {%- if block.settings.text != blank -%}
+          <span class="marquee__item">
+            {{- block.settings.text -}}
+            <span class="marquee__sep">{{ section.settings.separator }}</span>
+          </span>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
 
-    {%- comment -%} Duplicate set for seamless loop {%- endcomment -%}
-    {%- for block in section.blocks -%}
-      {%- if block.settings.text != blank -%}
-        <span class="marquee__item" aria-hidden="true">
-          {{ block.settings.text }}
-          <span class="marquee__sep">{{ section.settings.separator }}</span>
-        </span>
-      {%- endif -%}
-    {%- endfor -%}
+    {%- comment -%} Duplicate set for seamless loop ─────────── {%- endcomment -%}
+    <div class="marquee__set" aria-hidden="true">
+      {%- for block in section.blocks -%}
+        {%- if block.settings.text != blank -%}
+          <span class="marquee__item">
+            {{- block.settings.text -}}
+            <span class="marquee__sep">{{ section.settings.separator }}</span>
+          </span>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
 
   </div>
 </section>
