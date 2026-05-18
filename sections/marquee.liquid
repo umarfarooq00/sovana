@@ -1,183 +1,200 @@
 {%- style -%}
-  #marquee_main-{{ section.id }} {
-    padding-top:{{ section.settings.padding_top }}px;
-    padding-bottom:{{ section.settings.padding_bottom }}px;
-    background: {{ section.settings.bg_color }};
-  }
   #shopify-section-{{ section.id }} {
     position: sticky;
     top: 0;
     z-index: 99;
   }
-  #marquee_main-{{ section.id }} span {
+  #marquee_main-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    background: {{ section.settings.bg_color }};
+    width: 100%;
+    overflow: hidden;
+  }
+
+  /* ── Track ─────────────────────────────────────────────── */
+  #marquee_main-{{ section.id }} .marquee__track {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll {{ section.settings.speed }}s linear infinite;
+  }
+
+  #marquee_main-{{ section.id }} .marquee__track:hover {
+    animation-play-state: {{ section.settings.pause_on_hover | default: 'running' }};
+  }
+
+  /* ── Items ─────────────────────────────────────────────── */
+  #marquee_main-{{ section.id }} .marquee__item {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    padding: 0 {{ section.settings.gap }}px;
+    color: {{ section.settings.font_color }};
+    font-size: {{ section.settings.font_size }}px;
+    font-weight: normal;
+    line-height: 1;
+  }
+
+  /* ── Separator ─────────────────────────────────────────── */
+  #marquee_main-{{ section.id }} .marquee__sep {
+    display: inline-block;
+    margin: 0 10px;
+    opacity: 0.5;
     color: {{ section.settings.font_color }};
   }
-  .marquee_main {
-    width: 100%;
-    min-height: 48px;
-  }
-  .marquee_main .container {
-    min-height: 28px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .marquee_main .marquee_inner {
-    margin: 0 auto;
-    max-width: 500px;
-  }
-  .marquee_main span {
-    font-size: 18px;
-    line-height: 1;
-    font-weight: normal;
-    text-align: center;
-  }
-  .marquee_main .slick-prev, 
-  .marquee_main .slick-next {
-    width: 20px;
-    height: 20px;
-    background: transparent;
-    margin: 0;
-    z-index: 9;
-    padding: 0;
-    border-radius: 100%;
-    display: flex !important;
-    justify-content: center;
-    align-items: center;
-    top: 0;
-  }
-  .marquee_main .slick-prev:before {
-    content: '';
-    border: 2px solid {{ section.settings.font_color }};
-    width: 8px;
-    height: 8px;
-    z-index: 9;
-    position: relative;
-    background: transparent;
-    border-right-width: 0 !important;
-    border-bottom-width: 0 !important;
-    rotate: 315deg;
-    margin-left: 3px;
-  }
-  .marquee_main .slick-next:before {
-    content: '';
-    border: 2px solid {{ section.settings.font_color }};
-    width: 8px;
-    height: 8px;
-    z-index: 9;
-    position: relative;
-    background: transparent;
-    border-left-width: 0 !important;
-    border-top-width: 0 !important;
-    rotate: 315deg;
-    margin-right: 3px;
-  }
-  .marquee_main .slick-prev {
-    left: 0;
-  }
-  .marquee_main .slick-next {
-    right: 0;
-  }
-  @media screen and (max-width: 767px) {
-    .marquee_main .marquee_inner {
-      max-width: 330px;
-    }
+
+  /* ── Animation ─────────────────────────────────────────── */
+  @keyframes marquee-scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
   }
 {%- endstyle -%}
+
 <section class="marquee_main" id="marquee_main-{{ section.id }}">
-  <div class="container">
-    <div class="marquee_inner">
-      {% for block in section.blocks %}
-        {% if block.settings.text != blank %}
-          <span class="marquee_col">{{ block.settings.text }}</span>
-        {% endif %}
-      {% endfor %}
-    </div>
+  <div class="marquee__track">
+
+    {%- comment -%} First set {%- endcomment -%}
+    {%- for block in section.blocks -%}
+      {%- if block.settings.text != blank -%}
+        <span class="marquee__item">
+          {{ block.settings.text }}
+          <span class="marquee__sep">{{ section.settings.separator }}</span>
+        </span>
+      {%- endif -%}
+    {%- endfor -%}
+
+    {%- comment -%} Duplicate set for seamless loop {%- endcomment -%}
+    {%- for block in section.blocks -%}
+      {%- if block.settings.text != blank -%}
+        <span class="marquee__item" aria-hidden="true">
+          {{ block.settings.text }}
+          <span class="marquee__sep">{{ section.settings.separator }}</span>
+        </span>
+      {%- endif -%}
+    {%- endfor -%}
+
   </div>
 </section>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    $('#marquee_main-{{ section.id }} .marquee_inner').slick({
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      dots: false,
-      autoplay: false,
-      autoplaySpeed: 2000,
-      arrows: true,
-      fade: true,
-      infinite: true
-    });
-  });
-</script>
+
 {% schema %}
-  {
-    "name": "Marquee",
-    "settings": [
-      {
-        "type": "color",
-        "id": "bg_color",
-        "label": "BG Color",
-        "default": "#C9A96E"
-      },
-      {
-        "type": "color",
-        "id": "font_color",
-        "label": "Font Color",
-        "default": "#ffffff"
-      },
-      {
-        "type": "range",
-        "id": "padding_top",
-        "min": 0,
-        "max": 100,
-        "step": 1,
-        "unit": "px",
-        "label": "Padding Top",
-        "default": 10
-      },
-      {
-        "type": "range",
-        "id": "padding_bottom",
-        "min": 0,
-        "max": 100,
-        "step": 1,
-        "unit": "px",
-        "label": "Padding Bottom",
-        "default": 10
-      },
-    ],
-    "blocks": [
-      {
-        "name":"Add Text",
-        "type":"add_text",
-        "settings":[
-          {
-            "type": "text",
-            "id": "text",
-            "label": "Add Text",
-            "default": "New Season Arrivals"
-          }
-        ]
-      }
-    ],
-    "presets":[
-      {
-        "name":"Marquee",
-        "blocks": [
-          {
-            "type": "add_text"
-          },
-          {
-            "type": "add_text"
-          },
-          {
-            "type": "add_text"
-          },
-          {
-            "type": "add_text"
-          }
-        ]
-      }
-    ]
-  }
+{
+  "name": "Marquee",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Marquee Settings"
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "min": 5,
+      "max": 60,
+      "step": 1,
+      "unit": "s",
+      "label": "Scroll Speed",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Item Gap",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "min": 10,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "label": "Font Size",
+      "default": 14
+    },
+    {
+      "type": "text",
+      "id": "separator",
+      "label": "Separator Symbol",
+      "default": "✦"
+    },
+    {
+      "type": "select",
+      "id": "pause_on_hover",
+      "label": "Pause on Hover",
+      "options": [
+        { "value": "paused",  "label": "Yes" },
+        { "value": "running", "label": "No" }
+      ],
+      "default": "paused"
+    },
+    {
+      "type": "header",
+      "content": "Color Settings"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "BG Color",
+      "default": "#C9A96E"
+    },
+    {
+      "type": "color",
+      "id": "font_color",
+      "label": "Font Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Spacing Settings"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 10
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Add Text",
+      "type": "add_text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "New Season Arrivals"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Marquee",
+      "blocks": [
+        { "type": "add_text" },
+        { "type": "add_text" },
+        { "type": "add_text" },
+        { "type": "add_text" }
+      ]
+    }
+  ]
+}
 {% endschema %}
