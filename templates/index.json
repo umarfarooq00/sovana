@@ -275,10 +275,10 @@
             "collection": "prom-gowns"
           }
         },
-        "collection_list_7RDUkY": {
+        "collection_list_txAeMz": {
           "type": "collection_list",
           "settings": {
-            "collection": "date-night-dress"
+            "collection": "prom-gowns"
           }
         },
         "collection_list_VjQG8n": {
@@ -296,7 +296,7 @@
       },
       "block_order": [
         "collection_list_WaMA3m",
-        "collection_list_7RDUkY",
+        "collection_list_txAeMz",
         "collection_list_VjQG8n",
         "collection_list_TnaydT"
       ],
