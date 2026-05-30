@@ -272,25 +272,25 @@
         "collection_list_WaMA3m": {
           "type": "collection_list",
           "settings": {
-            "collection": "prom-gowns"
+            "collection": "new-arrivals"
           }
         },
         "collection_list_txAeMz": {
           "type": "collection_list",
           "settings": {
-            "collection": "prom-gowns"
+            "collection": "date-night-dress"
           }
         },
         "collection_list_VjQG8n": {
           "type": "collection_list",
           "settings": {
-            "collection": "prom-gowns"
+            "collection": "vacation"
           }
         },
         "collection_list_TnaydT": {
           "type": "collection_list",
           "settings": {
-            "collection": "prom-gowns"
+            "collection": "signature-gown"
           }
         }
       },
