@@ -9,30 +9,6 @@
  */
 {
   "sections": {
-    "about_hero_QVbB9x": {
-      "type": "about-hero",
-      "name": "About — Hero",
-      "settings": {
-        "bg_image": "shopify://shop_images/womens-dress-wear-minimal-3-middle.jpg",
-        "bg_color": "#2a2018",
-        "image_position": "center center",
-        "show_overlay": true,
-        "overlay_color": "#000000",
-        "overlay_opacity": 35,
-        "section_height": 700,
-        "mobile_height": 500,
-        "eyebrow": "Our Story",
-        "title": "Dressed with intention.",
-        "subtitle": "Timeless clothing & accessories crafted for the modern wardrobe. Quality you can feel, style that lasts.",
-        "show_line": true,
-        "text_align": "center",
-        "content_max_width": 700,
-        "title_size": 72,
-        "eyebrow_color": "#c9a96e",
-        "title_color": "#ffffff",
-        "subtitle_color": "#ffffff"
-      }
-    },
     "about_story_Xb4wfD": {
       "type": "about-story",
       "name": "About — Brand Story",
@@ -130,7 +106,6 @@
     }
   },
   "order": [
-    "about_hero_QVbB9x",
     "about_story_Xb4wfD",
     "about_stats_cta_3E4BVy"
   ]
