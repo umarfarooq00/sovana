@@ -14,35 +14,37 @@
     "marquee_brand_strip": {
       "type": "marquee",
       "blocks": {
-        "add_text_itFhtn": {
+        "add_text_UfbgMi": {
           "type": "add_text",
           "settings": {
-            "text": "New Season Arrivals"
+            "text": "☀️ Shop before they're gone!"
           }
         },
         "add_text_NczQG6": {
           "type": "add_text",
           "settings": {
-            "text": "New Season Arrivals"
+            "text": "The Summer Drop is here!"
           }
         },
         "add_text_8FALTU": {
           "type": "add_text",
           "settings": {
-            "text": "New Season Arrivals"
+            "text": "Grab yours before we sell out."
           }
         }
       },
       "block_order": [
-        "add_text_itFhtn",
+        "add_text_UfbgMi",
         "add_text_NczQG6",
         "add_text_8FALTU"
       ],
       "settings": {
+        "scroll_time": 50,
+        "mobile_scroll_time": 50,
         "bg_color": "#c9a96e",
         "font_color": "#ffffff",
-        "padding_top": 10,
-        "padding_bottom": 10
+        "padding_top_desktop": 18,
+        "padding_bottom_desktop": 18
       }
     },
     "header_section": {
