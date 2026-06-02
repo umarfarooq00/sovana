@@ -4473,3 +4473,6 @@ slideshow-arrows .slideshow-control .svg-wrapper {
 .variant-option__button-label input:checked + span {
   background: #000;
 }
+.variant-option__button-label input:checked + span + span {
+    color: #fff;
+}
