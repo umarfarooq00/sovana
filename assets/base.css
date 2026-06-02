@@ -4470,3 +4470,6 @@ slideshow-arrows .slideshow-control .svg-wrapper {
     width: 100%;
   }
 }
+.variant-option__button-label input:checked + span {
+  background: #000;
+}
