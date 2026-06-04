@@ -4476,3 +4476,6 @@ slideshow-arrows .slideshow-control .svg-wrapper {
 .variant-option__button-label input:checked + span + span {
     color: #fff;
 }
+.product_information_inner.active {
+  z-index: 99;
+}
